@@ -4705,8 +4705,8 @@ async function buildQuotationHtml(customer, items) {
     <body>
       <table style="width:100%; margin-bottom:6pt;">
         <tr>
-          <td style="width:155px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" style="width:145px;"></td>
-          <td style="vertical-align:middle; text-align:left; font-size:10pt;">
+          <td style="width:133px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="133" style="width:133px!important; max-width:133px!important; height:auto!important; display:block!important;"></td>
+          <td style="vertical-align:middle; text-align:left; font-size:10pt; padding-left:12px;">
             <p style="text-align:left; font-size:14pt;"><b>Primaxs Marketing (M) Sdn. Bhd.</b> &nbsp;( Co.No. 200601036829 )</p>
             <p style="text-align:left;">39, Jalan Balakong Jaya 4, Taman Industri Balakong Jaya, 43300 Seri Kembangan, Selangor D.E.</p>
             <p style="text-align:left;">Email : sales@storagesystem.my &nbsp;&nbsp;&nbsp; Website : www.storagesystem.my &nbsp;&nbsp;&nbsp; ( GST No: 001238306816 )</p>
@@ -4714,6 +4714,7 @@ async function buildQuotationHtml(customer, items) {
           </td>
         </tr>
       </table>
+      <hr style="border:none;border-top:1px solid #000;margin:6pt 0 8pt;">
 
       <table style="width:100%; margin:10pt 0 6pt;">
         <tr>
@@ -4722,6 +4723,7 @@ async function buildQuotationHtml(customer, items) {
           <td style="width:30%; text-align:right; vertical-align:bottom; white-space:nowrap;">Date : ${dateStr}<br>Quote No.: ${blankField(14)}</td>
         </tr>
       </table>
+      <hr style="border:none;border-top:1px solid #000;margin:6pt 0 10pt;">
 
       <p><b>${escapeHtml(customer.name)}</b></p>
       <p>${addressHtml}</p>
@@ -4729,23 +4731,30 @@ async function buildQuotationHtml(customer, items) {
       <p>&nbsp;</p>
       <p>Attn&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.name)}</p>
       <p>&nbsp;</p>
-      <p style="font-size:13pt;"><b><u>RE: Quotation for ${escapeHtml(customer.name)}</u></b></p>
+      <p style="font-size:13pt;"><b><u>RE: Quotation for ${blankField(22)}</u></b></p>
       <p>With reference to our tele-conversation, we are pleased to submit herewith the quotation for your kind attention and perusal.</p>
       <p>&nbsp;</p>
 
-      <table style="width:100%;">
+      <table style="width:100%; border-collapse:collapse;">
         <thead>
           <tr>
-            <td></td><td></td><td></td>
-            <td style="text-align:center;">( RM )</td>
-            <td style="text-align:center;">( RM )</td>
+            <td style="width:6%;"></td>
+            <td style="width:58%;"></td>
+            <td style="width:12%;"></td>
+            <td style="width:12%; text-align:center;">( RM )</td>
+            <td style="width:12%; text-align:center;">( RM )</td>
           </tr>
-          <tr style="border-bottom:1px solid #000;">
-            <td style="font-style:italic; padding-bottom:3pt;"><b>No.</b></td>
-            <td style="font-style:italic;"><b>Description</b></td>
-            <td style="font-style:italic; text-align:center;"><b>UoM</b></td>
-            <td style="font-style:italic; text-align:right;"><b>Unit Price</b></td>
-            <td style="font-style:italic; text-align:right;"><b>Total Amt</b></td>
+          <tr>
+            <td style="font-style:italic; padding:6px 8px; border-bottom:2px solid #000;"><b>No.</b></td>
+            <td style="font-style:italic; padding:6px 8px; border-bottom:2px solid #000;"><b>Description</b></td>
+            <td style="font-style:italic; padding:6px 8px; text-align:center; border-bottom:2px solid #000;"><b>UoM</b></td>
+            <td style="font-style:italic; padding:6px 8px; text-align:right; border-bottom:2px solid #000;"><b>Unit Price</b></td>
+            <td style="font-style:italic; padding:6px 8px; text-align:right; border-bottom:2px solid #000;"><b>Total Amt</b></td>
+          </tr>
+          <tr>
+            <td colspan="5" style="padding:0;">
+              <div style="height:1px; background:#000; margin:6px 0 8px;"></div>
+            </td>
           </tr>
         </thead>
         <tbody>
