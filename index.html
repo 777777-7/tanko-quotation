@@ -362,6 +362,20 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
       <label for="customerAddress">Address</label>
       <textarea id="customerAddress" rows="2" placeholder="Delivery / billing address"></textarea>
     </div>
+
+    <div class="form-row">
+      <label class="checkbox-inline" style="flex-direction:row; align-items:center; gap:8px; text-transform:none; cursor:pointer;">
+        <input type="checkbox" id="deliveryFeeCheck" style="width:auto; max-width:none; margin:0;">
+        <span style="font-size:0.76rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink-muted);">Delivery fee</span>
+      </label>
+    </div>
+
+    <div class="form-row" id="deliveryFeeFields" style="display:none;">
+      <div style="display:flex; gap:8px; max-width:420px;">
+        <input type="text" id="deliveryDesc" placeholder="Delivery description" style="flex:1 1 auto; max-width:none;">
+        <input type="number" id="deliveryPrice" placeholder="Price" min="0" step="0.01" style="flex:0 0 110px; width:110px; max-width:110px;">
+      </div>
+    </div>
   </section>
 
   <section class="panel">
@@ -4292,6 +4306,11 @@ const el = {
   customerContact: document.getElementById("customerContact"),
   customerAddress: document.getElementById("customerAddress"),
 
+  deliveryFeeCheck: document.getElementById("deliveryFeeCheck"),
+  deliveryFeeFields: document.getElementById("deliveryFeeFields"),
+  deliveryDesc: document.getElementById("deliveryDesc"),
+  deliveryPrice: document.getElementById("deliveryPrice"),
+
   skuSearch: document.getElementById("skuSearch"),
   suggestions: document.getElementById("suggestions"),
   productNameDisplay: document.getElementById("productNameDisplay"),
@@ -4495,8 +4514,10 @@ function renderTable() {
         "<span>" + nl2brWithBoldSku(item.name) + "</span>" +
       "</div></td>" +
       "<td>" + item.qty + "</td>" +
-      "<td>" + item.price.toFixed(2) + "</td>" +
-      "<td>" + item.total.toFixed(2) + "</td>";
+      "<td><input type=\"number\" class=\"row-price-input\" data-index=\"" + index +
+        "\" value=\"" + item.price.toFixed(2) + "\" min=\"0\" step=\"0.01\" " +
+        "onclick=\"event.stopPropagation()\"></td>" +
+      "<td class=\"row-total-cell\">" + item.total.toFixed(2) + "</td>";
 
     row.addEventListener("click", () => {
       selectedRowIndex = index;
@@ -4519,12 +4540,30 @@ function handleDeleteSelected() {
   renderTable();
 }
 
+// Current delivery-fee state from the UI: null when unticked, otherwise
+// { desc, price } with a numeric price (0 when the field is blank).
+function getDeliveryFee() {
+  if (!el.deliveryFeeCheck.checked) return null;
+  const price = parseFloat(el.deliveryPrice.value);
+  return {
+    desc: el.deliveryDesc.value.trim(),
+    price: isFinite(price) && price > 0 ? price : 0,
+  };
+}
+
 function getGrandTotal() {
-  return quoteItems.reduce((sum, item) => sum + item.total, 0);
+  const itemsSum = quoteItems.reduce((sum, item) => sum + item.total, 0);
+  const delivery = getDeliveryFee();
+  return itemsSum + (delivery ? delivery.price : 0);
+}
+
+// RM currency string with thousands separators, e.g. 1234.5 -> "1,234.50".
+function money(n) {
+  return Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function updateGrandTotal() {
-  el.grandTotalDisplay.textContent = "RM " + getGrandTotal().toFixed(2);
+  el.grandTotalDisplay.textContent = "RM " + money(getGrandTotal());
 }
 
 function escapeHtml(str) {
@@ -4615,39 +4654,77 @@ function blankField(width) {
   return "[" + "&nbsp;".repeat(width) + "]";
 }
 
-const BLANK_PRICE = blankField(7);
+// Sequential quotation serial: YYYYMMDD + 3-digit counter that resets to 001
+// each calendar day and increments on every generation. Persisted in
+// localStorage so the count survives page reloads within the same day.
+function nextQuotationSerial() {
+  const now = new Date();
+  const ymd = now.getFullYear().toString() +
+    String(now.getMonth() + 1).padStart(2, "0") +
+    String(now.getDate()).padStart(2, "0");
+  let counter = 1;
+  try {
+    const raw = localStorage.getItem("primaxsQuotationSerial");
+    if (raw) {
+      const obj = JSON.parse(raw);
+      if (obj && obj.date === ymd && Number.isFinite(obj.counter)) {
+        counter = obj.counter + 1;
+      }
+    }
+    localStorage.setItem("primaxsQuotationSerial", JSON.stringify({ date: ymd, counter }));
+  } catch (e) {
+    // localStorage unavailable (private mode / restricted file://): fall back to
+    // a time-based suffix so the serial is still unique within the day.
+    counter = (now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds()) % 999 + 1;
+  }
+  return ymd + String(counter).padStart(3, "0");
+}
 
-// One row of the item table, matching the paper template's columns:
+// One row of the priced item table:
 // No. | Description | UoM | Unit Price | Total Amt. The product's first feature
 // line sits inline after the bold SKU; remaining lines become sub-bullets.
-// No photo here -- photos live in their own section further down the doc.
-// Two blank lines are left under each item's bullets so it can be written into
-// by hand in Word. Pass product=null for an empty "spare" row.
-function buildItemRowHtml(n, product) {
-  let descHtml;
-  if (product) {
-    const lines = String(product.name).split("\n");
-    const sku = escapeHtml(lines[0]);
-    const pname = lines[1] ? "(" + escapeHtml(lines[1]) + ")" : "";
-    const restFeats = lines.slice(2);
-    descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
-    descHtml += restFeats
-      .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
-      .join("");
-    descHtml += "<br>&nbsp;";
-  } else {
-    descHtml = "Model&nbsp;: " + blankField(18);
-  }
+// Prices are fully computed (unit price typed in the app, total = unit x qty)
+// so the generated document needs no manual editing.
+function buildItemRowHtml(n, item) {
+  const lines = String(item.name).split("\n");
+  const sku = escapeHtml(lines[0]);
+  const pname = lines[1] ? "(" + escapeHtml(lines[1]) + ")" : "";
+  const restFeats = lines.slice(2);
+  let descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
+  descHtml += restFeats
+    .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
+    .join("");
+  descHtml += "<br>&nbsp;";
 
-  const uom = product ? (product.qty + " unit" + (product.qty > 1 ? "s" : "")) : "";
+  const uom = item.qty + " unit" + (item.qty > 1 ? "s" : "");
 
   return (
     "<tr style=\"vertical-align:top;\">" +
       "<td style=\"white-space:nowrap; padding:3pt 8pt 0 0;\">" + n + ".)</td>" +
       "<td style=\"padding:3pt 0 0 0;\">" + descHtml + "</td>" +
       "<td style=\"white-space:nowrap; text-align:center; padding:3pt 10pt 0;\">" + uom + "</td>" +
-      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 10pt 0;\">" + BLANK_PRICE + "</td>" +
-      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 0 0;\">" + BLANK_PRICE + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 10pt 0;\">" + money(item.price) + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 0 0;\">" + money(item.total) + "</td>" +
+    "</tr>"
+  );
+}
+
+// Delivery-fee line: sits at the very bottom of the numbered item list. The
+// typed description appears on an indented line under the title; the price is
+// right-aligned in the Total Amt column.
+function buildDeliveryRowHtml(n, delivery) {
+  let descHtml = "<b>Delivery fee</b>";
+  if (delivery.desc) {
+    descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + escapeHtml(delivery.desc);
+  }
+  descHtml += "<br>&nbsp;";
+  return (
+    "<tr style=\"vertical-align:top;\">" +
+      "<td style=\"white-space:nowrap; padding:3pt 8pt 0 0;\">" + n + ".)</td>" +
+      "<td style=\"padding:3pt 0 0 0;\">" + descHtml + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:center; padding:3pt 10pt 0;\"></td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 10pt 0;\"></td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 0 0;\">" + money(delivery.price) + "</td>" +
     "</tr>"
   );
 }
@@ -4666,7 +4743,7 @@ function buildPhotoEntryHtml(n, product, imageSrc) {
   );
 }
 
-async function buildQuotationHtml(customer, items) {
+async function buildQuotationHtml(customer, items, serial, delivery) {
   // Product photos, resolved to a doc-embeddable source (data URI or file path).
   const imageSrcs = await Promise.all(
     items.map((item) => resolveImageForDoc(getProductImagePath(item.sku)))
@@ -4683,6 +4760,13 @@ async function buildQuotationHtml(customer, items) {
   let rowsHtml = items
     .map((item, i) => buildItemRowHtml(i + 1, item))
     .join("");
+  // Delivery fee, if any, is the last numbered line in the list.
+  if (delivery) {
+    rowsHtml += buildDeliveryRowHtml(items.length + 1, delivery);
+  }
+
+  const itemsSum = items.reduce((sum, item) => sum + item.total, 0);
+  const grandTotal = itemsSum + (delivery ? delivery.price : 0);
 
   const photosHtml = items
     .map((item, i) => buildPhotoEntryHtml(i + 1, item, imageSrcs[i]))
@@ -4720,7 +4804,7 @@ async function buildQuotationHtml(customer, items) {
       <p style="text-align:center; font-size:22pt; font-style:italic; font-weight:bold; margin:2pt 0 2pt;">Quotation</p>
       <hr style="border:none;border-top:1px solid #000;margin:2pt 0 6pt;">
       <p style="text-align:right; white-space:nowrap; margin:0;">Date : ${dateStr}</p>
-      <p style="text-align:right; white-space:nowrap; margin:0 0 4pt;">Quote No.: ${blankField(12)}</p>
+      <p style="text-align:right; white-space:nowrap; margin:0 0 4pt;">Quote No.: ${escapeHtml(serial)}</p>
 
       <p style="margin-top:4pt;"><b>${escapeHtml(customer.name)}</b></p>
       <p>${addressHtml}</p>
@@ -4769,7 +4853,7 @@ async function buildQuotationHtml(customer, items) {
         <table style="width:100%;">
           <tr>
             <td><b>Grand Total Amount</b></td>
-            <td style="text-align:right; white-space:nowrap;"><b>RM ${blankField(10)}</b></td>
+            <td style="text-align:right; white-space:nowrap;"><b>RM ${money(grandTotal)}</b></td>
           </tr>
         </table>
       </div>
@@ -4821,13 +4905,15 @@ async function handleGenerateDocument() {
   el.generateDocBtn.textContent = "Generating...";
 
   try {
-    const html = await buildQuotationHtml(customer, quoteItems);
+    // Advance the daily serial only once per successful generation trigger.
+    const serial = nextQuotationSerial();
+    const delivery = getDeliveryFee();
+    const html = await buildQuotationHtml(customer, quoteItems, serial, delivery);
 
     const blob = new Blob(["﻿", html], { type: "application/msword" });
 
-    const dateStr = new Date().toISOString().slice(0, 10);
     const safeName = customer.name.replace(/[^a-z0-9]+/gi, "_");
-    const filename = `Quotation_${safeName}_${dateStr}.doc`;
+    const filename = `Quotation_${safeName}_${serial}.doc`;
 
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -4845,6 +4931,30 @@ async function handleGenerateDocument() {
 el.addItemBtn.addEventListener("click", handleAddItem);
 el.deleteItemBtn.addEventListener("click", handleDeleteSelected);
 el.generateDocBtn.addEventListener("click", handleGenerateDocument);
+
+// Delivery fee: reveal the description/price fields only when ticked.
+el.deliveryFeeCheck.addEventListener("change", () => {
+  el.deliveryFeeFields.style.display = el.deliveryFeeCheck.checked ? "" : "none";
+  updateGrandTotal();
+});
+el.deliveryDesc.addEventListener("input", updateGrandTotal);
+el.deliveryPrice.addEventListener("input", updateGrandTotal);
+
+// Live-edit a row's unit price: recompute that row's line total and the grand
+// total in place (no full re-render, so the input keeps focus while typing).
+el.itemsTableBody.addEventListener("input", (e) => {
+  const input = e.target.closest(".row-price-input");
+  if (!input) return;
+  const i = parseInt(input.dataset.index, 10);
+  if (!(i >= 0 && i < quoteItems.length)) return;
+  const price = parseFloat(input.value);
+  quoteItems[i].price = isFinite(price) && price > 0 ? price : 0;
+  quoteItems[i].total = quoteItems[i].price * quoteItems[i].qty;
+  const row = input.closest("tr");
+  const totalCell = row && row.querySelector(".row-total-cell");
+  if (totalCell) totalCell.textContent = quoteItems[i].total.toFixed(2);
+  updateGrandTotal();
+});
 
 renderTable();
 </script>
