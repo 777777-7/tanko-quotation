@@ -4780,12 +4780,26 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <meta charset="utf-8">
       <title>Quotation</title>
       <style>
+        /* Word page setup: attach footer "f1" to every page so the page number
+           prints at the bottom. Only the footer is declared here -- page size
+           and margins are left to Word's defaults so the layout is unchanged. */
+        @page Section1 {
+          mso-footer: f1;
+          mso-footer-margin: 0.5in;
+        }
+        div.Section1 { page: Section1; }
+        p.MsoFooter, div.MsoFooter {
+          margin: 0;
+          font-family: "Times New Roman", Times, serif;
+          font-size: 9pt;
+        }
         body { font-family: "Times New Roman", Times, serif; font-size: 10.5pt; color: #000; line-height: 1.12; }
         p { margin: 0 0 1pt; }
         table { border-collapse: collapse; }
       </style>
     </head>
     <body>
+    <div class="Section1">
       <table style="width:100%; margin-bottom:6pt;">
         <tr>
           <td style="width:133px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="133" style="width:133px!important; max-width:133px!important; height:auto!important; display:block!important;"></td>
@@ -4879,6 +4893,20 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <p>___________________________________________________</p>
       <p><b>Kenny LAI</b></p>
       <p>012-616 3088</p>
+    </div>
+
+    <!-- Footer definition. Word pulls this into the real page footer via the
+         @page "mso-footer: f1" rule and recomputes the PAGE field for each page.
+         Word also renders this source block inline at the end of the body and
+         ignores display:none on it -- but it does NOT refresh the field there,
+         it only prints the cached result. So the field is deliberately left with
+         an EMPTY cached result (nothing between field-separator and field-end)
+         and carries no literal text: the inline copy therefore renders as an
+         empty, invisible paragraph, while the real footer still computes the
+         page number normally. -->
+    <div style="mso-element:footer" id="f1">
+      <p class="MsoFooter" align="center" style="text-align:center;"><!--[if supportFields]><span style='mso-element:field-begin'></span>PAGE<span style='mso-element:field-separator'></span><![endif]--><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]--></p>
+    </div>
     </body>
     </html>
   `;
