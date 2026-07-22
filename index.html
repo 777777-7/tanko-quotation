@@ -364,6 +364,11 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
     </div>
 
     <div class="form-row">
+      <label for="customerAttn">Attn</label>
+      <input type="text" id="customerAttn" placeholder="e.g. Mr. Tan (Purchasing)">
+    </div>
+
+    <div class="form-row">
       <label class="checkbox-inline" style="flex-direction:row; align-items:center; gap:8px; text-transform:none; cursor:pointer;">
         <input type="checkbox" id="deliveryFeeCheck" style="width:auto; max-width:none; margin:0;">
         <span style="font-size:0.76rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink-muted);">Delivery fee</span>
@@ -416,7 +421,7 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
           <tr>
             <th>Product</th>
             <th>Qty</th>
-            <th>Unit Price (RM)</th>
+            <th>Unit Price (USD)</th>
             <th>Total (RM)</th>
           </tr>
         </thead>
@@ -4305,6 +4310,7 @@ const el = {
   customerName: document.getElementById("customerName"),
   customerContact: document.getElementById("customerContact"),
   customerAddress: document.getElementById("customerAddress"),
+  customerAttn: document.getElementById("customerAttn"),
 
   deliveryFeeCheck: document.getElementById("deliveryFeeCheck"),
   deliveryFeeFields: document.getElementById("deliveryFeeFields"),
@@ -4472,8 +4478,9 @@ function handleAddItem() {
     return;
   }
 
+  // price is stored as the typed USD figure; total is the converted amount.
   const unitPrice = selectedProduct.base_price;
-  const lineTotal = unitPrice * qty;
+  const lineTotal = finalUnitPrice(unitPrice) * qty;
 
   quoteItems.push({
     name: selectedProduct.sku + "\n" + selectedProduct.name,
@@ -4557,6 +4564,16 @@ function getGrandTotal() {
   return itemsSum + (delivery ? delivery.price : 0);
 }
 
+// Unit prices are typed in USD; the customer-facing price is derived by
+// applying the fixed mark-up chain 4.3 x 1.4 x 2 (= 12.04). The delivery fee
+// is deliberately NOT put through this -- it is entered as a final amount.
+const PRICE_MULTIPLIER = 4.3 * 1.4 * 2;
+
+// Converted (customer-facing) unit price for a typed USD unit price.
+function finalUnitPrice(usdPrice) {
+  return Number(usdPrice) * PRICE_MULTIPLIER;
+}
+
 // RM currency string with thousands separators, e.g. 1234.5 -> "1,234.50".
 function money(n) {
   return Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -4592,12 +4609,24 @@ function formatFeatureLine(f) {
   return f;
 }
 
+// Re-orders a list of feature lines so the "Size:" line always comes first,
+// whatever order it happens to sit in inside PRODUCT_DATA.
+function orderFeatureLines(lines) {
+  const i = lines.findIndex((l) => /^Size(?: \(approx\))?\s*:/i.test(String(l).trim()));
+  if (i <= 0) return lines;
+  const out = lines.slice();
+  out.unshift(out.splice(i, 1)[0]);
+  return out;
+}
+
 // First line of item.name is the SKU code; bold it to set it apart from
-// the feature lines beneath it.
+// the feature lines beneath it. Line 2 is the product name and stays put;
+// the remaining feature lines are re-ordered so "Size:" leads.
 function nl2brWithBoldSku(str) {
   const lines = String(str).split("\n");
   const sku = escapeHtml(lines[0]);
-  const rest = lines.slice(1).map(formatFeatureLine).map(escapeHtml).join("<br>");
+  const tail = lines.slice(1, 2).concat(orderFeatureLines(lines.slice(2)));
+  const rest = tail.map(formatFeatureLine).map(escapeHtml).join("<br>");
   return "<strong>" + sku + "</strong>" + (rest ? "<br>" + rest : "");
 }
 
@@ -4689,22 +4718,24 @@ function buildItemRowHtml(n, item) {
   const lines = String(item.name).split("\n");
   const sku = escapeHtml(lines[0]);
   const pname = lines[1] ? "(" + escapeHtml(lines[1]) + ")" : "";
-  const restFeats = lines.slice(2);
+  const restFeats = orderFeatureLines(lines.slice(2));
   let descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
   descHtml += restFeats
     .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
     .join("");
+  // Blank line after each product so consecutive products stay visually
+  // separated in the document.
   descHtml += "<br>&nbsp;";
 
   const uom = item.qty + " unit" + (item.qty > 1 ? "s" : "");
 
   return (
     "<tr style=\"vertical-align:top;\">" +
-      "<td style=\"white-space:nowrap; padding:3pt 8pt 0 0;\">" + n + ".)</td>" +
-      "<td style=\"padding:3pt 0 0 0;\">" + descHtml + "</td>" +
-      "<td style=\"white-space:nowrap; text-align:center; padding:3pt 10pt 0;\">" + uom + "</td>" +
-      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 10pt 0;\">" + money(item.price) + "</td>" +
-      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 0 0;\">" + money(item.total) + "</td>" +
+      "<td style=\"white-space:nowrap; padding:2pt 8pt 0 0;\">" + n + ".)</td>" +
+      "<td style=\"padding:2pt 0 0 0;\">" + descHtml + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:center; padding:2pt 10pt 0;\">" + uom + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:2pt 10pt 0;\">" + money(finalUnitPrice(item.price)) + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:2pt 0 0;\">" + money(item.total) + "</td>" +
     "</tr>"
   );
 }
@@ -4717,30 +4748,45 @@ function buildDeliveryRowHtml(n, delivery) {
   if (delivery.desc) {
     descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + escapeHtml(delivery.desc);
   }
-  descHtml += "<br>&nbsp;";
   return (
     "<tr style=\"vertical-align:top;\">" +
-      "<td style=\"white-space:nowrap; padding:3pt 8pt 0 0;\">" + n + ".)</td>" +
-      "<td style=\"padding:3pt 0 0 0;\">" + descHtml + "</td>" +
-      "<td style=\"white-space:nowrap; text-align:center; padding:3pt 10pt 0;\"></td>" +
-      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 10pt 0;\"></td>" +
-      "<td style=\"white-space:nowrap; text-align:right; padding:3pt 0 0;\">" + money(delivery.price) + "</td>" +
+      "<td style=\"white-space:nowrap; padding:2pt 8pt 3pt 0;\">" + n + ".)</td>" +
+      "<td style=\"padding:2pt 0 3pt 0;\">" + descHtml + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:center; padding:2pt 10pt 3pt;\"></td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:2pt 10pt 3pt;\"></td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:2pt 0 3pt;\">" + money(delivery.price) + "</td>" +
     "</tr>"
   );
 }
 
-// Standalone photo-reference section, separate from the priced item list:
-// "1) <product name>" followed by its photo, then "2) ..." and so on.
-function buildPhotoEntryHtml(n, product, imageSrc) {
+// One cell of the photo-reference grid: "N) <SKU>(<name>)" above its photo.
+function buildPhotoCellHtml(n, product, imageSrc) {
   const lines = String(product.name).split("\n");
   const label = escapeHtml(lines[0]) + (lines[1] ? "(" + escapeHtml(lines[1]) + ")" : "");
   const imgHtml = imageSrc
     ? "<img src=\"" + imageSrc + "\" width=\"195\" height=\"195\" style=\"width:195px!important;height:195px!important;max-width:195px!important;max-height:195px!important;display:block!important;margin:2pt 0 0!important;object-fit:contain;\">"
     : "<p style=\"font-style:italic; color:#666;\">(No photo available)</p>";
   return (
-    "<p style=\"margin:6pt 0 0;\">" + n + ")&nbsp; <b>" + label + "</b></p>" +
-    imgHtml
+    "<td style=\"width:50%; vertical-align:top; padding:0 6pt 6pt 0;\">" +
+      "<p style=\"margin:0;\">" + n + ")&nbsp; <b>" + label + "</b></p>" +
+      imgHtml +
+    "</td>"
   );
+}
+
+// Photo-reference section laid out as a 2-per-row grid (1 & 2 on the first
+// line, 3 & 4 on the next, ...). A trailing odd item gets an empty filler cell
+// so the table stays rectangular. Rows avoid splitting across pages.
+function buildPhotosGridHtml(items, imageSrcs) {
+  let rows = "";
+  for (let i = 0; i < items.length; i += 2) {
+    let cells = buildPhotoCellHtml(i + 1, items[i], imageSrcs[i]);
+    cells += items[i + 1]
+      ? buildPhotoCellHtml(i + 2, items[i + 1], imageSrcs[i + 1])
+      : "<td style=\"width:50%;\"></td>";
+    rows += "<tr style=\"page-break-inside:avoid;\">" + cells + "</tr>";
+  }
+  return "<table style=\"width:100%; border-collapse:collapse;\">" + rows + "</table>";
 }
 
 async function buildQuotationHtml(customer, items, serial, delivery) {
@@ -4768,9 +4814,7 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
   const itemsSum = items.reduce((sum, item) => sum + item.total, 0);
   const grandTotal = itemsSum + (delivery ? delivery.price : 0);
 
-  const photosHtml = items
-    .map((item, i) => buildPhotoEntryHtml(i + 1, item, imageSrcs[i]))
-    .join("");
+  const photosHtml = buildPhotosGridHtml(items, imageSrcs);
 
   return `
     <html xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -4784,8 +4828,10 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
            prints at the bottom. Only the footer is declared here -- page size
            and margins are left to Word's defaults so the layout is unchanged. */
         @page Section1 {
+          size: 8.27in 11.69in;            /* A4 */
+          margin: 0.5in 0.55in 0.5in 0.55in;
           mso-footer: f1;
-          mso-footer-margin: 0.5in;
+          mso-footer-margin: 0.3in;
         }
         div.Section1 { page: Section1; }
         p.MsoFooter, div.MsoFooter {
@@ -4793,22 +4839,32 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
           font-family: "Times New Roman", Times, serif;
           font-size: 9pt;
         }
-        body { font-family: "Times New Roman", Times, serif; font-size: 10.5pt; color: #000; line-height: 1.12; }
-        p { margin: 0 0 1pt; }
+        body {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 10.5pt;
+          color: #000;
+          line-height: 1.06;
+          margin: 0;
+        }
+        p { margin: 0 0 0.5pt; }
         table { border-collapse: collapse; }
+        img { margin: 0; }
+        /* Keep a line item (and each photo row) whole rather than letting it
+           split across a page break, which is what creates stray overflow pages. */
+        tr { page-break-inside: avoid; }
+        hr { margin: 3pt 0; }
       </style>
     </head>
     <body>
     <div class="Section1">
       <table style="width:100%; margin-bottom:6pt;">
         <tr>
-          <td style="width:133px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="133" style="width:133px!important; max-width:133px!important; height:auto!important; display:block!important;"></td>
+          <td style="width:67px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="67" style="width:67px!important; max-width:67px!important; height:auto!important; display:block!important;"></td>
           <td style="vertical-align:middle; text-align:left; font-size:10pt; padding-left:12px;">
-            <p style="text-align:left; font-size:14pt;"><b>Primaxs Marketing (M) Sdn. Bhd.</b></p>
-            <p style="text-align:left; font-size:14pt;">(Co.No. 200601036829)</p>
+            <p style="text-align:left; font-size:28pt; line-height:1.05; margin:0;"><b>Primaxs Marketing (M) Sdn. Bhd.</b></p>
+            <p style="text-align:left; font-size:7pt; margin:0 0 1pt;">(Co.No. 200601036829)</p>
             <p style="text-align:left;">39, Jalan Balakong Jaya 4, Taman Industri Balakong Jaya, 43300 Seri Kembangan, Selangor D.E.</p>
             <p style="text-align:left;">Email: sales@storagesystem.my &nbsp;&nbsp;&nbsp; Website: www.storagesystem.my</p>
-            <p style="text-align:left;">(GST No: 001238306816)</p>
             <p style="text-align:left;">Tel: 03-4296 4737, 03-4295 0430 &nbsp;&nbsp;&nbsp; Fax: 03-4296 6737</p>
           </td>
         </tr>
@@ -4820,59 +4876,51 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <p style="text-align:right; white-space:nowrap; margin:0;">Date : ${dateStr}</p>
       <p style="text-align:right; white-space:nowrap; margin:0 0 4pt;">Quote No.: ${escapeHtml(serial)}</p>
 
-      <p style="margin-top:4pt;"><b>${escapeHtml(customer.name)}</b></p>
+      <p style="margin-top:3pt;"><b>${escapeHtml(customer.name)}</b></p>
       <p>${addressHtml}</p>
       <p>Tel : ${escapeHtml(customer.contact)}</p>
-      <p>&nbsp;</p>
-      <p>Attn&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.name)}</p>
-      <p style="font-size:12pt; margin:4pt 0 2pt;"><b><u>RE: Quotation for(${escapeHtml(reSubject)})</u></b></p>
-      <p>With reference to our tele-conversation, we are pleased to submit herewith the quotation for your kind attention and perusal.</p>
-      <p>&nbsp;</p>
+      <p style="margin-top:3pt;">Attn&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.attn || "")}</p>
+      <p style="font-size:12pt; margin:3pt 0 2pt;"><b><u>RE: Quotation for ${escapeHtml(reSubject)}</u></b></p>
+      <p style="margin-bottom:4pt;">With reference to our tele-conversation, we are pleased to submit herewith the quotation for your kind attention and perusal.</p>
 
       <table style="width:100%; border-collapse:collapse;">
         <thead>
           <tr>
-            <td style="width:6%;"></td>
-            <td style="width:58%;"></td>
-            <td style="width:12%;"></td>
-            <td style="width:12%; text-align:center;">(RM)</td>
-            <td style="width:12%; text-align:center;">(RM)</td>
-          </tr>
-          <tr>
-            <td style="font-style:italic; padding:6px 8px; border-bottom:2px solid #000;"><b>No.</b></td>
-            <td style="font-style:italic; padding:6px 8px; border-bottom:2px solid #000;"><b>Description</b></td>
-            <td style="font-style:italic; padding:6px 8px; text-align:center; border-bottom:2px solid #000;"><b>UoM</b></td>
-            <td style="font-style:italic; padding:6px 8px; text-align:right; border-bottom:2px solid #000;"><b>Unit Price</b></td>
-            <td style="font-style:italic; padding:6px 8px; text-align:right; border-bottom:2px solid #000;"><b>Total Amt</b></td>
+            <td style="width:5%; font-style:italic; padding:2px 8px; border-bottom:2px solid #000;"><b>No.</b></td>
+            <td style="width:50%; font-style:italic; padding:2px 8px; border-bottom:2px solid #000;"><b>Description</b></td>
+            <td style="width:11%; font-style:italic; padding:2px 8px; text-align:center; border-bottom:2px solid #000;"><b>UoM</b></td>
+            <td style="width:17%; font-style:italic; padding:2px 8px; text-align:right; border-bottom:2px solid #000; white-space:nowrap;"><b>Unit&nbsp;Price</b>&nbsp;(RM)</td>
+            <td style="width:17%; font-style:italic; padding:2px 8px; text-align:right; border-bottom:2px solid #000; white-space:nowrap;"><b>Total&nbsp;Amt</b>&nbsp;(RM)</td>
           </tr>
           <tr>
             <td colspan="5" style="padding:0;">
-              <div style="height:1px; background:#000; margin:6px 0 8px;"></div>
+              <div style="height:1px; background:#000; margin:2px 0 2px;"></div>
             </td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td></td>
-            <td colspan="4" style="font-style:italic; padding:4pt 0 1pt;"><b>TANKO</b> Storage Solutions &ndash; Products from Taiwan</td>
+            <td colspan="4" style="font-style:italic; padding:2pt 0 1pt;"><b>TANKO</b> Storage Solutions &ndash; Products from Taiwan</td>
           </tr>
           ${rowsHtml}
         </tbody>
       </table>
 
-      <p style="margin:6pt 0 3pt;"><b><u>Product Photos</u></b></p>
+      <p style="margin:4pt 0 2pt;"><b><u>Product Photos</u></b></p>
       ${photosHtml}
 
-      <div style="border-top:1px solid #000; border-bottom:1px solid #000; padding:3pt 0; margin-top:8pt;">
-        <table style="width:100%;">
-          <tr>
-            <td><b>Grand Total Amount</b></td>
-            <td style="text-align:right; white-space:nowrap;"><b>RM ${money(grandTotal)}</b></td>
-          </tr>
-        </table>
-      </div>
+      <!-- Grand total: accounting-style emphasis -- a solid rule above and a
+           double rule below, drawn directly on the cells (border-collapse) so
+           the lines run edge-to-edge with no blank gap between them. -->
+      <table style="width:100%; border-collapse:collapse; margin-top:5pt;">
+        <tr>
+          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:3pt 8pt 3pt 0; font-size:12pt;"><b>Grand Total Amount</b></td>
+          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:3pt 0; text-align:right; white-space:nowrap; font-size:12pt;"><b>RM ${money(grandTotal)}</b></td>
+        </tr>
+      </table>
 
-      <table style="width:100%; border-collapse:collapse; margin-top:8pt;">
+      <table style="width:100%; border-collapse:collapse; margin-top:5pt;">
         <tr>
           <td style="width:33%; border:1px solid #000; padding:3pt 8pt;">Delivery : 4 to 6 Weeks</td>
           <td style="width:33%; border:1px solid #000; padding:3pt 8pt;">Terms : C.O.D.</td>
@@ -4885,12 +4933,12 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
         </tr>
       </table>
 
-      <p style="margin-top:6pt;">Should you require further information, please do not hesitate to contact the undersigned.</p>
+      <p style="margin-top:4pt;">Should you require further information, please do not hesitate to contact the undersigned.</p>
       <p>Thank you.</p>
-      <p style="margin-top:6pt;">Yours faithfully,</p>
+      <p style="margin-top:4pt;">Yours faithfully,</p>
       <p><b>Primaxs Marketing (M) Sdn. Bhd.</b></p>
-      <p style="font-style:italic; font-size:16pt; margin-top:6pt;">Kenny LAI</p>
-      <p>___________________________________________________</p>
+      <p style="font-style:italic; margin-top:4pt;">Kenny LAI</p>
+      <p style="margin:0;">_______________</p>
       <p><b>Kenny LAI</b></p>
       <p>012-616 3088</p>
     </div>
@@ -4917,6 +4965,7 @@ async function handleGenerateDocument() {
     name: el.customerName.value.trim(),
     contact: el.customerContact.value.trim(),
     address: el.customerAddress.value.trim(),
+    attn: el.customerAttn.value.trim(),
   };
 
   if (!customer.name) {
@@ -4977,7 +5026,7 @@ el.itemsTableBody.addEventListener("input", (e) => {
   if (!(i >= 0 && i < quoteItems.length)) return;
   const price = parseFloat(input.value);
   quoteItems[i].price = isFinite(price) && price > 0 ? price : 0;
-  quoteItems[i].total = quoteItems[i].price * quoteItems[i].qty;
+  quoteItems[i].total = finalUnitPrice(quoteItems[i].price) * quoteItems[i].qty;
   const row = input.closest("tr");
   const totalCell = row && row.querySelector(".row-total-cell");
   if (totalCell) totalCell.textContent = quoteItems[i].total.toFixed(2);
