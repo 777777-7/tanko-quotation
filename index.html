@@ -4522,9 +4522,9 @@ function renderTable() {
       "</div></td>" +
       "<td>" + item.qty + "</td>" +
       "<td><input type=\"number\" class=\"row-price-input\" data-index=\"" + index +
-        "\" value=\"" + item.price.toFixed(2) + "\" min=\"0\" step=\"0.01\" " +
-        "onclick=\"event.stopPropagation()\"></td>" +
-      "<td class=\"row-total-cell\">" + item.total.toFixed(2) + "</td>";
+        "\" value=\"" + (item.price > 0 ? item.price : "") + "\" min=\"0\" step=\"0.01\" " +
+        "placeholder=\"Price\" onclick=\"event.stopPropagation()\"></td>" +
+      "<td class=\"row-total-cell\">" + (item.price > 0 ? item.total.toFixed(2) : "") + "</td>";
 
     row.addEventListener("click", () => {
       selectedRowIndex = index;
@@ -4683,9 +4683,12 @@ function blankField(width) {
   return "[" + "&nbsp;".repeat(width) + "]";
 }
 
-// Sequential quotation serial: YYYYMMDD + 3-digit counter that resets to 001
+// Sequential quotation serial: YYMMDD + 3-digit counter that resets to 001
 // each calendar day and increments on every generation. Persisted in
 // localStorage so the count survives page reloads within the same day.
+// The stored/compared date key keeps the full 4-digit year (so a daily reset
+// can never accidentally collide across centuries); only the DISPLAYED
+// serial uses the shortened 2-digit year.
 function nextQuotationSerial() {
   const now = new Date();
   const ymd = now.getFullYear().toString() +
@@ -4706,7 +4709,8 @@ function nextQuotationSerial() {
     // a time-based suffix so the serial is still unique within the day.
     counter = (now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds()) % 999 + 1;
   }
-  return ymd + String(counter).padStart(3, "0");
+  const displayYmd = ymd.slice(2); // drop the century, e.g. "20260716" -> "260716"
+  return displayYmd + String(counter).padStart(3, "0");
 }
 
 // One row of the priced item table:
@@ -4717,7 +4721,7 @@ function nextQuotationSerial() {
 function buildItemRowHtml(n, item) {
   const lines = String(item.name).split("\n");
   const sku = escapeHtml(lines[0]);
-  const pname = lines[1] ? "(" + escapeHtml(lines[1]) + ")" : "";
+  const pname = lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "";
   const restFeats = orderFeatureLines(lines.slice(2));
   let descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
   descHtml += restFeats
@@ -4762,7 +4766,7 @@ function buildDeliveryRowHtml(n, delivery) {
 // One cell of the photo-reference grid: "N) <SKU>(<name>)" above its photo.
 function buildPhotoCellHtml(n, product, imageSrc) {
   const lines = String(product.name).split("\n");
-  const label = escapeHtml(lines[0]) + (lines[1] ? "(" + escapeHtml(lines[1]) + ")" : "");
+  const label = escapeHtml(lines[0]) + (lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "");
   const imgHtml = imageSrc
     ? "<img src=\"" + imageSrc + "\" width=\"195\" height=\"195\" style=\"width:195px!important;height:195px!important;max-width:195px!important;max-height:195px!important;display:block!important;margin:2pt 0 0!important;object-fit:contain;\">"
     : "<p style=\"font-style:italic; color:#666;\">(No photo available)</p>";
@@ -4859,27 +4863,23 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
     <div class="Section1">
       <table style="width:100%; margin-bottom:6pt;">
         <tr>
-          <td style="width:67px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="67" style="width:67px!important; max-width:67px!important; height:auto!important; display:block!important;"></td>
+          <td style="width:84px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="84" style="width:84px!important; max-width:84px!important; height:auto!important; display:block!important;"></td>
           <td style="vertical-align:middle; text-align:left; font-size:10pt; padding-left:12px;">
-            <p style="text-align:left; font-size:28pt; line-height:1.05; margin:0;"><b>Primaxs Marketing (M) Sdn. Bhd.</b></p>
-            <p style="text-align:left; font-size:7pt; margin:0 0 1pt;">(Co.No. 200601036829)</p>
+            <p style="text-align:left; font-size:23.8pt; line-height:1.05; margin:0;"><b>Primaxs Marketing (M) Sdn. Bhd.</b> <span style="font-size:7pt; font-weight:normal;">(Co.No. 200601036829)</span></p>
             <p style="text-align:left;">39, Jalan Balakong Jaya 4, Taman Industri Balakong Jaya, 43300 Seri Kembangan, Selangor D.E.</p>
             <p style="text-align:left;">Email: sales@storagesystem.my &nbsp;&nbsp;&nbsp; Website: www.storagesystem.my</p>
             <p style="text-align:left;">Tel: 03-4296 4737, 03-4295 0430 &nbsp;&nbsp;&nbsp; Fax: 03-4296 6737</p>
           </td>
         </tr>
       </table>
-      <hr style="border:none;border-top:1px solid #000;margin:6pt 0 8pt;">
-
-      <p style="text-align:center; font-size:22pt; font-style:italic; font-weight:bold; margin:2pt 0 2pt;">Quotation</p>
-      <hr style="border:none;border-top:1px solid #000;margin:2pt 0 6pt;">
+      <p style="text-align:center; font-size:22pt; font-style:italic; font-weight:bold; margin:4pt 0 3pt;">Quotation</p>
       <p style="text-align:right; white-space:nowrap; margin:0;">Date : ${dateStr}</p>
       <p style="text-align:right; white-space:nowrap; margin:0 0 4pt;">Quote No.: ${escapeHtml(serial)}</p>
 
       <p style="margin-top:3pt;"><b>${escapeHtml(customer.name)}</b></p>
       <p>${addressHtml}</p>
       <p>Tel : ${escapeHtml(customer.contact)}</p>
-      <p style="margin-top:3pt;">Attn&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.attn || "")}</p>
+      <p style="margin:6pt 0 6pt;"><b>Attn</b>&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.attn || "")}</p>
       <p style="font-size:12pt; margin:3pt 0 2pt;"><b><u>RE: Quotation for ${escapeHtml(reSubject)}</u></b></p>
       <p style="margin-bottom:4pt;">With reference to our tele-conversation, we are pleased to submit herewith the quotation for your kind attention and perusal.</p>
 
@@ -4900,8 +4900,7 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
         </thead>
         <tbody>
           <tr>
-            <td></td>
-            <td colspan="4" style="font-style:italic; padding:2pt 0 1pt;"><b>TANKO</b> Storage Solutions &ndash; Products from Taiwan</td>
+            <td colspan="5" style="font-style:italic; padding:2pt 0 6pt;"><b>TANKO</b> Storage Solutions &ndash; Products from Taiwan</td>
           </tr>
           ${rowsHtml}
         </tbody>
@@ -4915,8 +4914,8 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
            the lines run edge-to-edge with no blank gap between them. -->
       <table style="width:100%; border-collapse:collapse; margin-top:5pt;">
         <tr>
-          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:3pt 8pt 3pt 0; font-size:12pt;"><b>Grand Total Amount</b></td>
-          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:3pt 0; text-align:right; white-space:nowrap; font-size:12pt;"><b>RM ${money(grandTotal)}</b></td>
+          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:3pt 8pt 3pt 0; font-size:11.5pt;"><b>Grand Total Amount</b></td>
+          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:3pt 0; text-align:right; white-space:nowrap; font-size:11.5pt;"><b>RM ${money(grandTotal)}</b></td>
         </tr>
       </table>
 
@@ -4937,8 +4936,18 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <p>Thank you.</p>
       <p style="margin-top:4pt;">Yours faithfully,</p>
       <p><b>Primaxs Marketing (M) Sdn. Bhd.</b></p>
-      <p style="font-style:italic; margin-top:4pt;">Kenny LAI</p>
-      <p style="margin:0;">_______________</p>
+      <!-- Table (not a plain div) so the 130px width is actually honoured by
+           Word's renderer: the table itself sits flush left like every other
+           block in the document, while the signature text is centered only
+           within that narrow column, i.e. centered over the short line. -->
+      <table style="border-collapse:collapse; margin:0;">
+        <tr><td style="width:130px; text-align:center; padding:0;">
+          <p style="font-style:italic; font-size:11pt; margin:4pt 0 0;">Kenny LAI</p>
+        </td></tr>
+        <tr><td style="width:130px; text-align:center; padding:0;">
+          <p style="margin:0;">_______________</p>
+        </td></tr>
+      </table>
       <p><b>Kenny LAI</b></p>
       <p>012-616 3088</p>
     </div>
@@ -5029,7 +5038,7 @@ el.itemsTableBody.addEventListener("input", (e) => {
   quoteItems[i].total = finalUnitPrice(quoteItems[i].price) * quoteItems[i].qty;
   const row = input.closest("tr");
   const totalCell = row && row.querySelector(".row-total-cell");
-  if (totalCell) totalCell.textContent = quoteItems[i].total.toFixed(2);
+  if (totalCell) totalCell.textContent = quoteItems[i].price > 0 ? quoteItems[i].total.toFixed(2) : "";
   updateGrandTotal();
 });
 
