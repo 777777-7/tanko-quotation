@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Quotation Builder</title>
+<!-- Supabase JS client for auto-saving every generated quotation.
+     Publishable key is meant to live in client code; RLS on the table
+     restricts what an anonymous browser session can do (read + insert only). -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  window.SUPABASE_URL = "https://uwqmswitxgorowsxkqba.supabase.co";
+  window.SUPABASE_KEY = "sb_publishable_WxNo1KNeE2_regh-_fJYdg_m9phJvN9";
+  window.SB = (window.supabase && window.SUPABASE_URL)
+    ? window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_KEY)
+    : null;
+</script>
 <style>
 :root {
   --brand: #b3202a;
@@ -346,6 +357,7 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
     <span class="eyebrow">Tanko Malaysia</span>
     <h1>Quotation Builder</h1>
     <p>Search a SKU, add it to the quote, and generate a customer-ready document.</p>
+    <p style="margin-top:6px;"><a href="sales.html" style="color:var(--brand); font-weight:600; text-decoration:none;">View sales calendar &rarr;</a></p>
   </header>
 
   <section class="panel">
@@ -5008,10 +5020,55 @@ async function handleGenerateDocument() {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(link.href);
+
+    // Auto-save this quotation to Supabase (fire-and-forget: never let a save
+    // error interrupt or undo the download the user just triggered).
+    saveQuotationToHistory(customer, quoteItems, serial, delivery).catch((err) => {
+      console.warn("History save failed (doc still downloaded ok):", err);
+    });
   } finally {
     el.generateDocBtn.disabled = false;
     el.generateDocBtn.textContent = originalLabel;
   }
+}
+
+// Insert one row into the Supabase `quotations` table. Uses the user's LOCAL
+// date (not UTC) for quote_date so day-buckets match the operator's calendar
+// even for quotations generated late in the evening in UTC+8.
+async function saveQuotationToHistory(customer, items, serial, delivery) {
+  if (!window.SB) return; // Supabase client unavailable (offline / CDN blocked)
+
+  const now = new Date();
+  const localDate =
+    now.getFullYear() + "-" +
+    String(now.getMonth() + 1).padStart(2, "0") + "-" +
+    String(now.getDate()).padStart(2, "0");
+
+  const rowItems = items.map((it) => ({
+    sku: it.sku,
+    name: String(it.name).split("\n").slice(0, 2).join(" / "), // SKU / product name only
+    qty: it.qty,
+    unit_usd: Number(it.price) || 0,
+    unit_myr: finalUnitPrice(it.price),
+    total_myr: it.total,
+  }));
+
+  const itemCount = items.reduce((n, it) => n + (Number(it.qty) || 0), 0);
+  const itemsSum = items.reduce((n, it) => n + it.total, 0);
+  const grandTotal = itemsSum + (delivery ? delivery.price : 0);
+
+  const { error } = await window.SB.from("quotations").insert({
+    serial,
+    quote_date: localDate,
+    customer_name: customer.name || null,
+    customer_attn: customer.attn || null,
+    items: rowItems,
+    item_count: itemCount,
+    delivery_desc: delivery ? (delivery.desc || null) : null,
+    delivery_price: delivery ? delivery.price : null,
+    grand_total: grandTotal,
+  });
+  if (error) throw error;
 }
 
 el.addItemBtn.addEventListener("click", handleAddItem);
