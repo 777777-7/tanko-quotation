@@ -4318,12 +4318,20 @@ let selectedRowIndex = null;
 let selectedProduct = null;
 let activeSuggestionIndex = -1;
 let ENHANCED_PRODUCTS = {};
+let DETAILED_SPECS = {};
 
 // Load enhanced product specs (extracted from tanko_variants.json) for richer quotation output.
 // Fire-and-forget: if the file is missing, the app falls back to PRODUCT_DATA names.
 fetch("data/enhanced_products.json")
   .then((r) => (r.ok ? r.json() : {}))
   .then((data) => { ENHANCED_PRODUCTS = data || {}; })
+  .catch(() => {});
+
+// Load detailed specs (model no, dimensions, material, handle, loading, items included)
+// for the photo-reference page.
+fetch("data/detailed_specs.json")
+  .then((r) => (r.ok ? r.json() : {}))
+  .then((data) => { DETAILED_SPECS = data || {}; })
   .catch(() => {});
 
 const el = {
@@ -4749,8 +4757,32 @@ function buildItemRowHtml(n, item) {
   descHtml += restFeats
     .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
     .join("");
-  // Blank line after each product so consecutive products stay visually
-  // separated in the document.
+
+  // Supplement with detailed specs (handle, items included) not already in the name.
+  const ds = DETAILED_SPECS[item.sku];
+  if (ds) {
+    const existingText = effectiveName.toLowerCase();
+    if (ds.handle && !existingText.includes("handle")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Handle: " + escapeHtml(ds.handle);
+    }
+    if (ds.colour && !existingText.includes("colour") && !existingText.includes("color")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Colour: " + escapeHtml(ds.colour);
+    }
+    if (ds.items_included && ds.items_included.length) {
+      // Filter out generic terms already covered by C/w line
+      const generic = ["tool cabinet", "storage cabinet", "cabinet", "drawer unit"];
+      const extraItems = ds.items_included.filter((it) => {
+        const itLow = it.toLowerCase();
+        return !generic.some((g) => itLow === g || itLow.includes(g + ":")) &&
+               !existingText.includes(itLow.replace(/\s+/g, ""));
+      });
+      if (extraItems.length) {
+        descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Accessories: " + extraItems.map(escapeHtml).join(", ");
+      }
+    }
+  }
+
+  // Blank line after each product so consecutive products stay visually separated.
   descHtml += "<br>&nbsp;";
 
   const uom = item.qty + " unit" + (item.qty > 1 ? "s" : "");
@@ -4786,25 +4818,46 @@ function buildDeliveryRowHtml(n, delivery) {
 }
 
 // One cell of the photo-reference grid: "N) <SKU>(<name>)" above its photo,
-// with key specs (size / load capacity) beneath the photo for quick reference.
+// with a detailed spec table (Model No., Dimensions, Material, Handle, Loading, Items Included)
+// beneath the photo, styled like the reference quotation.
 function buildPhotoCellHtml(n, product, imageSrc) {
   const effectiveName = ENHANCED_PRODUCTS[product.sku] || product.name;
   const lines = String(effectiveName).split("\n");
   const label = escapeHtml(lines[0]) + (lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "");
-  // Extract key spec lines (Size, Load cap.) to show beneath the photo.
-  const specLines = lines.slice(2).filter((l) => /^(Size|Load cap|Weight Hold|C\/w)\s*[:：]/i.test(l.trim()));
-  const specHtml = specLines.length
-    ? "<p style=\"margin:2pt 0 0;font-size:8pt;color:#333;\">" +
-      specLines.slice(0, 2).map(escapeHtml).join("<br>") + "</p>"
-    : "";
+  const specs = DETAILED_SPECS[product.sku];
+
   const imgHtml = imageSrc
-    ? "<img src=\"" + imageSrc + "\" width=\"195\" height=\"195\" style=\"width:195px!important;height:195px!important;max-width:195px!important;max-height:195px!important;display:block!important;margin:2pt 0 0!important;object-fit:contain;\">"
+    ? "<img src=\"" + imageSrc + "\" width=\"210\" height=\"210\" style=\"width:210px!important;height:210px!important;max-width:210px!important;max-height:210px!important;display:block!important;margin:3pt 0 4pt!important;object-fit:contain;\">"
     : "<p style=\"font-style:italic; color:#666;\">(No photo available)</p>";
+
+  // Build spec table rows
+  let specRows = "";
+  if (specs) {
+    const row = (label, value) => "<tr><td style=\"padding:1pt 6pt 1pt 0;white-space:nowrap;vertical-align:top;font-size:8.5pt;\"><b>" + label + "</b></td><td style=\"padding:1pt 0;vertical-align:top;font-size:8.5pt;\">" + value + "</td></tr>";
+    if (specs.model_no) specRows += row("Model No.", escapeHtml(specs.model_no));
+    if (specs.dimension) specRows += row("Dimensions", escapeHtml(specs.dimension));
+    if (specs.material) specRows += row("Material", escapeHtml(specs.material));
+    if (specs.handle) specRows += row("Handle", escapeHtml(specs.handle));
+    if (specs.colour) specRows += row("Colour", escapeHtml(specs.colour));
+    if (specs.loading && specs.loading.length) {
+      const loadVal = specs.loading.map(escapeHtml).join("<br>");
+      specRows += row("Loading", loadVal);
+    }
+    if (specs.items_included && specs.items_included.length) {
+      const itemsVal = specs.items_included.map(escapeHtml).join(", ");
+      specRows += row("Items Included", itemsVal);
+    }
+  }
+
+  const specTable = specRows
+    ? "<table style=\"width:100%;border-collapse:collapse;margin-top:2pt;\">" + specRows + "</table>"
+    : "";
+
   return (
-    "<td style=\"width:50%; vertical-align:top; padding:0 6pt 6pt 0;\">" +
-      "<p style=\"margin:0;\">" + n + ")&nbsp; <b>" + label + "</b></p>" +
+    "<td style=\"width:50%; vertical-align:top; padding:0 8pt 10pt 0;\">" +
+      "<p style=\"margin:0;font-size:10pt;\">" + n + ")&nbsp; <b>" + label + "</b></p>" +
       imgHtml +
-      specHtml +
+      specTable +
     "</td>"
   );
 }
