@@ -4317,6 +4317,14 @@ let quoteItems = [];
 let selectedRowIndex = null;
 let selectedProduct = null;
 let activeSuggestionIndex = -1;
+let ENHANCED_PRODUCTS = {};
+
+// Load enhanced product specs (extracted from tanko_variants.json) for richer quotation output.
+// Fire-and-forget: if the file is missing, the app falls back to PRODUCT_DATA names.
+fetch("data/enhanced_products.json")
+  .then((r) => (r.ok ? r.json() : {}))
+  .then((data) => { ENHANCED_PRODUCTS = data || {}; })
+  .catch(() => {});
 
 const el = {
   customerName: document.getElementById("customerName"),
@@ -4731,7 +4739,9 @@ function nextQuotationSerial() {
 // Prices are fully computed (unit price typed in the app, total = unit x qty)
 // so the generated document needs no manual editing.
 function buildItemRowHtml(n, item) {
-  const lines = String(item.name).split("\n");
+  // Use enhanced spec if available (richer: C/w accessories, load capacity, colour).
+  const effectiveName = ENHANCED_PRODUCTS[item.sku] || item.name;
+  const lines = String(effectiveName).split("\n");
   const sku = escapeHtml(lines[0]);
   const pname = lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "";
   const restFeats = orderFeatureLines(lines.slice(2));
@@ -4775,10 +4785,18 @@ function buildDeliveryRowHtml(n, delivery) {
   );
 }
 
-// One cell of the photo-reference grid: "N) <SKU>(<name>)" above its photo.
+// One cell of the photo-reference grid: "N) <SKU>(<name>)" above its photo,
+// with key specs (size / load capacity) beneath the photo for quick reference.
 function buildPhotoCellHtml(n, product, imageSrc) {
-  const lines = String(product.name).split("\n");
+  const effectiveName = ENHANCED_PRODUCTS[product.sku] || product.name;
+  const lines = String(effectiveName).split("\n");
   const label = escapeHtml(lines[0]) + (lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "");
+  // Extract key spec lines (Size, Load cap.) to show beneath the photo.
+  const specLines = lines.slice(2).filter((l) => /^(Size|Load cap|Weight Hold|C\/w)\s*[:：]/i.test(l.trim()));
+  const specHtml = specLines.length
+    ? "<p style=\"margin:2pt 0 0;font-size:8pt;color:#333;\">" +
+      specLines.slice(0, 2).map(escapeHtml).join("<br>") + "</p>"
+    : "";
   const imgHtml = imageSrc
     ? "<img src=\"" + imageSrc + "\" width=\"195\" height=\"195\" style=\"width:195px!important;height:195px!important;max-width:195px!important;max-height:195px!important;display:block!important;margin:2pt 0 0!important;object-fit:contain;\">"
     : "<p style=\"font-style:italic; color:#666;\">(No photo available)</p>";
@@ -4786,6 +4804,7 @@ function buildPhotoCellHtml(n, product, imageSrc) {
     "<td style=\"width:50%; vertical-align:top; padding:0 6pt 6pt 0;\">" +
       "<p style=\"margin:0;\">" + n + ")&nbsp; <b>" + label + "</b></p>" +
       imgHtml +
+      specHtml +
     "</td>"
   );
 }
