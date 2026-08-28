@@ -5169,18 +5169,24 @@ function buildDeliveryRowHtml(n, delivery) {
 function buildPhotoCellHtml(n, product, imageSrc) {
   const effectiveName = ENHANCED_PRODUCTS[product.sku] || product.name;
   const lines = String(effectiveName).split("\n");
-  const label = escapeHtml(lines[0]) + (lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "");
+  // Title: SKU + product type (first line of name). If the first line IS the SKU
+  // (i.e. item.name format "SKU\n..."), use line 1 as the type instead.
+  const firstLine = lines[0] || "";
+  const productType = (firstLine.toUpperCase() === product.sku.toUpperCase())
+    ? (lines[1] || "")
+    : firstLine;
+  const titleLabel = "<b>" + escapeHtml(product.sku) + "</b>" +
+    (productType ? " &ndash; " + escapeHtml(productType) : "");
   const specs = DETAILED_SPECS[product.sku];
 
   const imgHtml = imageSrc
-    ? "<img src=\"" + imageSrc + "\" width=\"210\" height=\"210\" style=\"width:210px!important;height:210px!important;max-width:210px!important;max-height:210px!important;display:block!important;margin:3pt 0 4pt!important;object-fit:contain;\">"
-    : "<p style=\"font-style:italic; color:#666;\">(No photo available)</p>";
+    ? "<img src=\"" + imageSrc + "\" width=\"230\" style=\"width:230px!important;max-width:230px!important;height:auto!important;display:block!important;margin:4pt auto 6pt!important;object-fit:contain;\">"
+    : "<p style=\"font-style:italic; color:#666; text-align:center; margin:4pt 0;\">(No photo available)</p>";
 
   // Build spec table rows
   let specRows = "";
   if (specs) {
-    const row = (label, value) => "<tr><td style=\"padding:1pt 6pt 1pt 0;white-space:nowrap;vertical-align:top;font-size:8.5pt;\"><b>" + label + "</b></td><td style=\"padding:1pt 0;vertical-align:top;font-size:8.5pt;\">" + value + "</td></tr>";
-    if (specs.model_no) specRows += row("Model No.", escapeHtml(specs.model_no));
+    const row = (label, value) => "<tr><td style=\"padding:2pt 8pt 2pt 0;white-space:nowrap;vertical-align:top;font-size:9pt;\"><b>" + label + "</b></td><td style=\"padding:2pt 0;vertical-align:top;font-size:9pt;\">" + value + "</td></tr>";
     if (specs.dimension) specRows += row("Dimensions", escapeHtml(specs.dimension));
     if (specs.material) specRows += row("Material", escapeHtml(specs.material));
     if (specs.handle) specRows += row("Handle", escapeHtml(specs.handle));
@@ -5190,18 +5196,24 @@ function buildPhotoCellHtml(n, product, imageSrc) {
       specRows += row("Loading", loadVal);
     }
     if (specs.items_included && specs.items_included.length) {
-      const itemsVal = specs.items_included.map(escapeHtml).join(", ");
+      // Filter out generic / duplicate items for cleaner display
+      const generic = ["tool cabinet", "storage cabinet", "cabinet"];
+      const cleanItems = specs.items_included.filter((it) => {
+        const itLow = it.toLowerCase();
+        return !generic.some((g) => itLow === g || itLow.startsWith(g + ":"));
+      });
+      const itemsVal = cleanItems.map(escapeHtml).join(", ");
       specRows += row("Items Included", itemsVal);
     }
   }
 
   const specTable = specRows
-    ? "<table style=\"width:100%;border-collapse:collapse;margin-top:2pt;\">" + specRows + "</table>"
+    ? "<table style=\"width:100%;border-collapse:collapse;margin-top:4pt;border-top:1px solid #ccc;padding-top:4pt;\">" + specRows + "</table>"
     : "";
 
   return (
-    "<td style=\"width:50%; vertical-align:top; padding:0 8pt 10pt 0;\">" +
-      "<p style=\"margin:0;font-size:10pt;\">" + n + ")&nbsp; <b>" + label + "</b></p>" +
+    "<td style=\"width:50%; vertical-align:top; padding:0 10pt 14pt 0;\">" +
+      "<p style=\"margin:0 0 2pt;font-size:10.5pt;border-bottom:1.5pt solid #333;padding-bottom:2pt;\">" + n + ")&nbsp; " + titleLabel + "</p>" +
       imgHtml +
       specTable +
     "</td>"

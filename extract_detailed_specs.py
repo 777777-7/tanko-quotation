@@ -237,6 +237,7 @@ matches = re.findall(r'\{ sku: "([^"]+)", name: "([^"]+)", base_price: ([\d.]+) 
 
 detailed = {}
 for sku, name, bp in matches:
+    name = name.replace('\\n', '\n')
     variant_data = all_variants.get(sku)
     site_p = site_sku_map.get(sku)
     if variant_data:

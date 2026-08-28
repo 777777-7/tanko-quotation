@@ -241,6 +241,8 @@ matches = re.findall(r'\{ sku: "([^"]+)", name: "([^"]+)", base_price: ([\d.]+) 
 
 enhanced = {}
 for sku, name, bp in matches:
+    # JS string literals use \n as two chars; convert to real newlines.
+    name = name.replace('\\n', '\n')
     variant_data = all_variants.get(sku)
     site_p = site_sku_map.get(sku)
     if variant_data:
