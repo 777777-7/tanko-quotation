@@ -1,0 +1,9 @@
+﻿resolveImageForDoc at 1242068
+'resolveImageForDoc(relPath) {\n  if (!relPath) return null;\n  try {\n    const dataUri = await urlToDataUri(relPath);\n    if (dataUri) return dataUri;\n  } catch (e) {\n    console.warn("fetch failed for", relPath, e);\n  }\n  // Fallback: try with cache-busting\n  try {\n    const dataUri = await urlToDataUri(relPath + "?t=" + Date.now());\n    if (dataUri) return dataUri;\n  } catch (e) {}\n  // Last resort: absolute URL\n  return assetAbsoluteUrl(relPath);\n}\n\nfunction formatQuotationDate(date) {\n  const '
+
+getDimensionImagePath at 1000855
+'getDimensionImagePath(sku) {\n  const dimFile = DIMENSION_IMAGES[sku];\n  if (dimFile) return "assets/product/" + encodeURIComponent(dimFile);\n  return getProductImagePath(sku);\n}\n\nfunction showProductPreviewImage(sku) {\n  const path = getProductImagePath(sku);\n  if (!path) {\n    el.productPreviewWrap.classList.remove("visible");\n    return;\n  }\n  el.productPreviewImg.onerror = () => {\n    el.productPreviewWrap.classList.remove("visible");\n  };\n  el.productPreviewImg.onload = () => {\n    el.produc'
+
+PRODUCT_IMAGES at 285240
+'PRODUCT_IMAGES = {\n  "RY-01SA": "RY-01SA.jpg",\n  "RY-01WA": "RY-01WA.jpg",\n  "RY-02SA": "RY-02SA.jpg",\n  "RY-02WA": "RY-02WA.jpg",\n  "RY-03SA": "RY-03SA.jpg",\n  "RY-03WA": "RY-03WA.jpg",\n  "RY-04SA": "RY-04SA.jpg",\n  "RY-04WA": "RY-04WA.jpg",\n  "RY-05SA": "RY-05SA.jpg",\n  "RY-05WA": "RY-05WA.jpg",\n  "RFC-131": "RFC-131.jpg",\n  "RFC-132": "RFC-132.jpg",\n  "RFA-091": "RFA-091.jpg",\n  "RFA-092": "RFA-092.jpg",\n  "RFB-091": "RFB-091.jpg",\n  "RFB-092": "RFB-092.jpg",\n  "RA-9201": "RA-9201.jpg",\n  "RA'
+

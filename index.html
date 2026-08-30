@@ -5094,18 +5094,8 @@ function assetAbsoluteUrl(relPath) {
 // can resolve from disk when the file is opened on this same machine.
 async function resolveImageForDoc(relPath) {
   if (!relPath) return null;
-  try {
-    const dataUri = await urlToDataUri(relPath);
-    if (dataUri) return dataUri;
-  } catch (e) {
-    console.warn("fetch failed for", relPath, e);
-  }
-  // Fallback: try with cache-busting
-  try {
-    const dataUri = await urlToDataUri(relPath + "?t=" + Date.now());
-    if (dataUri) return dataUri;
-  } catch (e) {}
-  // Last resort: absolute URL
+  // Use direct URL instead of base64 data-URI — much faster to load.
+  // The document <base href> resolves relative paths correctly.
   return assetAbsoluteUrl(relPath);
 }
 

@@ -1,0 +1,9 @@
+﻿urlToDataUri at 1241194
+'function urlToDataUri(url) {\n  return fetch(url)\n    .then((res) => (res.ok ? res.blob() : null))\n    .then((blob) => {\n      if (!blob) return null;\n      return new Promise((resolve) => {\n        const reader = new FileReader();\n        reader.onloadend = () => resolve(reader.result);\n        reader.onerror = () => resolve(null);\n        reader.readAsDataURL(blob);\n      });\n    })\n    .catch(() => null);\n}\n\n// Absolute URL of an asset relative to this page (e.g. file:///C:/.../assets/..).\nfunction assetAbsoluteUrl(relPath) {\n  try { return new URL(relPath, window.location.href).href; }\n  ca'
+
+assetAbsoluteUrl at 1241691
+'function assetAbsoluteUrl(relPath) {\n  try { return new URL(relPath, window.location.href).href; }\n  catch (e) { return relPath; }\n}\n\n// Best image source for the exported doc: an embedded data: URI when possible\n// (works over http / the local server), otherwise an absolute path that Word\n// can resolve from disk when the file is opened on this same machine.\nasync function resolveImageForDoc(relPath) {\n  if (!relPath) return null;\n  try {\n    const dataUri = await urlToDataUri(relPath);\n    if (dataUri) return dataUri;\n  } catch (e) {\n    console.warn("fetch failed for", relPath, e);\n  }\n  //'
+
+getProductImagePath at 1000535
+'function getProductImagePath(sku) {\n  const file = PRODUCT_IMAGES[sku];\n  return file ? "assets/product/" + encodeURIComponent(file) : null;\n}\n\n// Dimension drawing (product photo with W/D/H annotations) for the quotation photo page.\n// Falls back to the regular product photo when no dimension drawing exists.\nfunction getDimensionImagePath(sku) {\n  const dimFile = DIMENSION_IMAGES[sku];\n  if (dimFile) return "assets/product/" + encodeURIComponent(dimFile);\n  return getProductImagePath(sku);\n}\n\nfunction showProductPreviewImage(sku) {\n  const path = getProductImagePath(sku);\n  if (!path) {\n    e'
+
