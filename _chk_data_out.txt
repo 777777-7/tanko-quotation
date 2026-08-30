@@ -1,0 +1,14 @@
+﻿data_specs type: dict
+data_specs keys sample: ['RY-01SA', 'RY-01WA', 'RY-02SA', 'RY-02WA', 'RY-03SA']
+
+Total SKUs: 1592
+Without inline DETAILED_SPECS: 331
+Without inline ENHANCED: 330
+Without either: 330
+
+Without inline DS but HAVE data in JSON: 330
+Without inline DS and NO data in JSON: 1
+Sample no_data: ['<SKU code>']
+
+PRODUCT_DATA SKUs found in data JSON: 1591
+data JSON total entries: 2259

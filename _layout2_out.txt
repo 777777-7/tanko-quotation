@@ -1,0 +1,112 @@
+﻿ollapse:collapse;\">" + rows + "</table>";
+}
+
+
+async function buildQuotationHtml(customer, items, serial, delivery) {
+  // Product photos, resolved to a doc-embeddable source (data URI or file path).
+  // Prefer dimension drawings (with W/D/H annotations) when available.
+  const imageSrcs = await Promise.all(
+    items.map((item) => resolveImageForDoc(getDimensionImagePath(item.sku)))
+  );
+
+  const dateStr = formatQuotationDate(new Date());
+  const addressHtml = escapeHtml(customer.address).replace(/\n/g, "<br>");
+
+  // RE-line subject: single item -> "(Product Name)"; multiple -> "(First Name & others)".
+  const firstParts = String(items[0].name).split("\n");
+  const firstName = firstParts[1] || firstParts[0];
+  const reSubject = items.length > 1 ? firstName + " & others" : firstName;
+
+  let rowsHtml = items
+    .map((item, i) => buildItemRowHtml(i + 1, item))
+    .join("");
+  // Delivery fee, if any, is the last numbered line in the list.
+  if (delivery) {
+    rowsHtml += buildDeliveryRowHtml(items.length + 1, delivery);
+  }
+
+  const itemsSum = items.reduce((sum, item) => sum + item.total, 0);
+  const grandTotal = itemsSum + (delivery ? delivery.price : 0);
+
+  const photosHtml = buildPhotosGridHtml(items, imageSrcs);
+
+  return `
+    <html xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:w="urn:schemas-microsoft-com:office:word"
+          xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+      <meta charset="utf-8">
+      <base href="${window.location.origin}${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')+1)}">
+      <title>Quotation</title>
+      <style>
+        @page {
+          size: A4;
+          margin: 0.5in 0.55in 0.5in 0.55in;
+        }
+        body {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 10.5pt;
+          color: #000;
+          line-height: 1.1;
+          margin: 0;
+        }
+        p { margin: 0 0 4pt; }
+        table { border-collapse: collapse; }
+        img { margin: 0; }
+        tr { page-break-inside: avoid; }
+        .page-break { page-break-after: always; }
+      
+/* Search suggestion thumbnails */
+.sug-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+}
+.sug-item:hover {
+  background: var(--surface-alt);
+}
+.sug-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  flex-shrink: 0;
+}
+.sug-thumb-placeholder {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background: var(--surface-alt);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.sug-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.sug-sku {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.sug-name {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+</style>
+    </head>
+    <body>
+    <div class="Section1">
+      <table style="width:100%; margin-bottom:6pt;">
+        <tr>
+          <td style="width:90px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="90" style="width:

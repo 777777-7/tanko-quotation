@@ -1,0 +1,30 @@
+﻿handleAddItem at 849183
+function handleAddItem() {
+  const qty = parseInt(el.qtyInput.value, 10);
+
+  if (!selectedProduct) {
+    alert("Please type a valid SKU code and select it first.");
+    return;
+  }
+  if (!qty || qty < 1) {
+    alert("Quantity must be at least 1.");
+    return;
+  }
+
+  // price is stored as the typed USD figure; total is the converted amount.
+  const unitPrice = selectedProduct.base_price;
+  const lineTotal = finalUnitPrice(unitPrice) * qty;
+
+  quoteItems.push({
+    name: selectedProduct.sku + "\n" + selectedProduct.name,
+    sku: selectedProduct.sku,
+    qty: qty,
+    price: unitPrice,
+    total: lineTotal,
+  });
+
+  renderTable();
+}
+
+function renderTable() {
+  el.itemsTableBody.innerHTML = ""

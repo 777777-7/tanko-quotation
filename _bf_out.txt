@@ -1,0 +1,13 @@
+﻿PRODUCT_DATA parsed: 1591
+SKUs needing DETAILED_SPECS: 330
+SKUs needing ENHANCED: 330
+DETAILED_SPECS entries to add: 330
+SKUs with no data in JSON: []
+ENHANCED entries to add: 330
+photo cell <td> occurrences: 0
+
+=== DONE ===
+DETAILED_SPECS added: 330
+ENHANCED added: 330
+Layout: page break removed, photos heading updated, cell break-inside added
+Backup: index.html.bak-fullspec

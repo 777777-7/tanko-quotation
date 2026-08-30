@@ -1,0 +1,5 @@
+﻿ENHANCED ME-321 raw: '"ME-321": "ME-321.jpg",\n  "ME-322": "ME-322.jpg",\n  "KM-2204": "KM-2204.jpg",\n  "KM-2222": "KM-2222.jpg",\n  "KM-2240": "KM-2240.jpg",\n  "KM-2306": "KM'
+ENHANCED WKT+ raw: '"WKT-5102F1+WPK-21": "WKT-5102F1+WPK-21.jpg",\n  "WKT-5102W": "WKT-5102W.jpg",\n  "WKT-5102W1": "WKT-5102W1.jpg",\n  "WKT-5102W1+WPK-21": "WKT-5102W1+WPK-21.jpg",\n  "EKK-1M"'
+DETAILED ME-321 raw: '"ME-321": {"model_no": "ME-321", "dimension": "W970xD700xH2000mm", "material": "Steel", "handle": "", "colour": null, "loading": ["80kg per pull-out shelf"], "items_included": ["Pu'
+ME-321 value has real newline: False
+ME-321 value has literal \n: True

@@ -1,0 +1,58 @@
+﻿==== function escapeHtml at 848752 ====
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Product names are stored as "\n"-joined feature lines (one feature per
+// line). This renders each line separately instead of mixing them together.
+function nl2br(str) {
+  return escapeHtml(str).replace(/\n/g, "<br>");
+}
+
+// Bare single-word colour/material feature lines (e.g. "Black", "Wood") get a
+// label prefixed on display so they read "Colour: Black" / "Material: Wood".
+const COLOUR_WORDS = new Set(["BLACK", "RED", "BLUE", "WHITE", "GRAY", "GREY", "YELLOW", "GREEN", "ORANGE", "PINK"]);
+const MATERIAL_WORDS = new Set(["WOOD", "STAINLESS STEEL", "S STEE
+
+==== function orderFeatureLines at 849886 ====
+function orderFeatureLines(lines) {
+  const i = lines.findIndex((l) => /^Size(?: \(approx\))?\s*:/i.test(String(l).trim()));
+  if (i <= 0) return lines;
+  const out = lines.slice();
+  out.unshift(out.splice(i, 1)[0]);
+  return out;
+}
+
+// First line of item.name is the SKU code; bold it to set it apart from
+// the feature lines beneath it. Line 2 is the product name and stays put;
+// the remaining feature lines are re-ordered so "Size:" leads.
+function nl2brWithBoldSku(str) {
+  const lines = String(str).split("\n");
+  const sku = escapeHtml(lines[0]);
+  const tail = lines.slice(1, 2).concat(orderFeatureLines(lines.slice(2)));
+  const rest = tail.map(formatFeatureLine).map(escapeHtml).join("<b
+
+==== function formatFeatureLine at 849459 ====
+function formatFeatureLine(f) {
+  const trimmed = String(f).trim();
+  const upper = trimmed.toUpperCase();
+  if (COLOUR_WORDS.has(upper)) return "Colour: " + trimmed;
+  if (MATERIAL_WORDS.has(upper)) return "Material: " + (upper === "S STEEL" ? "Stainless Steel" : trimmed);
+  return f;
+}
+
+// Re-orders a list of feature lines so the "Size:" line always comes first,
+// whatever order it happens to sit in inside PRODUCT_DATA.
+function orderFeatureLines(lines) {
+  const i = lines.findIndex((l) => /^Size(?: \(approx\))?\s*:/i.test(String(l).trim()));
+  if (i <= 0) return lines;
+  const out = lines.slice();
+  out.unshift(out.splice(i, 1)[0]);
+  return out;
+}
+
+// First line of item.name is the SKU 
+

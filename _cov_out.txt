@@ -1,0 +1,96 @@
+﻿Total unique PRODUCT_DATA SKUs: 1592
+
+=== Per-series coverage (series -> total, with-spec, without-spec) ===
+?      total=1    with-spec=1    without=0    ALL OK
+A      total=27   with-spec=27   without=0    ALL OK
+CEA    total=5    with-spec=5    without=0    ALL OK
+CEH    total=5    with-spec=5    without=0    ALL OK
+DA     total=4    with-spec=0    without=4    MISSING 4
+DB     total=4    with-spec=0    without=4    MISSING 4
+DC     total=4    with-spec=0    without=4    MISSING 4
+DD     total=4    with-spec=4    without=0    ALL OK
+EA     total=84   with-spec=79   without=5    MISSING 5
+EB     total=84   with-spec=78   without=6    MISSING 6
+ED     total=52   with-spec=52   without=0    ALL OK
+EGA    total=5    with-spec=5    without=0    ALL OK
+EGL    total=9    with-spec=0    without=9    MISSING 9
+EGM    total=8    with-spec=4    without=4    MISSING 4
+EKA    total=6    with-spec=4    without=2    MISSING 2
+EKB    total=6    with-spec=1    without=5    MISSING 5
+EKC    total=16   with-spec=10   without=6    MISSING 6
+EKK    total=1    with-spec=0    without=1    MISSING 1
+ELA    total=4    with-spec=4    without=0    ALL OK
+ELS    total=4    with-spec=4    without=0    ALL OK
+ENR    total=5    with-spec=5    without=0    ALL OK
+ENS    total=10   with-spec=10   without=0    ALL OK
+FBA    total=4    with-spec=2    without=2    MISSING 2
+FBB    total=16   with-spec=8    without=8    MISSING 8
+HAA    total=2    with-spec=2    without=0    ALL OK
+KH     total=1    with-spec=1    without=0    ALL OK
+KL     total=18   with-spec=0    without=18   MISSING 18
+KM     total=7    with-spec=0    without=7    MISSING 7
+KP     total=43   with-spec=27   without=16   MISSING 16
+KPQ    total=21   with-spec=17   without=4    MISSING 4
+KQ     total=47   with-spec=0    without=47   MISSING 47
+KR     total=18   with-spec=0    without=18   MISSING 18
+MB     total=8    with-spec=8    without=0    ALL OK
+ME     total=2    with-spec=2    without=0    ALL OK  <-- WKT/ME now FIXED
+RA     total=16   with-spec=8    without=8    MISSING 8
+RB     total=7    with-spec=4    without=3    MISSING 3
+RC     total=4    with-spec=0    without=4    MISSING 4
+RD     total=3    with-spec=1    without=2    MISSING 2
+RE     total=1    with-spec=1    without=0    ALL OK
+RFA    total=2    with-spec=2    without=0    ALL OK
+RFB    total=2    with-spec=2    without=0    ALL OK
+RFC    total=2    with-spec=2    without=0    ALL OK
+RG     total=3    with-spec=0    without=3    MISSING 3
+RY     total=10   with-spec=10   without=0    ALL OK
+SAA    total=17   with-spec=13   without=4    MISSING 4
+SAB    total=7    with-spec=3    without=4    MISSING 4
+SAG    total=1    with-spec=1    without=0    ALL OK
+SAN    total=15   with-spec=15   without=0    ALL OK
+SAQ    total=6    with-spec=6    without=0    ALL OK
+SCA    total=2    with-spec=2    without=0    ALL OK
+SCB    total=2    with-spec=2    without=0    ALL OK
+SCC    total=2    with-spec=2    without=0    ALL OK
+SG     total=1    with-spec=1    without=0    ALL OK
+SY     total=8    with-spec=8    without=0    ALL OK
+TA     total=5    with-spec=0    without=5    MISSING 5
+TC     total=3    with-spec=3    without=0    ALL OK
+TE     total=1    with-spec=0    without=1    MISSING 1
+TKI    total=43   with-spec=38   without=5    MISSING 5
+TOA    total=1    with-spec=1    without=0    ALL OK
+WA     total=143  with-spec=142  without=1    MISSING 1
+WAD    total=28   with-spec=23   without=5    MISSING 5
+WAS    total=208  with-spec=196  without=12   MISSING 12
+WAT    total=131  with-spec=125  without=6    MISSING 6
+WB     total=78   with-spec=40   without=38   MISSING 38
+WBS    total=39   with-spec=39   without=0    ALL OK
+WBT    total=39   with-spec=39   without=0    ALL OK
+WD     total=74   with-spec=72   without=2    MISSING 2
+WDT    total=51   with-spec=51   without=0    ALL OK
+WE     total=28   with-spec=0    without=28   MISSING 28
+WET    total=28   with-spec=0    without=28   MISSING 28
+WHA    total=4    with-spec=4    without=0    ALL OK
+WHB    total=12   with-spec=12   without=0    ALL OK
+WKT    total=6    with-spec=6    without=0    ALL OK  <-- WKT/ME now FIXED
+WP     total=23   with-spec=23   without=0    ALL OK
+WS     total=1    with-spec=0    without=1    MISSING 1
+
+=== WKT series coverage ===
+  WKT-5102F              DETAILED_SPECS=True ENHANCED=True
+  WKT-5102F1             DETAILED_SPECS=True ENHANCED=True
+  WKT-5102F1+WPK-21      DETAILED_SPECS=True ENHANCED=True
+  WKT-5102W              DETAILED_SPECS=True ENHANCED=True
+  WKT-5102W1             DETAILED_SPECS=True ENHANCED=True
+  WKT-5102W1+WPK-21      DETAILED_SPECS=True ENHANCED=True
+
+=== ME series coverage ===
+  ME-321                 DETAILED_SPECS=True ENHANCED=True
+  ME-322                 DETAILED_SPECS=True ENHANCED=True
+
+=== Products STILL without spec at output (not WKT/ME) ===
+count: 322
+remaining: 330
+by series: {'DA': 4, 'DB': 4, 'DC': 4, 'EA': 5, 'EB': 6, 'EGL': 9, 'EGM': 4, 'EKA': 2, 'EKB': 5, 'EKC': 6, 'EKK': 1, 'FBA': 2, 'FBB': 8, 'KL': 18, 'KM': 7, 'KP': 16, 'KPQ': 4, 'KQ': 47, 'KR': 18, 'RA': 8, 'RB': 3, 'RC': 4, 'RD': 2, 'RG': 3, 'SAA': 4, 'SAB': 4, 'TA': 5, 'TE': 1, 'TKI': 5, 'WA': 1, 'WAD': 5, 'WAS': 12, 'WAT': 6, 'WB': 38, 'WD': 2, 'WE': 28, 'WET': 28, 'WS': 1}
+first 60: ['DA-31 (BLACK)', 'DA-31 (WHITE)', 'DA-32 (BLACK)', 'DA-32 (WHITE)', 'DB-31 (BLACK)', 'DB-31 (WHITE)', 'DB-32 (BLACK)', 'DB-32 (WHITE)', 'DC-31 (BLACK)', 'DC-31 (WHITE)', 'DC-32 (BLACK)', 'DC-32 (WHITE)', 'EA-10031-111MN', 'EA-10031-222MN', 'EA-10032-333MN', 'EA-10032-666MN', 'EA-10032-888MN', 'EB-10031-111MN', 'EB-10031-222MN', 'EB-10032-333MN', 'EB-10032-666MN', 'EB-10032-888MN', 'EB-12031-.333N', 'EGL-177M', 'EGL-185M', 'EGL-185M + EGP-03L', 'EGL-185M + EGQ-02A', 'EGL-185MA', 'EGL-187M', 'EGL-187M + EGP-03L', 'EGL-187M + EGQ-02A', 'EGL-187MA', 'EGM-1703M + EGP-03M', 'EGM-1703M + EGQ-02A', 'EGM-1705M + EGP-03M', 'EGM-1705M + EGQ-02A', 'EKA-3M', 'EKA-3M + EKA-P03', 'EKB-308AM', 'EKB-308M', 'EKB-316M', 'EKB-3AM', 'EKB-3M', 'EKC-110M', 'EKC-210M', 'EKC-220M', 'EKC-310M', 'EKC-320M', 'EKC-330M', 'EKK-1M', 'FBA-202AW', 'FBA-204AW', 'FBB-202A', 'FBB-204A', 'FBB-208A', 'FBB-303A', 'FBB-306A', 'FBB-309A', 'FBB-312A', 'FBB-315A']

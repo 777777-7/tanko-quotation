@@ -1,0 +1,26 @@
+﻿Forced page-break DIV present: False
+CSS .page-break class present: True
+Replacement comment present: True
+
+KQ series (47): ['KQ-306A (BLACK)', 'KQ-306A (BLUE)', 'KQ-306A (GRAY)', 'KQ-306A (RED)', 'KQ-306A (WHITE)', 'KQ-306AS (STAINLESS STEEL)', 'KQ-308A (BLACK)', 'KQ-308A (BLUE)']
+   KQ-306A (BLACK) DS= True EP= True
+   KQ-306A (BLUE) DS= True EP= True
+   KQ-306A (GRAY) DS= True EP= True
+
+WB series (156): ['WB-57F', 'WB-57F2', 'WB-57F3', 'WB-57F4A', 'WB-57F5A', 'WB-57F6A', 'WB-57N', 'WB-57N2']
+   WB-57F DS= True EP= True
+   WB-57F2 DS= True EP= True
+   WB-57F3 DS= True EP= True
+
+WE series (56): ['WE-47W (BLACK)', 'WE-47W (WHITE)', 'WE-47W3 (BLACK)', 'WE-47W3 (WHITE)', 'WE-47W4 (BLACK)', 'WE-47W4 (WHITE)', 'WE-47W5 (BLACK)', 'WE-47W5 (WHITE)']
+   WE-47W (BLACK) DS= True EP= True
+   WE-47W (WHITE) DS= True EP= True
+   WE-47W3 (BLACK) DS= True EP= True
+
+Combo SKUs sample: ['RA-9201 + RPB-91', 'RA-9201 + RPB-92', 'RA-9091 + RPQ-9063A + RPH-91', 'RA-9091 + RPQ-9103A', 'RA-6091 + RPQ-6063A + RPH-61']
+   RA-9201 + RPB-91 DS= True EP= True
+    EP: 'Professional Workstation\nProfessional\nAccessories: Drawer set\nMaterial: Steel\nSize: W900xD510xH2020m'
+   RA-9201 + RPB-92 DS= True EP= True
+    EP: 'Professional Workstation\nProfessional\nAccessories: Adjustable shelf\nMaterial: Steel\nSize: W900xD510x'
+   RA-9091 + RPQ-9063A + RPH-91 DS= True EP= True
+    EP: 'Professional Workstation\nProfessional\nTop: Stainless steel\nPanel set: Panel+Wall cabinet\nMaterial: S'

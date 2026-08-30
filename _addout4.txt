@@ -1,0 +1,6 @@
+﻿at 353321 : 20_dim.jpg",   "WP53101 140": "WP53101 140_dim.jpg",   "WP53101 160": "WP53101 160_dim.jpg" };  let quoteItems = []; let selectedRowIndex = null; let selectedProduct = null; let activeSuggestionIndex = -1; const ENHANCED_PRODUCTS = {"<SKU code>": "<Product name>", "RY-01SA": "Professional Workstatio
+
+at 847748 :  this needs to be a plain global function). function handleThumbError(imgEl) {   imgEl.style.display = "none"; }  function selectProduct(product) {   selectedProduct = product;   el.skuSearch.value = product.sku;   el.productNameDisplay.innerHTML = nl2brWithBoldSku(product.sku + "\n" + product.name)
+
+at 848125 : lassList.remove("open");   el.suggestions.innerHTML = "";   showProductPreviewImage(product.sku); }  el.skuSearch.addEventListener("input", () => {   selectedProduct = null;   el.productNameDisplay.textContent = "No product selected yet";   el.productNameDisplay.classList.add("placeholder");   hideP
+

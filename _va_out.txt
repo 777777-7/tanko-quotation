@@ -1,0 +1,28 @@
+﻿Total real PRODUCT_DATA SKUs: 1591
+DETAILED_SPECS total: 2259
+ENHANCED_PRODUCTS total: 2265
+
+Missing DETAILED_SPECS: 0 []
+Missing ENHANCED: 0 []
+Missing both: 0
+
+=== Sample newly added DETAILED_SPECS ===
+DA-31 (BLACK) => {"model_no": "DA-31 (BLACK)", "dimension": "W1013xD496xH1663mm", "material": "Steel", "handle": "", "colour": "Black", "loading": [], "items_included": ["Drawer Qty: 1", "Perforated board", "Black or 
+KQ-105 => NOT FOUND
+WB-7051M => NOT FOUND
+WE-10031-111MN => NOT FOUND
+
+=== Sample newly added ENHANCED ===
+DA-31 (BLACK) => 'Display Stand\nDrawer Qty: 1\nColor: Black\nMaterial: Steel\nSize: W1013xD496xH1663mm'
+KQ-105 => NOT FOUND
+WB-7051M => NOT FOUND
+
+=== Layout checks ===
+Forced page-break-after div removed: False
+Product Photos heading has margin-top: True
+Product Photos heading has page-break-after:avoid: True
+Photo cell has page-break-inside:avoid: True
+Photo row has page-break-inside:avoid (existing): True
+
+Both inline objects parse as valid JSON: OK
+File size: 1267202 bytes

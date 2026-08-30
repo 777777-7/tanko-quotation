@@ -1,0 +1,12 @@
+﻿##### buildItemRowHtml
+at 1086708 : mputed (unit price typed in the app, total = unit x qty) // so the generated document needs no manual editing. function buildItemRowHtml(n, item) {   // Use enhanced spec if available (richer: C/w accessories, load capacity, colour).   const effectiveName = EN
+
+at 1095059 : const reSubject = items.length > 1 ? firstName + " & others" : firstName;    let rowsHtml = items     .map((item, i) => buildItemRowHtml(i + 1, item))     .join("");   // Delivery fee, if any, is the last numbered line in the list.   if (delivery) {     rowsHt
+
+##### nl2brWithBoldSku
+at 843763 : Product(product) {   selectedProduct = product;   el.skuSearch.value = product.sku;   el.productNameDisplay.innerHTML = nl2brWithBoldSku(product.sku + "\n" + product.name);   el.productNameDisplay.classList.remove("placeholder");   el.suggestions.classList.rem
+
+at 846602 : \">"       : "";      row.innerHTML =       "<td><div class=\"product-cell\">" +         thumbHtml +         "<span>" + nl2brWithBoldSku(item.name) + "</span>" +       "</div></td>" +       "<td>" + item.qty + "</td>" +       "<td><input type=\"number\" class=
+
+at 850342 :  it. Line 2 is the product name and stays put; // the remaining feature lines are re-ordered so "Size:" leads. function nl2brWithBoldSku(str) {   const lines = String(str).split("\n");   const sku = escapeHtml(lines[0]);   const tail = lines.slice(1, 2).concat
+

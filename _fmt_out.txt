@@ -1,0 +1,15 @@
+﻿=== DETAILED_SPECS raw start ===
+{"RY-01SA": {"model_no": "RY-01SA", "dimension": "W1240 x D540 x H2020mm", "material": "Stainless Steel", "attributes": {"Combination": "1", "Top": "Stainless steel"}}, "RY-01WA": {"model_no": "RY-01WA", "dimension": "W1240 x D540 x H2020mm", "material": "Wood", "attributes": {"Combination": "1", "Top": "Wood"}}, "RY-02SA": {"model_no": "RY-02SA", "dimension": "W2140 x D540 x H2020mm", "material": "Stainless Steel", "attributes": {"Combination": "2", "Top": "Stainless steel"}}, "RY-02WA": {"model_no": "RY-02WA", "dimension": "W2140 x D540 x H2020mm", "material": "Wood", "attributes": {"Combination": "2", "Top": "Wood"}}, "RY-03SA": {"model_no": "RY-03SA", "dimension": "W2760 x D540 x H2020mm", "material": "Stainless Steel", "attributes": {"Combination": "3", "Top": "Stainless steel"}}, "RY
+
+last key: 'KP-4802'
+=== DETAILED_SPECS raw tail ===
+"KP-4802": {"model_no": "KP-4802", "dimension": "W134xH216 mm", "loading": ["5kg"], "attributes": {"Dimensions": "W134xH216 mm", "Display Size": "â‰¤ 27 Inches"}}};
+
+function fillSelect(selectEl, options, placeholder) {
+  selectEl.innerHTML = "";
+  if (placeholder) {
+    const opt = document.createElement("option");
+    opt.value = "";
+    opt.textContent = placeholder;
+    opt.disabled = true;
+  

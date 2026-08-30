@@ -1,0 +1,129 @@
+﻿==================== buildItemRowHtml ====================
+function buildItemRowHtml(n, item) {
+  // Use enhanced spec if available (richer: C/w accessories, load capacity, colour).
+  const effectiveName = ENHANCED_PRODUCTS[item.sku] || item.name;
+  const lines = String(effectiveName).split("\n");
+  const sku = escapeHtml(lines[0]);
+  const pname = lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "";
+  const restFeats = orderFeatureLines(lines.slice(2));
+  let descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
+  descHtml += restFeats
+    .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
+    .join("");
+
+  // Supplement with detailed specs (handle, items included) not already in the name.
+  const ds = DETAILED_SPECS[item.sku];
+  if (ds) {
+    const existingText = effectiveName.toLowerCase();
+    if (ds.dimension && !existingText.includes("size") && !existingText.includes("dimension")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Dimensions: " + escapeHtml(ds.dimension);
+    }
+    if (ds.material && !existingText.includes("material") && !existingText.includes("steel") && !existingText.includes("wood")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Material: " + escapeHtml(ds.material);
+    }
+    if (ds.loading && ds.loading.length && !existingText.includes("weight hold") && !existingText.includes("load")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Loading: " + escapeHtml(ds.loading.join("; "));
+    }
+    if (ds.handle && !existingText.includes("handle")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Handle: " + escapeHtml(ds.handle);
+    }
+    if (ds.colour && !existingText.includes("colour") && !existingText.includes("color")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Colour: " + escapeHtml(ds.colour);
+    }
+    if (ds.items_included && ds.items_included.length) {
+      // Filter out generic terms already covered by C/w line
+      const generic = ["tool cabinet", "storage cabinet", "cabinet", "drawer unit"];
+      const extraItems = ds.items_included.filter((it) => {
+        const itLow = it.toLowerCase();
+        return !generic.some((g) => itLow === g || itLow.includes(g + ":")) &&
+               !existingText.includes(itLow.replace(/\s+/g, ""));
+      });
+      if (extraItems.length) {
+        descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Accessories: " + extraItems.map(escapeHtml).join(", ");
+      }
+    }
+  }
+
+  // Blank line after each product so consecutive products stay visually separated.
+  descHtml += "<br>&nbsp;";
+
+  const uom = item.qty + " unit" + (item.qty > 1 ? "s" : "");
+
+  return (
+    "<tr style=\"vertical-align:top;\">" +
+      "<td style=\"white-space:nowrap; padding:2pt 8pt 0 0;\">" + n + ".)</td>" +
+      "<td style=\"padding:2pt 0 0 0;\">" + descHtml + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:center; padding:2pt 10pt 0;\">" + uom + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:2pt 10pt 0;\">" + money(finalUnitPrice(item.price)) + "</td>" +
+      "<td style=\"white-space:nowrap; text-align:right; padding:2pt 0 0;\">" + money(item.total) + "</td>" +
+    "</tr>"
+  );
+}
+
+==================== buildPhotoCellHtml ====================
+function buildPhotoCellHtml(n, product, imageSrc) {
+  const effectiveName = ENHANCED_PRODUCTS[product.sku] || product.name;
+  const lines = String(effectiveName).split("\n");
+  const firstLine = lines[0] || "";
+  const productType = (firstLine.toUpperCase() === product.sku.toUpperCase())
+    ? (lines[1] || "")
+    : firstLine;
+  const titleLabel = "<b>" + escapeHtml(product.sku) + "</b>" +
+    (productType ? " &ndash; " + escapeHtml(productType) : "");
+  const specs = DETAILED_SPECS[product.sku];
+
+  // Top: dimension drawing image
+  const imgHtml = imageSrc
+    ? "<img src=\"" + imageSrc + "\" style=\"width:100%!important;max-width:220px!important;height:auto!important;display:block!important;margin:0 auto 8pt auto;\" alt=\"" + escapeHtml(product.sku) + " dimension drawing\">"
+    : "<p style=\"font-style:italic; color:#666; text-align:center; padding:20pt 0;\">(No photo available)</p>";
+
+  // Bottom: detailed specs table (like Quo_Tenpower reference)
+  let specRows = "";
+  if (specs) {
+    const row = (label, value) => "<tr><td style=\"padding:2pt 6pt 2pt 0;white-space:nowrap;vertical-align:top;font-size:8.5pt;font-weight:bold;width:75pt;\">" + label + "</td><td style=\"padding:2pt 0;vertical-align:top;font-size:8.5pt;\">" + value + "</td></tr>";
+    if (specs.model_no) specRows += row("Model No.", escapeHtml(specs.model_no));
+    if (specs.dimension) specRows += row("Dimensions", escapeHtml(specs.dimension));
+    if (specs.material) specRows += row("Material", escapeHtml(specs.material));
+    if (specs.handle) specRows += row("Handle", escapeHtml(specs.handle));
+    if (specs.colour) specRows += row("Colour", escapeHtml(specs.colour));
+    if (specs.loading && specs.loading.length) {
+      const loadVal = specs.loading.map(escapeHtml).join("<br>");
+      specRows += row("Loading", loadVal);
+    }
+    if (specs.items_included && specs.items_included.length) {
+      const generic = ["tool cabinet", "storage cabinet", "cabinet", "drawer unit"];
+      const cleanItems = specs.items_included.filter((it) => {
+        const itLow = it.toLowerCase();
+        return !generic.some((g) => itLow === g || itLow.startsWith(g + ":"));
+      });
+      const itemsVal = cleanItems.map(escapeHtml).join(", ");
+      if (itemsVal) specRows += row("Items Included", itemsVal);
+    }
+  }
+
+  const specTable = specRows
+    ? "<table style=\"width:100%;border-collapse:collapse;\">" + specRows + "</table>"
+    : "<p style=\"font-size:8.5pt;color:#666;\">Specifications available on request.</p>";
+
+  return (
+    "<td style=\"width:50%;vertical-align:top;padding:0 10pt 14pt 0;\">" +
+      "<p style=\"margin:0 0 5pt;font-size:9.5pt;font-weight:bold;border-bottom:1pt solid #333;padding-bottom:2pt;\">" + n + ")&nbsp; " + titleLabel + "</p>" +
+      imgHtml +
+      specTable +
+    "</td>"
+  );
+}
+
+==================== buildPhotosGridHtml ====================
+function buildPhotosGridHtml(items, imageSrcs) {
+  let rows = "";
+  for (let i = 0; i < items.length; i += 2) {
+    const cell1 = buildPhotoCellHtml(i + 1, items[i], imageSrcs[i]);
+    const cell2 = (i + 1 < items.length)
+      ? buildPhotoCellHtml(i + 2, items[i + 1], imageSrcs[i + 1])
+      : "<td style=\"width:50%;\"></td>";
+    rows += "<tr style=\"page-break-inside:avoid;\">" + cell1 + cell2 + "</tr>";
+  }
+  return "<table style=\"width:100%; border-collapse:collapse;\">" + rows + "</table>";
+}
+

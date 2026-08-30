@@ -1,0 +1,35 @@
+﻿90px!important; max-width:90px!important; height:auto!important; display:block!important;"></td>
+          <td style="vertical-align:middle; text-align:left; font-size:10pt; padding-left:14px; padding-right:14px;">
+            <p style="text-align:left; font-size:22pt; line-height:1.05; margin:0; white-space:nowrap;"><b>Primaxs Marketing (M) Sdn. Bhd.</b> <span style="font-size:7pt; font-weight:normal;">(Co.No. 200601036829)</span></p>
+            <p style="text-align:left;">39, Jalan Balakong Jaya 4, Taman Industri Balakong Jaya, 43300 Seri Kembangan, Selangor D.E.</p>
+            <p style="text-align:left;">Email: sales@storagesystem.my &nbsp;&nbsp;&nbsp; Website: www.storagesystem.my</p>
+            <p style="text-align:left;">Tel: 03-4296 4737, 03-4295 0430 &nbsp;&nbsp;&nbsp; Fax: 03-4296 6737</p>
+            <p style="text-align:left; margin-top:4pt; font-size:9pt; color:#555;"><i>Exclusive Malaysia Distributor for</i></p>
+          </td>
+          <td style="width:160px; vertical-align:middle; text-align:right;">
+            <img src="${TANKO_LOGO_DATA_URI}" width="150" style="width:150px!important; max-width:150px!important; height:auto!important; display:block!important; margin-left:auto;">
+          </td>
+        </tr>
+      </table>
+      <p style="text-align:center; font-size:22pt; font-style:italic; font-weight:bold; margin:4pt 0 3pt;">Quotation</p>
+      <p style="text-align:right; white-space:nowrap; margin:0;">Date : ${dateStr}</p>
+      <p style="text-align:right; white-space:nowrap; margin:0 0 4pt;">Quote No.: ${escapeHtml(serial)}</p>
+
+      <p style="margin-top:3pt;"><b>${escapeHtml(customer.name)}</b></p>
+      <p>${addressHtml}</p>
+      <p>Tel : ${escapeHtml(customer.contact)}</p>
+      <p style="margin:6pt 0 6pt;"><b>Attn</b>&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.attn || "")}</p>
+      <p style="font-size:12pt; margin:3pt 0 2pt;"><b><u>RE: Quotation for ${escapeHtml(reSubject)}</u></b></p>
+      <p style="margin-bottom:4pt;">With reference to our tele-conversation, we are pleased to submit herewith the quotation for your kind attention and perusal.</p>
+
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <td style="width:5%; font-style:italic; padding:2px 8px; border-bottom:2px solid #000;"><b>No.</b></td>
+            <td style="width:50%; font-style:italic; padding:2px 8px; border-bottom:2px solid #000;"><b>Description</b></td>
+            <td style="width:11%; font-style:italic; padding:2px 8px; text-align:center; border-bottom:2px solid #000;"><b>UoM</b></td>
+            <td style="width:17%; font-style:italic; padding:2px 8px; text-align:right; border-bottom:2px solid #000; white-space:nowrap;"><b>Unit&nbsp;Price</b>&nbsp;(RM)</td>
+            <td style="width:17%; font-style:italic; padding:2px 8px; text-align:right; border-bottom:2px solid #000; white-space:nowrap;"><b>Total&nbsp;Amt</b>&nbsp;(RM)</td>
+          </tr>
+          <tr>
+            <td colspan="5

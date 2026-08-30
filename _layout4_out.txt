@@ -1,0 +1,65 @@
+﻿" style="padding:0;">
+              <div style="height:1px; background:#000; margin:2px 0 2px;"></div>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5" style="font-style:italic; padding:2pt 0 6pt;"><b>TANKO</b> Storage Solutions &ndash; Products from Taiwan</td>
+          </tr>
+          ${rowsHtml}
+        </tbody>
+      </table>
+
+      <!-- Grand total on page 1 -->
+      <table style="width:100%; border-collapse:collapse; margin-top:8pt;">
+        <tr>
+          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:4pt 8pt 4pt 0; font-size:12pt;"><b>Grand Total Amount</b></td>
+          <td style="border-top:1.5pt solid #000; border-bottom:3pt double #000; padding:4pt 0; text-align:right; white-space:nowrap; font-size:12pt;"><b>RM ${money(grandTotal)}</b></td>
+        </tr>
+      </table>
+
+      <!-- Page break: product photos start on new page -->
+      <div style="page-break-after: always;"></div>
+
+      <!-- Page 2: Product Photos with specs -->
+      <p style="margin:0 0 8pt 0; font-size:14pt; font-weight:bold; border-bottom:2pt solid #000; padding-bottom:4pt;">Product Photos</p>
+      ${photosHtml}
+
+      <!-- Terms and conditions -->
+      <table style="width:100%; border-collapse:collapse; margin-top:10pt;">
+        <tr>
+          <td style="width:33%; border:1px solid #000; padding:4pt 8pt; font-size:9.5pt;">Delivery : 4 to 6 Weeks</td>
+          <td style="width:33%; border:1px solid #000; padding:4pt 8pt; font-size:9.5pt;">Terms : C.O.D.</td>
+          <td style="width:34%; border:1px solid #000; padding:4pt 8pt; font-size:9.5pt;">Transportation : Ex-K.L.</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #000; padding:4pt 8pt; font-size:9.5pt;">&nbsp;</td>
+          <td style="border:1px solid #000; padding:4pt 8pt; font-size:9.5pt;">Validity : 10 Days</td>
+          <td style="border:1px solid #000; padding:4pt 8pt; font-size:9.5pt;">&nbsp;</td>
+        </tr>
+      </table>
+
+      <p style="margin-top:10pt; font-size:10pt;">Should you require further information, please do not hesitate to contact the undersigned.</p>
+      <p style="font-size:10pt;">Thank you.</p>
+      <p style="margin-top:10pt; font-size:10pt;">Yours faithfully,</p>
+      <p style="font-size:10pt; font-weight:bold;">Primaxs Marketing (M) Sdn. Bhd.</p>
+      <table style="border-collapse:collapse; margin:0;">
+        <tr><td style="width:140px; text-align:center; padding:0;">
+          <p style="font-style:italic; font-size:11pt; margin:8pt 0 0;">Kenny LAI</p>
+        </td></tr>
+        <tr><td style="width:140px; text-align:center; padding:0;">
+          <p style="margin:0;">_______________</p>
+        </td></tr>
+      </table>
+      <p style="font-size:10pt; font-weight:bold; margin-top:4pt;">Kenny LAI</p>
+      <p style="font-size:10pt;">012-616 3088</p>
+    </div>
+
+    </body>
+    </html>
+  `;
+}
+
+async function handleGenerateDocument() {
+  const customer = 

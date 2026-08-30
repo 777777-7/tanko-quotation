@@ -1,0 +1,46 @@
+﻿function buildItemRowHtml(n, item) {
+  // Use enhanced spec if available (richer: C/w accessories, load capacity, colour).
+  const effectiveName = ENHANCED_PRODUCTS[item.sku] || item.name;
+  const lines = String(effectiveName).split("\n");
+  const sku = escapeHtml(lines[0]);
+  const pname = lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "";
+  const restFeats = orderFeatureLines(lines.slice(2));
+  let descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
+  descHtml += restFeats
+    .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
+    .join("");
+
+  // Supplement with detailed specs (handle, items included) not already in the name.
+  const ds = DETAILED_SPECS[item.sku];
+  if (ds) {
+    const existingText = effectiveName.toLowerCase();
+    if (ds.dimension && !existingText.includes("size") && !existingText.includes("dimension")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Dimensions: " + escapeHtml(ds.dimension);
+    }
+    if (ds.material && !existingText.includes("material") && !existingText.includes("steel") && !existingText.includes("wood")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Material: " + escapeHtml(ds.material);
+    }
+    if (ds.loading && ds.loading.length && !existingText.includes("weight hold") && !existingText.includes("load")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Loading: " + escapeHtml(ds.loading.join("; "));
+    }
+    if (ds.handle && !existingText.includes("handle")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Handle: " + escapeHtml(ds.handle);
+    }
+    if (ds.colour && !existingText.includes("colour") && !existingText.includes("color")) {
+      descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Colour: " + escapeHtml(ds.colour);
+    }
+    if (ds.items_included && ds.items_included.length) {
+      // Filter out generic terms already covered by C/w line
+      const generic = ["tool cabinet", "storage cabinet", "cabinet", "drawer unit"];
+      const extraItems = ds.items_included.filter((it) => {
+        const itLow = it.toLowerCase();
+        return !generic.some((g) => itLow === g || itLow.includes(g + ":")) &&
+               !existingText.includes(itLow.replace(/\s+/g, ""));
+      });
+      if (extraItems.length) {
+        descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- Accessories: " + extraItems.map(escapeHtml).join(", ");
+      }
+    }
+  }
+
+  // Blank line after each product so

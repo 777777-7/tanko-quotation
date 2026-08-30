@@ -1,0 +1,48 @@
+﻿function handleGenerateDocument() {
+  const customer = {
+    name: el.customerName.value.trim(),
+    contact: el.customerContact.value.trim(),
+    address: el.customerAddress.value.trim(),
+    attn: el.customerAttn.value.trim(),
+  };
+
+  if (!customer.name) {
+    alert("Please enter the customer name before generating the document.");
+    return;
+  }
+  if (quoteItems.length === 0) {
+    alert("Add at least one item to the quote first.");
+    return;
+  }
+
+  const originalLabel = el.generateDocBtn.textContent;
+  el.generateDocBtn.disabled = true;
+  el.generateDocBtn.textContent = "Generating...";
+
+  try {
+    const serial = nextQuotationSerial();
+    const delivery = getDeliveryFee();
+    const html = await buildQuotationHtml(customer, quoteItems, serial, delivery);
+
+    // Open in new window and trigger print -> user saves as PDF
+    const printWindow = window.open("", "_blank");
+    printWindow.document.open();
+    printWindow.document.write(html);
+    printWindow.document.close();
+    printWindow.focus();
+
+    // Wait for all images to load before printing
+    function waitForImagesAndPrint() {
+      try {
+        const imgs = printWindow.document.images;
+        let allLoaded = imgs.length > 0;
+        for (let i = 0; i < imgs.length; i++) {
+          if (!imgs[i].complete || imgs[i].naturalWidth === 0) {
+            allLoaded = false;
+            break;
+          }
+        }
+        if (allLoaded) {
+          printWindow.print();
+        } else {
+          setTimeout(waitFo

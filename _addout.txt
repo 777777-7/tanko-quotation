@@ -1,0 +1,41 @@
+﻿selectedProduct occurrences: 8
+addItemBtn at 12653
+
+
+    <div class="form-row">
+      <label for="qtyInput">Quantity</label>
+      <input type="number" id="qtyInput" value="1" min="1" step="1">
+    </div>
+
+    <div class="form-row">
+      <button id="addItemBtn" type="button">Add Item</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Current Quote</h2>
+    <div class="table-wrap">
+      <table id="itemsTable">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Unit Price (USD)</th>
+            <th>Total (RM)</th>
+          </tr>
+        </thead>
+        <tbody id="itemsTableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="table-actions">
+      <button id="deleteItemBtn" type="button" class="btn-secondary">Delete Selected Item</button>
+      <div class="grand-total-pill">
+        <span class="label">Grand Total</span>
+        <span id="grandTotalDisplay">RM 0.00</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <button id="generateDocBt

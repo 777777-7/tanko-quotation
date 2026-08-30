@@ -1,0 +1,32 @@
+﻿841766 | >' +       "<span class=\"sug-sku\">" + escapeHtml(product.sku) + "</span>" +       "<span class=\"s
+841840 | " +       "<span class=\"sug-name\">" + escapeHtml(product.name.replace(/\n/g, " / ")) + "</span>" +
+848761 | " + money(getGrandTotal()); }  function escapeHtml(str) {   return String(str)     .replace(/&/g, "&
+849068 | ogether. function nl2br(str) {   return escapeHtml(str).replace(/\n/g, "<br>"); }  // Bare single-wo
+850421 |  String(str).split("\n");   const sku = escapeHtml(lines[0]);   const tail = lines.slice(1, 2).conca
+850566 |  rest = tail.map(formatFeatureLine).map(escapeHtml).join("<br>");   return "<strong>" + sku + "</str
+1086953 | fectiveName).split("\n");   const sku = escapeHtml(lines[0]);   const pname = lines[1] ? "&nbsp;(" +
+1087014 |    const pname = lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "";   const restFeats = orderFe
+1087237 | ) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))     .join("");    // Suppl
+1087640 | bsp;&nbsp;&nbsp;&nbsp;- Dimensions: " + escapeHtml(ds.dimension);     }     if (ds.material && !exis
+1087865 | &nbsp;&nbsp;&nbsp;&nbsp;- Material: " + escapeHtml(ds.material);     }     if (ds.loading && ds.load
+1088076 | >&nbsp;&nbsp;&nbsp;&nbsp;- Loading: " + escapeHtml(ds.loading.join("; "));     }     if (ds.handle &
+1088235 | r>&nbsp;&nbsp;&nbsp;&nbsp;- Handle: " + escapeHtml(ds.handle);     }     if (ds.colour && !existingT
+1088417 | r>&nbsp;&nbsp;&nbsp;&nbsp;- Colour: " + escapeHtml(ds.colour);     }     if (ds.items_included && ds
+1089019 | &nbsp;- Accessories: " + extraItems.map(escapeHtml).join(", ");       }     }   }    // Blank line a
+1090153 | tml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + escapeHtml(delivery.desc);   }   return (     "<tr style=\"v
+1091297 | firstLine;   const titleLabel = "<b>" + escapeHtml(product.sku) + "</b>" +     (productType ? " &nda
+1091365 | /b>" +     (productType ? " &ndash; " + escapeHtml(productType) : "");   const specs = DETAILED_SPEC
+1091677 | ant;margin:0 auto 8pt auto;\" alt=\"" + escapeHtml(product.sku) + " dimension drawing\">"     : "<p 
+1092260 | .model_no) specRows += row("Model No.", escapeHtml(specs.model_no));     if (specs.dimension) specRo
+1092344 | imension) specRows += row("Dimensions", escapeHtml(specs.dimension));     if (specs.material) specRo
+1092426 | s.material) specRows += row("Material", escapeHtml(specs.material));     if (specs.handle) specRows 
+1092503 | specs.handle) specRows += row("Handle", escapeHtml(specs.handle));     if (specs.colour) specRows +=
+1092578 | specs.colour) specRows += row("Colour", escapeHtml(specs.colour));     if (specs.loading && specs.lo
+1092694 |       const loadVal = specs.loading.map(escapeHtml).join("<br>");       specRows += row("Loading", l
+1093147 | ;       const itemsVal = cleanItems.map(escapeHtml).join(", ");       if (itemsVal) specRows += row(
+1094683 | Date(new Date());   const addressHtml = escapeHtml(customer.address).replace(/\n/g, "<br>");    // R
+1098971 | e:nowrap; margin:0 0 4pt;">Quote No.: ${escapeHtml(serial)}</p>        <p style="margin-top:3pt;"><b
+1099034 |         <p style="margin-top:3pt;"><b>${escapeHtml(customer.name)}</b></p>       <p>${addressHtml}</
+1099114 |  <p>${addressHtml}</p>       <p>Tel : ${escapeHtml(customer.contact)}</p>       <p style="margin:6pt
+1099222 | ><b>Attn</b>&nbsp;&nbsp;&nbsp;&nbsp;: ${escapeHtml(customer.attn || "")}</p>       <p style="font-si
+1099336 | n:3pt 0 2pt;"><b><u>RE: Quotation for ${escapeHtml(reSubject)}</u></b></p>       <p style="margin-bo

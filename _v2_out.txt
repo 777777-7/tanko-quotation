@@ -1,0 +1,9 @@
+﻿DETAILED_SPECS keys lost: 0 []
+ENHANCED keys lost: 0 []
+DETAILED_SPECS changed values: 0 []
+ENHANCED changed values: 0 []
+DETAILED_SPECS new keys: ['ME-321', 'ME-322', 'WKT-5102F', 'WKT-5102F1', 'WKT-5102F1+WPK-21', 'WKT-5102W', 'WKT-5102W1', 'WKT-5102W1+WPK-21']
+ENHANCED new keys: ['ME-321', 'ME-322', 'WKT-5102F', 'WKT-5102F1', 'WKT-5102F1+WPK-21', 'WKT-5102W', 'WKT-5102W1', 'WKT-5102W1+WPK-21']
+old html starts same: True
+old html ends same: True
+new html size: 1112912 old: 1108828

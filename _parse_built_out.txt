@@ -1,0 +1,30 @@
+﻿==================== WKT ====================
+--- table 0 ---
+Model No. | WKT-5102 | Workbench
+Top | → WKT-5102F1 Laminate top(F) / Rubber wood top(W)
+--- table 1 ---
+Model No. | WKT-5102 | Workbench-top | F | W
+Dimensions | W1500xD755xH965-1165mm
+Material | Steel Workbench loading：100kg
+Drawer | loading：35kg | Roll | holder | loading：20kg
+--- table 2 ---
+Model No. | WKT-5102 | Workbench-top | F | W
+Dimensions | W1500xD785xH965-1165mm
+Material | Steel Workbench loading：100kg
+Drawer | loading：35kg | Roll | holder | loading：20kg
+Shelf | loading：20kg
+--- table 3 ---
+Model | Dimensions | Top | Accessories | 
+WKT-5102F | W1500xD755xH965-1165mm | Laminate(F) | None | Details →
+WKT-5102F1 | W1500xD755xH965-1165mm | Laminate(F) | Shelf | Details →
+WKT-5102F1+WPK-21 | W1500xD755xH965-1165mm | Laminate(F) | Shelf+Tray | Details →
+WKT-5102W | W1500xD755xH965-1165mm | Wood(W) | None | Details →
+WKT-5102W1 | W1500xD755xH965-1165mm | Wood(W) | Shelf | Details →
+WKT-5102W1+WPK-21 | W1500xD755xH965-1165mm | Wood(W) | Shelf+Tray | Details →
+==================== ME ====================
+--- table 0 ---
+Model | Dimensions | Type | Pull-out Rack | 
+ME-321 | W970xD700xH2000mm | A type | Independent | Details →
+ME-321 | W970xD700xH2000mm | B type | Independent | Details →
+ME-322 | W900xD700xH2000mm | A type | Linkable | Details →
+ME-322 | W900xD700xH2000mm | B type | Linkable | Details →

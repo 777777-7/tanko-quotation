@@ -1,0 +1,9 @@
+﻿ENHANCED regex found: True
+total keys: 1927
+first 3: ['<SKU code>', 'RY-01SA', 'RY-01WA']
+last 3: ['KP-6109(RED)', 'KP-4300', 'KP-4802']
+=== ENHANCED raw start ===
+{"<SKU code>": "<Product name>", "RY-01SA": "Professional Workstation\nCombination 1\nStainless Steel\nSize: W1240 x D540 x H2020mm", "RY-01WA": "Professional Workstation\nCombination 1\nWood\nSize: W1240 x D540 x H2020mm", "RY-02SA": "Professional Workstation\nCombination 2\nStainless Steel\nSize: W2140 x D540 x H2020mm", "RY-02WA": "Professional Workstation\nCombination 2\nWood\nSize: W2140 x D540 x H2020mm", "RY-03SA": "Professional Workstation\nCombination 3\nStainless Steel\nSize: W2760 x D540 x H2020mm", "RY-03WA": "Professional Workstation\nCombination 3\nWood\nSize: W2760 x D540 x H202
+=== ENHANCED raw tail ===
+"KP-4802": "Monitor Arm\nW134XH216MM\nâ‰¤ 27 Inches\nSize: W134 x D125~475 x H216mm\nWeight Hold: 5kg"};
+const DETAILED_SPECS = {"RY-01SA": {"model_no": "RY-01SA", "dimension": "W1240 x D540 x H2020mm", "material": "Stainless Steel", "attributes": {"Combination": "1", "Top": "Stainless steel"}}, "RY

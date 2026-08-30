@@ -1,0 +1,1 @@
+﻿'return (\n    "<td style=\\"width:50%;vertical-align:top;padding:0 10pt 14pt 0;\\">" +\n      "<p style=\\"margin:0 0 5pt;font-size:9.5pt;font-weight:bold;border-bottom:1pt solid #333;padding-bottom:2pt;\\">" + n + ")&nbsp; " + titleLabel + "</p>" +\n      imgHtml +\n      specTable +\n    "</td>"\n  );\n}\n\n\nf'

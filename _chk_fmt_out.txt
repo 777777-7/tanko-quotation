@@ -1,0 +1,11 @@
+﻿To back-fill DETAILED_SPECS: 330
+Distinct field sets in data JSON:
+   ('colour', 'dimension', 'handle', 'items_included', 'loading', 'material', 'model_no') -> 330 e.g. ['DA-31 (BLACK)', 'DA-31 (WHITE)', 'DA-32 (BLACK)']
+
+DA-31 (BLACK) => {"model_no": "DA-31 (BLACK)", "dimension": "W1013xD496xH1663mm", "material": "Steel", "handle": "", "colour": "Black", "loading": [], "items_included": ["Drawer Qty: 1", "Perforated board", "Black or white", "Drawer", "With dividers", "With leveler screws"]}
+DA-31 (WHITE) => {"model_no": "DA-31 (WHITE)", "dimension": "W1013xD496xH1663mm", "material": "Steel", "handle": "", "colour": "White", "loading": [], "items_included": ["Drawer Qty: 1", "Perforated board", "Black or white", "Drawer", "With dividers", "With leveler screws"]}
+DA-32 (BLACK) => {"model_no": "DA-32 (BLACK)", "dimension": "W1013xD496xH1663mm", "material": "Steel", "handle": "", "colour": "Black", "loading": [], "items_included": ["Drawer Qty: 2", "Perforated board", "Black or white", "Drawer", "With dividers", "With leveler screws"]}
+DA-32 (WHITE) => {"model_no": "DA-32 (WHITE)", "dimension": "W1013xD496xH1663mm", "material": "Steel", "handle": "", "colour": "White", "loading": [], "items_included": ["Drawer Qty: 2", "Perforated board", "Black or white", "Drawer", "With dividers", "With leveler screws"]}
+DB-31 (BLACK) => {"model_no": "DB-31 (BLACK)", "dimension": "W1013xD496xH1663mm", "material": "Steel", "handle": "", "colour": null, "loading": ["Adjustable shelves"], "items_included": ["Drawer Qty (Color): 1 (Black)", "Shelf depth: D310mm", "Perforated board", "Black or white", "G-shaped handle", "Drawer", "With dividers", "With leveler screws"]}
+
+Entries with no dimension AND no material: 42

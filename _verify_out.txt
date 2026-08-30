@@ -1,0 +1,27 @@
+﻿file size bytes: 1112912
+DETAILED_SPECS total keys: 1929
+ENHANCED_PRODUCTS total keys: 1935
+WKT in DETAILED_SPECS: 6 -> ['WKT-5102F', 'WKT-5102F1', 'WKT-5102F1+WPK-21', 'WKT-5102W', 'WKT-5102W1', 'WKT-5102W1+WPK-21']
+ME in DETAILED_SPECS: 2 -> ['ME-321', 'ME-322']
+WKT in ENHANCED: 6 -> ['WKT-5102F', 'WKT-5102F1', 'WKT-5102F1+WPK-21', 'WKT-5102W', 'WKT-5102W1', 'WKT-5102W1+WPK-21']
+ME in ENHANCED: 2 -> ['ME-321', 'ME-322']
+
+=== new DETAILED_SPECS entries ===
+ME-321 => {"model_no": "ME-321", "dimension": "W970xD700xH2000mm", "material": "Steel", "handle": "", "colour": null, "loading": ["80kg per pull-out shelf"], "items_included": ["Pull-out shelf adjustable every 100mm", "Perforated board with hooks", "Configuration: Independent"]}
+ME-322 => {"model_no": "ME-322", "dimension": "W900xD700xH2000mm", "material": "Steel", "handle": "", "colour": null, "loading": ["80kg per pull-out shelf"], "items_included": ["Pull-out shelf adjustable every 100mm", "Perforated board with hooks", "Configuration: Linkable"]}
+WKT-5102F => {"model_no": "WKT-5102F", "dimension": "W1500xD755xH965-1165mm", "material": "Laminate(F)", "handle": "", "colour": null, "loading": ["Workbench loading: 100kg", "Drawer loading: 35kg", "Roll holder loading: 20kg"], "items_included": ["Roll holder", "Tabletop cutter", "Perforated board panel"]}
+WKT-5102F1 => {"model_no": "WKT-5102F1", "dimension": "W1500xD755xH965-1165mm", "material": "Laminate(F)", "handle": "", "colour": null, "loading": ["Workbench loading: 100kg", "Drawer loading: 35kg", "Roll holder loading: 20kg", "Shelf loading: 20kg"], "items_included": ["Roll holder", "Tabletop cutter", "Perforated board panel", "Shelf"]}
+WKT-5102F1+WPK-21 => {"model_no": "WKT-5102F1+WPK-21", "dimension": "W1500xD755xH965-1165mm", "material": "Laminate(F)", "handle": "", "colour": null, "loading": ["Workbench loading: 100kg", "Drawer loading: 35kg", "Roll holder loading: 20kg", "Shelf loading: 20kg"], "items_included": ["Roll holder", "Tabletop cutter", "Perforated board panel", "Shelf", "Tray (WPK-21)"]}
+WKT-5102W => {"model_no": "WKT-5102W", "dimension": "W1500xD755xH965-1165mm", "material": "Wood(W)", "handle": "", "colour": null, "loading": ["Workbench loading: 100kg", "Drawer loading: 35kg", "Roll holder loading: 20kg"], "items_included": ["Roll holder", "Tabletop cutter", "Perforated board panel"]}
+WKT-5102W1 => {"model_no": "WKT-5102W1", "dimension": "W1500xD755xH965-1165mm", "material": "Wood(W)", "handle": "", "colour": null, "loading": ["Workbench loading: 100kg", "Drawer loading: 35kg", "Roll holder loading: 20kg", "Shelf loading: 20kg"], "items_included": ["Roll holder", "Tabletop cutter", "Perforated board panel", "Shelf"]}
+WKT-5102W1+WPK-21 => {"model_no": "WKT-5102W1+WPK-21", "dimension": "W1500xD755xH965-1165mm", "material": "Wood(W)", "handle": "", "colour": null, "loading": ["Workbench loading: 100kg", "Drawer loading: 35kg", "Roll holder loading: 20kg", "Shelf loading: 20kg"], "items_included": ["Roll holder", "Tabletop cutter", "Perforated board panel", "Shelf", "Tray (WPK-21)"]}
+
+=== new ENHANCED entries ===
+ME-321 => 'Pull-out Rack\nType: A type\nPull-out Rack: Independent\nMaterial: Steel\nSize: W970xD700xH2000mm\nLoad cap.: 80kg per pull-out shelf'
+ME-322 => 'Pull-out Rack\nType: A type\nPull-out Rack: Linkable\nMaterial: Steel\nSize: W900xD700xH2000mm\nLoad cap.: 80kg per pull-out shelf'
+WKT-5102F => 'Packing Station\nTop: Laminate(F)\nAccessories: None\nMaterial: Laminate(F)\nSize: W1500xD755xH965-1165mm\nLoad cap.: Workbench = 100kg, Drawer = 35kg, Roll holder = 20kg'
+WKT-5102F1 => 'Packing Station\nTop: Laminate(F)\nAccessories: Shelf\nMaterial: Laminate(F)\nSize: W1500xD755xH965-1165mm\nLoad cap.: Workbench = 100kg, Drawer = 35kg, Roll holder = 20kg, Shelf = 20kg'
+WKT-5102F1+WPK-21 => 'Packing Station\nTop: Laminate(F)\nAccessories: Shelf+Tray\nMaterial: Laminate(F)\nSize: W1500xD755xH965-1165mm\nLoad cap.: Workbench = 100kg, Drawer = 35kg, Roll holder = 20kg, Shelf = 20kg'
+WKT-5102W => 'Packing Station\nTop: Wood(W)\nAccessories: None\nMaterial: Wood(W)\nSize: W1500xD755xH965-1165mm\nLoad cap.: Workbench = 100kg, Drawer = 35kg, Roll holder = 20kg'
+WKT-5102W1 => 'Packing Station\nTop: Wood(W)\nAccessories: Shelf\nMaterial: Wood(W)\nSize: W1500xD755xH965-1165mm\nLoad cap.: Workbench = 100kg, Drawer = 35kg, Roll holder = 20kg, Shelf = 20kg'
+WKT-5102W1+WPK-21 => 'Packing Station\nTop: Wood(W)\nAccessories: Shelf+Tray\nMaterial: Wood(W)\nSize: W1500xD755xH965-1165mm\nLoad cap.: Workbench = 100kg, Drawer = 35kg, Roll holder = 20kg, Shelf = 20kg'

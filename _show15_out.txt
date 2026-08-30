@@ -1,0 +1,70 @@
+﻿call at 1095059
+function buildQuotationHtml(customer, items, serial, delivery) {
+  // Product photos, resolved to a doc-embeddable source (data URI or file path).
+  // Prefer dimension drawings (with W/D/H annotations) when available.
+  const imageSrcs = await Promise.all(
+    items.map((item) => resolveImageForDoc(getDimensionImagePath(item.sku)))
+  );
+
+  const dateStr = formatQuotationDate(new Date());
+  const 
+...
+margin:0 0 5pt;font-size:9.5pt;font-weight:bold;border-bottom:1pt solid #333;padding-bottom:2pt;\">" + n + ")&nbsp; " + titleLabel + "</p>" +
+      imgHtml +
+      specTable +
+    "</td>"
+  );
+}
+
+
+function buildPhotosGridHtml(items, imageSrcs) {
+  let rows = "";
+  for (let i = 0; i < items.length; i += 2) {
+    const cell1 = buildPhotoCellHtml(i + 1, items[i], imageSrcs[i]);
+    const cell2 = (i + 1 < items.length)
+      ? buildPhotoCellHtml(i + 2, items[i + 1], imageSrcs[i + 1])
+      : "<td style=\"width:50%;\"></td>";
+    rows += "<tr style=\"page-break-inside:avoid;\">" + cell1 + cell2 + "</tr>";
+  }
+  return "<table style=\"width:100%; border-collapse:collapse;\">" + rows + "</table>";
+}
+
+
+async function buildQuotationHtml(customer, items, serial, delivery) {
+  // Product photos, resolved to a doc-embeddable source (data URI or file path).
+  // Prefer dimension drawings (with W/D/H annotations) when available.
+  const imageSrcs = await Promise.all(
+    items.map((item) => resolveImageForDoc(getDimensionImagePath(item.sku)))
+  );
+
+  const dateStr = formatQuotationDate(new Date());
+  const addressHtml = escapeHtml(customer.address).replace(/\n/g, "<br>");
+
+  // RE-line subject: single item -> "(Product Name)"; multiple -> "(First Name & others)".
+  const firstParts = String(items[0].name).split("\n");
+  const firstName = firstParts[1] || firstParts[0];
+  const reSubject = items.length > 1 ? firstName + " & others" : firstName;
+
+  let rowsHtml = items
+    .map((item, i) => buildItemRowHtml(i + 1, item))
+    .join("");
+  // Delivery fee, if any, is the last numbered line in the list.
+  if (delivery) {
+    rowsHtml += buildDeliveryRowHtml(items.length + 1, delivery);
+  }
+
+  const itemsSum = items.reduce((sum, item) => sum + item.total, 0);
+  const grandTotal = itemsSum + (delivery ? delivery.price : 0);
+
+  const photosHtml = buildPhotosGridHtml(items, imageSrcs);
+
+  return `
+    <html xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:w="urn:schemas-microsoft-com:office:word"
+          xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+      <meta charset="utf-8">
+      <base href="${window.location.origin}${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')+1)}">
+      <title>Quotation</title>
+      <style>
+       

@@ -1,0 +1,8 @@
+﻿at 12653 :  id="qtyInput" value="1" min="1" step="1">     </div>      <div class="form-row">       <button id="addItemBtn" type="button">Add Item</button>     </div>   </section>    <section class="panel">     <h2>Current Quote</h2>     <div class="table-wrap">       <table id="itemsTable">         <thead>           <tr>             <th>Product</th>          
+
+at 14430 : g: document.getElementById("productPreviewImg"),   qtyInput: document.getElementById("qtyInput"),   addItemBtn: document.getElementById("addItemBtn"),   deleteItemBtn: document.getElementById("deleteItemBtn"),   generateDocBtn: document.getElementById("generateDocBtn"),   itemsTable: document.getElementById("itemsTable"),   itemsTableBody: document
+
+at 14467 : eviewImg"),   qtyInput: document.getElementById("qtyInput"),   addItemBtn: document.getElementById("addItemBtn"),   deleteItemBtn: document.getElementById("deleteItemBtn"),   generateDocBtn: document.getElementById("generateDocBtn"),   itemsTable: document.getElementById("itemsTable"),   itemsTableBody: document.getElementById("itemsTableBody"),   
+
+at 1110997 : elivery ? delivery.price : null,     grand_total: grandTotal,   });   if (error) throw error; }  el.addItemBtn.addEventListener("click", handleAddItem); el.deleteItemBtn.addEventListener("click", handleDeleteSelected); el.generateDocBtn.addEventListener("click", handleGenerateDocument);  // Delivery fee: reveal the description/price fields only whe
+

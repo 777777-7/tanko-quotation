@@ -1,0 +1,94 @@
+﻿---- RA-9201 ----
+{"model_no": "RA-9201", "dimension": "W900 x D510 x H2020mm", "material": "Steel", "loading": ["100kg / shelf"], "items_included": ["Shelf x4"], "attributes": {"Accessories": "None", "Dimensions": "W900xD510xH2020mm"}}
+---- RA-6201 ----
+{"model_no": "RA-6201", "dimension": "W620 x D510 x H2020mm", "material": "Steel", "loading": ["100kg / shelf"], "items_included": ["Shelf x4"], "attributes": {"Dimensions": "W620xD510xH2020", "Shelf": "4 pcs"}}
+---- RA-9091(WOOD) ----
+{"model_no": "RA-9091(WOOD)", "dimension": "W900 x D510 x H970mm", "material": "Wood"}
+---- RA-9091+RPQ-9103A(WOOD) ----
+{"model_no": "RA-9091+RPQ-9103A(WOOD)", "dimension": "W900 x D510 x H2020mm", "material": "Wood"}
+---- RA-9091+RPQ-9063A+RPH-91(WOOD) ----
+{"model_no": "RA-9091+RPQ-9063A+RPH-91(WOOD)", "dimension": "W900 x D510 x H2020mm", "material": "Wood"}
+---- RA-6091(WOOD) ----
+{"model_no": "RA-6091(WOOD)", "dimension": "W620 x D510 x H970mm", "material": "Wood"}
+---- RA-6091+RPQ-6103A(WOOD) ----
+{"model_no": "RA-6091+RPQ-6103A(WOOD)", "dimension": "W620 x D510 x H2020mm", "material": "Wood"}
+---- RA-6091+RPQ-6063A+RPH-61(WOOD) ----
+{"model_no": "RA-6091+RPQ-6063A+RPH-61(WOOD)", "dimension": "W620 x D510 x H2020mm", "material": "Wood"}
+---- RC-6094(WOOD) ----
+{"model_no": "RC-6094(WOOD)", "dimension": "W620 x D510 x H970mm", "material": "Wood"}
+---- RC-6094+RPQ-6103A(WOOD) ----
+{"model_no": "RC-6094+RPQ-6103A(WOOD)", "dimension": "W620 x D510 x H2020mm", "material": "Wood"}
+---- RC-6094+RPQ-6063A+RPH-61(WOOD) ----
+{"model_no": "RC-6094+RPQ-6063A+RPH-61(WOOD)", "dimension": "W620 x D510 x H2020mm", "material": "Wood"}
+---- RB-6098(WOOD) ----
+{"model_no": "RB-6098(WOOD)", "dimension": "W620 x D510 x H970mm", "material": "Wood"}
+---- RB-6098+RPQ-6103A(WOOD) ----
+{"model_no": "RB-6098+RPQ-6103A(WOOD)", "dimension": "W620 x D510 x H2020mm", "material": "Wood"}
+---- RB-6098+RPQ-6063A+RPH-61(WOOD) ----
+{"model_no": "RB-6098+RPQ-6063A+RPH-61(WOOD)", "dimension": "W620 x D510 x H2020mm", "material": "Wood"}
+---- WB-57W+EGA-7041 ----
+{"model_no": "WB-57W+EGA-7041", "dimension": "W1500 x D750 x H800mm", "material": "Wood"}
+---- WB-57W2+EGA-7041 ----
+{"model_no": "WB-57W2+EGA-7041", "dimension": "W1500 x D750 x H1400mm", "material": "Wood"}
+---- WB-57W3+EGA-7041 ----
+{"model_no": "WB-57W3+EGA-7041", "dimension": "W1500 x D750 x H1400mm", "material": "Wood"}
+---- WB-57W4A+EGA-7041 ----
+{"model_no": "WB-57W4A+EGA-7041", "dimension": "W1500 x D750 x H1400mm", "material": "Wood"}
+---- WB-57W5A+EGA-7041 ----
+{"model_no": "WB-57W5A+EGA-7041", "dimension": "W1500 x D750 x H1400mm", "material": "Wood"}
+---- WB-57W6A+EGA-7041 ----
+{"model_no": "WB-57W6A+EGA-7041", "dimension": "W1500 x D750 x H1400mm", "material": "Wood"}
+---- WB-67W2+EGA-7041 ----
+{"model_no": "WB-67W2+EGA-7041", "dimension": "W1800 x D750 x H1400mm", "material": "Wood"}
+---- WB-67W3+EGA-7041 ----
+{"model_no": "WB-67W3+EGA-7041", "dimension": "W1800 x D750 x H1400mm", "material": "Wood"}
+---- WB-67W4A+EGA-7041 ----
+{"model_no": "WB-67W4A+EGA-7041", "dimension": "W1800 x D750 x H1400mm", "material": "Wood"}
+---- WB-67W5A+EGA-7041 ----
+{"model_no": "WB-67W5A+EGA-7041", "dimension": "W1800 x D750 x H1400mm", "material": "Wood"}
+---- WB-67W6A+EGA-7041 ----
+{"model_no": "WB-67W6A+EGA-7041", "dimension": "W1800 x D750 x H1400mm", "material": "Wood"}
+---- WB-67W7A+EGA-7041 ----
+{"model_no": "WB-67W7A+EGA-7041", "dimension": "W1800 x D750 x H1365mm", "material": "Wood"}
+---- A4L-104 ----
+{"model_no": "A4L-104", "dimension": "W284 x D348 x H360mm", "material": "Steel", "colour": "White", "items_included": ["Drawer : A4L x4"]}
+---- A4L-204P ----
+{"model_no": "A4L-204P", "dimension": "W586 x D348 x H380mm", "material": "Steel", "colour": "White", "items_included": ["Drawer : A4L x4"]}
+---- A4L-208 ----
+{"model_no": "A4L-208", "dimension": "W586 x D348 x H380mm", "material": "Steel", "colour": "White"}
+---- A4L-110 ----
+{"model_no": "A4L-110", "dimension": "W313 x D348 x H880mm", "material": "Steel", "colour": "White"}
+---- A4L-220 ----
+{"model_no": "A4L-220", "dimension": "W596 x D348 x H880mm", "material": "Steel", "colour": "White", "items_included": ["Drawer : A4L x20"]}
+---- A4L-330 ----
+{"model_no": "A4L-330", "dimension": "W880 x D348 x H880mm", "material": "Steel", "colour": "White"}
+---- A4A-345 ----
+{"model_no": "A4A-345", "dimension": "W880 x D348 x H880mm", "material": "Steel", "colour": "White", "items_included": ["Drawer : A4A x45"]}
+---- A4L-336 ----
+{"model_no": "A4L-336", "dimension": "W880 x D348 x H1060mm", "material": "Steel", "colour": "White"}
+---- A4L-330D ----
+{"model_no": "A4L-330D", "dimension": "W940 x D405 x H945mm", "material": "Steel", "colour": "White", "items_included": ["Drawer : A4L x30"]}
+---- KP-3305 ----
+{"model_no": "KP-3305", "material": "Steel", "loading": ["6kg"], "attributes": {"Type": "Single hook (L50)", "Quantity": "10pcs"}}
+---- KP-3108 ----
+{"model_no": "KP-3108", "material": "Steel", "attributes": {"Type": "Single hook (L80)", "Quantity": "10pcs"}}
+---- KP-3208 ----
+{"model_no": "KP-3208", "material": "Steel", "attributes": {"Type": "Double hook (L80)", "Quantity": "10pcs"}}
+---- KP-3502 ----
+{"model_no": "KP-3502", "material": "Steel", "attributes": {"Type": "Loop hook-S (Ã˜20)", "Quantity": "10pcs"}}
+---- KP-3705 ----
+{"model_no": "KP-3705", "material": "Steel", "loading": ["6kg"], "attributes": {"Type": "Semicircle hook (L50)", "Quantity": "10pcs"}}
+---- KP-17 ----
+{"model_no": "KP-17", "dimension": "W900xD300 mm", "material": "Steel", "colour": "Gray", "loading": ["50kg"], "attributes": {"Dimensions": "W900xD300"}}
+---- KP-4604 ----
+{"model_no": "KP-4604", "dimension": "W390 x D90 x H85mm", "material": "Steel", "attributes": {"Capacity": "4 bottles", "NA": "NA"}}
+---- KP-4504 ----
+{"model_no": "KP-4504", "dimension": "W88 x D110 x H62mm", "material": "Steel", "attributes": {"Capacity": "4 pcs", "NA": "NA"}}
+---- KP-4213 ----
+{"model_no": "KP-4213", "dimension": "L390 mm", "material": "Steel", "attributes": {"Specification": "Ã˜8x7+Ã˜10x6", "NA": "NA"}}
+---- KP-4114 ----
+{"model_no": "KP-4114", "dimension": "L390 mm", "material": "Steel", "attributes": {"Specification": "Ã˜14x6+Ã˜19x4+Ã˜22x4", "NA": "NA"}}
+---- KP-4120 ----
+{"model_no": "KP-4120", "dimension": "L390 mm", "material": "Steel", "attributes": {"Specification": "Ã˜5x8+Ã˜8x7+Ã˜13x5", "NA": "NA"}}
+---- KP-4300 ----
+{"model_no": "KP-4300", "material": "Steel", "attributes": {"Quantity": "12 pcs", "NA": "NA"}}
