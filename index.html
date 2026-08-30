@@ -5472,10 +5472,11 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
         </tr>
       </table>
 
-      <!-- Product photos flow naturally after line items; each image+spec pair stays together -->
+      <!-- Page break: product photos start on new page -->
+      <div style="page-break-after: always;"></div>
 
       <!-- Page 2: Product Photos with specs -->
-      <p style="margin:14pt 0 8pt 0; font-size:14pt; font-weight:bold; border-bottom:2pt solid #000; padding-bottom:4pt; page-break-after:avoid;">Product Photos</p>
+      <p style="margin:0 0 8pt 0; font-size:14pt; font-weight:bold; border-bottom:2pt solid #000; padding-bottom:4pt;">Product Photos</p>
       ${photosHtml}
 
       <!-- Terms and conditions -->
@@ -5498,7 +5499,7 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <p style="font-size:10pt; font-weight:bold;">Primaxs Marketing (M) Sdn. Bhd.</p>
       <table style="border-collapse:collapse; margin:0;">
         <tr><td style="width:140px; text-align:center; padding:0;">
-          <p style="font-style:italic; font-size:11pt; margin:8pt 0 0;">Kenny LAI</p>
+          <p style="font-family:'Viner Hand ITC', cursive; font-size:18pt; margin:8pt 0 0; color:#000;">Kenny LAI</p>
         </td></tr>
         <tr><td style="width:140px; text-align:center; padding:0;">
           <p style="margin:0;">_______________</p>

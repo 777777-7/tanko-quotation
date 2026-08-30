@@ -1,0 +1,8 @@
+﻿Done. Added:
+  - Download Word (.doc) button
+  - handleDownloadWord function
+  - event listener
+
+Button present: True
+Function present: True
+Listener present: True

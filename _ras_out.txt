@@ -1,0 +1,8 @@
+﻿Revert checks:
+  downloadWordBtn button removed: True
+  handleDownloadWord removed: True
+
+Signature font changed:
+  Viner Hand ITC present: True
+
+Done.
