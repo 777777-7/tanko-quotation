@@ -48135,5 +48135,35 @@
       "image": true
     },
     "product_type": "mother_product"
+  },
+  {
+    "sku": "KP-4701",
+    "product_family": "Tray",
+    "family_slug": "kp-47",
+    "category": "Perforated Board",
+    "category_slug": "perforated-board",
+    "subcategory": "Accessories",
+    "color": "Black, White",
+    "dimensions": "W250 x D100 x H60 mm",
+    "material": "Steel",
+    "load_capacity": null,
+    "attributes": {
+      "Dimensions": "W250 x D100 x H60 mm",
+      "Color": "Black, White",
+      "Material": "Steel",
+      "Application": "Perforated Board"
+    },
+    "image_paths": [
+      "asset3/kp-47-1.webp"
+    ],
+    "tanko_url": "https://www.tanko.com.tw/en/products-detail/kp-47/",
+    "evidence": {
+      "tanko": true,
+      "pdf": false,
+      "image": true
+    },
+    "distinct_title": "Tray for Perforated Board - KP-4701",
+    "product_type": "mother_product",
+    "specification": "Features:\n- Can be applied to perforated boards\n- Ideal for storing small parts and tools\n- Durable steel construction\n- Available in Black and White\n- Dimensions: W250 x D100 x H60 mm"
   }
 ]
