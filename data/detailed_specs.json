@@ -14863,5 +14863,6519 @@
       "Dimensions": "W134xH216 mm",
       "Display Size": "≤ 27 Inches"
     }
+  },
+  "RA-9201 + RPB-91": {
+    "model_no": "RA-9201 + RPB-91",
+    "dimension": "W900xD510xH2020mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Accessories: Drawer set",
+      "Dimensions: W900xD510xH2020mm",
+      "Shelf",
+      "With lock",
+      "Accessories"
+    ]
+  },
+  "RA-9201 + RPB-92": {
+    "model_no": "RA-9201 + RPB-92",
+    "dimension": "W900xD510xH2020mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Accessories: Adjustable shelf",
+      "Dimensions: W900xD510xH2020mm",
+      "Shelf",
+      "With lock",
+      "Accessories"
+    ]
+  },
+  "RA-9091": {
+    "model_no": "RA-9091",
+    "dimension": "W900xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Top: Wood",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Drawer set"
+    ]
+  },
+  "RA-9091 + RPQ-9063A + RPH-91": {
+    "model_no": "RA-9091 + RPQ-9063A + RPH-91",
+    "dimension": "W900xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel+Wall cabinet",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Drawer set"
+    ]
+  },
+  "RA-9091 + RPQ-9103A": {
+    "model_no": "RA-9091 + RPQ-9103A",
+    "dimension": "W900xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Drawer set"
+    ]
+  },
+  "RA-6091": {
+    "model_no": "RA-6091",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Shelf",
+      "With lock"
+    ]
+  },
+  "RA-6091 + RPQ-6063A + RPH-61": {
+    "model_no": "RA-6091 + RPQ-6063A + RPH-61",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel+Wall cabinet",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Shelf",
+      "With lock"
+    ]
+  },
+  "RA-6091 + RPQ-6103A": {
+    "model_no": "RA-6091 + RPQ-6103A",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Shelf",
+      "With lock"
+    ]
+  },
+  "RD-6091 + RPQ-6062 + RPH-61": {
+    "model_no": "RD-6091 + RPQ-6062 + RPH-61",
+    "dimension": "W620xD510xH1220mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel set: Panel (With water baffle)+Wall cabinet",
+      "Notes: Plumbing pipes not included",
+      "Wall cabinet",
+      "Panel",
+      "With lock",
+      "Easy to clean",
+      "Stainless steel sink",
+      "Water baffle"
+    ]
+  },
+  "RD-6091 + RPQ-6102": {
+    "model_no": "RD-6091 + RPQ-6102",
+    "dimension": "W620xD510xH1220mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel set: Panel (With water baffle)",
+      "Notes: Plumbing pipes not included",
+      "Wall cabinet",
+      "Panel",
+      "With lock",
+      "Easy to clean",
+      "Stainless steel sink",
+      "Water baffle"
+    ]
+  },
+  "RG-6091": {
+    "model_no": "RG-6091",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Top: Wood",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Wastebin cabinet"
+    ]
+  },
+  "RG-6091 + RPQ-6063A + RPH-61": {
+    "model_no": "RG-6091 + RPQ-6063A + RPH-61",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel+Wall cabinet",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Wastebin cabinet"
+    ]
+  },
+  "RG-6091 + RPQ-6103A": {
+    "model_no": "RG-6091 + RPQ-6103A",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Wastebin cabinet"
+    ]
+  },
+  "RC-6094": {
+    "model_no": "RC-6094",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Storage space",
+      "Accessories"
+    ]
+  },
+  "RC-6094 + RPQ-6063A + RPH-61": {
+    "model_no": "RC-6094 + RPQ-6063A + RPH-61",
+    "dimension": "W620xD510xH970mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Stainless steel",
+      "Panel set: Panel+Wall cabinet",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Storage space",
+      "Accessories"
+    ]
+  },
+  "RC-6094 + RPQ-6063A + RPH-61(WOOD)": {
+    "model_no": "RC-6094 + RPQ-6063A + RPH-61(WOOD)",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel+Wall cabinet",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Storage space",
+      "Accessories"
+    ]
+  },
+  "RC-6094 + RPQ-6103A": {
+    "model_no": "RC-6094 + RPQ-6103A",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Storage space",
+      "Accessories"
+    ]
+  },
+  "RB-6098": {
+    "model_no": "RB-6098",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Tool cabinet",
+      "Accessories"
+    ]
+  },
+  "RB-6098 + RPQ-6063A + RPH-61": {
+    "model_no": "RB-6098 + RPQ-6063A + RPH-61",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel+Wall cabinet",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Tool cabinet",
+      "Accessories"
+    ]
+  },
+  "RB-6098 + RPQ-6103A": {
+    "model_no": "RB-6098 + RPQ-6103A",
+    "dimension": "W620xD510xH970mm",
+    "material": "Wood",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Wood",
+      "Panel set: Panel",
+      "Wall cabinet",
+      "Panel",
+      "Socket",
+      "Desktop",
+      "Tool cabinet",
+      "Accessories"
+    ]
+  },
+  "SAA-331(SPW-3) + SPQ-32A": {
+    "model_no": "SAA-331(SPW-3) + SPQ-32A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Steel",
+      "Panel Set: Panel",
+      "Desktop",
+      "Shelf",
+      "With lock",
+      "Panel",
+      "Socket",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAA-331(SPW-3) + SPQ-33A": {
+    "model_no": "SAA-331(SPW-3) + SPQ-33A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Steel",
+      "Panel Set: Panel+Light",
+      "Desktop",
+      "Shelf",
+      "With lock",
+      "Panel",
+      "Socket",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAA-331(SPW-3S) + SPQ-32A": {
+    "model_no": "SAA-331(SPW-3S) + SPQ-32A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Stainless steel",
+      "Panel Set: Panel",
+      "Desktop",
+      "Shelf",
+      "With lock",
+      "Panel",
+      "Socket",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAA-331(SPW-3S) + SPQ-33A": {
+    "model_no": "SAA-331(SPW-3S) + SPQ-33A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Stainless steel",
+      "Panel Set: Panel+Light",
+      "Desktop",
+      "Shelf",
+      "With lock",
+      "Panel",
+      "Socket",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAB-331(SPW-3) + SPQ-32A": {
+    "model_no": "SAB-331(SPW-3) + SPQ-32A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Steel",
+      "Panel set: Panel",
+      "Desktop",
+      "Shelf",
+      "Drawer",
+      "With lock",
+      "Panel",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAB-331(SPW-3) + SPQ-33A": {
+    "model_no": "SAB-331(SPW-3) + SPQ-33A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Steel",
+      "Panel set: Panel+Light",
+      "Desktop",
+      "Shelf",
+      "Drawer",
+      "With lock",
+      "Panel",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAB-331(SPW-3S) + SPQ-32A": {
+    "model_no": "SAB-331(SPW-3S) + SPQ-32A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Stainless steel",
+      "Panel set: Panel",
+      "Desktop",
+      "Shelf",
+      "Drawer",
+      "With lock",
+      "Panel",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "SAB-331(SPW-3S) + SPQ-33A": {
+    "model_no": "SAB-331(SPW-3S) + SPQ-33A",
+    "dimension": "W900xD515xH900mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Top: Stainless steel",
+      "Panel set: Panel+Light",
+      "Desktop",
+      "Shelf",
+      "Drawer",
+      "With lock",
+      "Panel",
+      "Panel set",
+      "With levelers screws",
+      "Storage cabinet"
+    ]
+  },
+  "WE-47W (BLACK)": {
+    "model_no": "WE-47W (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W (WHITE)": {
+    "model_no": "WE-47W (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W3 (BLACK)": {
+    "model_no": "WE-47W3 (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W3 (WHITE)": {
+    "model_no": "WE-47W3 (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W4 (BLACK)": {
+    "model_no": "WE-47W4 (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W4 (WHITE)": {
+    "model_no": "WE-47W4 (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W5 (BLACK)": {
+    "model_no": "WE-47W5 (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W5 (WHITE)": {
+    "model_no": "WE-47W5 (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W7 (BLACK)": {
+    "model_no": "WE-47W7 (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W7 (WHITE)": {
+    "model_no": "WE-47W7 (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W8 (BLACK)": {
+    "model_no": "WE-47W8 (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W8 (WHITE)": {
+    "model_no": "WE-47W8 (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W9 (BLACK)": {
+    "model_no": "WE-47W9 (BLACK)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-47W9 (WHITE)": {
+    "model_no": "WE-47W9 (WHITE)",
+    "dimension": "W1200xD600xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W (BLACK)": {
+    "model_no": "WE-58W (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W (WHITE)": {
+    "model_no": "WE-58W (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W3 (BLACK)": {
+    "model_no": "WE-58W3 (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W3 (WHITE)": {
+    "model_no": "WE-58W3 (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W4 (BLACK)": {
+    "model_no": "WE-58W4 (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W4 (WHITE)": {
+    "model_no": "WE-58W4 (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W5 (BLACK)": {
+    "model_no": "WE-58W5 (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W5 (WHITE)": {
+    "model_no": "WE-58W5 (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W7 (BLACK)": {
+    "model_no": "WE-58W7 (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W7 (WHITE)": {
+    "model_no": "WE-58W7 (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W8 (BLACK)": {
+    "model_no": "WE-58W8 (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W8 (WHITE)": {
+    "model_no": "WE-58W8 (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W9 (BLACK)": {
+    "model_no": "WE-58W9 (BLACK)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WE-58W9 (WHITE)": {
+    "model_no": "WE-58W9 (WHITE)",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W (BLACK)": {
+    "model_no": "WET-4102W (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W (WHITE)": {
+    "model_no": "WET-4102W (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W3 (BLACK)": {
+    "model_no": "WET-4102W3 (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W3 (WHITE)": {
+    "model_no": "WET-4102W3 (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W4 (BLACK)": {
+    "model_no": "WET-4102W4 (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W4 (WHITE)": {
+    "model_no": "WET-4102W4 (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W5 (BLACK)": {
+    "model_no": "WET-4102W5 (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W5 (WHITE)": {
+    "model_no": "WET-4102W5 (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W7 (BLACK)": {
+    "model_no": "WET-4102W7 (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W7 (WHITE)": {
+    "model_no": "WET-4102W7 (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W8 (BLACK)": {
+    "model_no": "WET-4102W8 (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W8 (WHITE)": {
+    "model_no": "WET-4102W8 (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W9 (BLACK)": {
+    "model_no": "WET-4102W9 (BLACK)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-4102W9 (WHITE)": {
+    "model_no": "WET-4102W9 (WHITE)",
+    "dimension": "W1200xD610xH750mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W (BLACK)": {
+    "model_no": "WET-5102W (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W (WHITE)": {
+    "model_no": "WET-5102W (WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W3 (BLACK)": {
+    "model_no": "WET-5102W3 (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W3 (WHITE)": {
+    "model_no": "WET-5102W3 (WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W4 (BLACK)": {
+    "model_no": "WET-5102W4 (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W4 (WHITE)": {
+    "model_no": "WET-5102W4 (WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W48(WHITE)": {
+    "model_no": "WET-5102W48(WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W5 (BLACK)": {
+    "model_no": "WET-5102W5 (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W5 (WHITE)": {
+    "model_no": "WET-5102W5 (WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H600 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W7 (BLACK)": {
+    "model_no": "WET-5102W7 (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W7 (WHITE)": {
+    "model_no": "WET-5102W7 (WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W8 (BLACK)": {
+    "model_no": "WET-5102W8 (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W9 (BLACK)": {
+    "model_no": "WET-5102W9 (BLACK)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WET-5102W9 (WHITE)": {
+    "model_no": "WET-5102W9 (WHITE)",
+    "dimension": "W1500xD760xH800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Panel set: H900 Perforated board+Shelf+Light",
+      "Black or white",
+      "Rubber wood top",
+      "With leveler screws",
+      "Drawer",
+      "Buffer slide",
+      "G-shaped handle",
+      "Cable grommet",
+      "Perforated board",
+      "Monitor arm",
+      "Shelf",
+      "Shelf",
+      "Ultra thin LED light"
+    ]
+  },
+  "WB-57F + EGA-7041": {
+    "model_no": "WB-57F + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57F2 + EGA-7041": {
+    "model_no": "WB-57F2 + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57F3 + EGA-7041": {
+    "model_no": "WB-57F3 + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57F4A + EGA-7041": {
+    "model_no": "WB-57F4A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57F5A + EGA-7041": {
+    "model_no": "WB-57F5A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57F6A + EGA-7041": {
+    "model_no": "WB-57F6A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57N + EGA-7041": {
+    "model_no": "WB-57N + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57N2 + EGA-7041": {
+    "model_no": "WB-57N2 + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57N3 + EGA-7041": {
+    "model_no": "WB-57N3 + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57N4A + EGA-7041": {
+    "model_no": "WB-57N4A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57N5A + EGA-7041": {
+    "model_no": "WB-57N5A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57N6A + EGA-7041": {
+    "model_no": "WB-57N6A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57W + EGA-7041": {
+    "model_no": "WB-57W + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57W2 + EGA-7041": {
+    "model_no": "WB-57W2 + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57W3 + EGA-7041": {
+    "model_no": "WB-57W3 + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57W4A + EGA-7041": {
+    "model_no": "WB-57W4A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57W5A + EGA-7041": {
+    "model_no": "WB-57W5A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-57W6A + EGA-7041": {
+    "model_no": "WB-57W6A + EGA-7041",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F + EGA-7041": {
+    "model_no": "WB-67F + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F2 + EGA-7041": {
+    "model_no": "WB-67F2 + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F3 + EGA-7041": {
+    "model_no": "WB-67F3 + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F4A + EGA-7041": {
+    "model_no": "WB-67F4A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F5A + EGA-7041": {
+    "model_no": "WB-67F5A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F6A + EGA-7041": {
+    "model_no": "WB-67F6A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67F7A + EGA-7041": {
+    "model_no": "WB-67F7A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Laminate top(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate top(F)",
+      "Panel set: Parts cabinet+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N + EGA-7041": {
+    "model_no": "WB-67N + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N2 + EGA-7041": {
+    "model_no": "WB-67N2 + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N3 + EGA-7041": {
+    "model_no": "WB-67N3 + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N4A + EGA-7041": {
+    "model_no": "WB-67N4A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N5A + EGA-7041": {
+    "model_no": "WB-67N5A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N6A + EGA-7041": {
+    "model_no": "WB-67N6A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67N7A + EGA-7041": {
+    "model_no": "WB-67N7A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Rubber top(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber top(N)",
+      "Panel set: Parts cabinet+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67W2 + EGA-7041": {
+    "model_no": "WB-67W2 + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67W3 + EGA-7041": {
+    "model_no": "WB-67W3 + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67W4A + EGA-7041": {
+    "model_no": "WB-67W4A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67W5A + EGA-7041": {
+    "model_no": "WB-67W5A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67W6A + EGA-7041": {
+    "model_no": "WB-67W6A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WB-67W7A + EGA-7041": {
+    "model_no": "WB-67W7A + EGA-7041",
+    "dimension": "W1800xD750xH800mm",
+    "material": "Wood top(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "600kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood top(W)",
+      "Panel set: Parts cabinet+Socket+Light",
+      "Workbench-top",
+      "Tool cabinet",
+      "Perforated boards",
+      "Shelf",
+      "Universal socket",
+      "LED Light",
+      "Transparent front window",
+      "Ｗith divider",
+      "Anti-static mat"
+    ]
+  },
+  "WA-57S6": {
+    "model_no": "WA-57S6",
+    "dimension": "W1500xD650xH786mm |",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "With leveler screws",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031F5A": {
+    "model_no": "WAS-54031F5A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate(F)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031F6A": {
+    "model_no": "WAS-54031F6A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Laminate(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate(F)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031N5A": {
+    "model_no": "WAS-54031N5A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber(N)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031N6A": {
+    "model_no": "WAS-54031N6A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Rubber(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber(N)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031S5A": {
+    "model_no": "WAS-54031S5A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031S6A": {
+    "model_no": "WAS-54031S6A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031TG5A": {
+    "model_no": "WAS-54031TG5A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Tanko-top(TG)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Tanko-top(TG)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031TG6A": {
+    "model_no": "WAS-54031TG6A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Tanko-top(TG)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Tanko-top(TG)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031TH5A": {
+    "model_no": "WAS-54031TH5A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Tanko-top(TH)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Tanko-top(TH)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031TH6A": {
+    "model_no": "WAS-54031TH6A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Tanko-top(TH)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Tanko-top(TH)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031W5A": {
+    "model_no": "WAS-54031W5A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood(W)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAS-54031W6A": {
+    "model_no": "WAS-54031W6A",
+    "dimension": "W1500xD750xH800mm",
+    "material": "Wood(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood(W)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "Hanging cabinet",
+      "Perforated boards",
+      "Universal socket",
+      "Shelf & LED Light",
+      "Anti-static mat"
+    ]
+  },
+  "WAD-77042S3": {
+    "model_no": "WAD-77042S3",
+    "dimension": "W2100xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Shelf",
+      "Workbench-top",
+      "With leveler screws",
+      "With lock",
+      "Division boxes",
+      "Patented drawer latch",
+      "Anti-static mat"
+    ]
+  },
+  "WAD-77042S4A": {
+    "model_no": "WAD-77042S4A",
+    "dimension": "W2100xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Socket",
+      "Workbench-top",
+      "With leveler screws",
+      "With lock",
+      "Division boxes",
+      "Patented drawer latch",
+      "Anti-static mat"
+    ]
+  },
+  "WAD-77042S5A": {
+    "model_no": "WAD-77042S5A",
+    "dimension": "W2100xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Shelf+Socket",
+      "Workbench-top",
+      "With leveler screws",
+      "With lock",
+      "Division boxes",
+      "Patented drawer latch",
+      "Anti-static mat"
+    ]
+  },
+  "WAD-77042S6A": {
+    "model_no": "WAD-77042S6A",
+    "dimension": "W2100xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Perforated board+Shelf+Socket+Light",
+      "Workbench-top",
+      "With leveler screws",
+      "With lock",
+      "Division boxes",
+      "Patented drawer latch",
+      "Anti-static mat"
+    ]
+  },
+  "WAD-77042S7A": {
+    "model_no": "WAD-77042S7A",
+    "dimension": "W2100xD750xH800mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "2000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Panel set: Parts cabinet+Socket+Light",
+      "Workbench-top",
+      "With leveler screws",
+      "With lock",
+      "Division boxes",
+      "Patented drawer latch",
+      "Anti-static mat"
+    ]
+  },
+  "WAT-6203FM": {
+    "model_no": "WAT-6203FM",
+    "dimension": "W1800xD750xH850mm",
+    "material": "Laminate(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "1000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Laminate(F)",
+      "Type: Drawers",
+      "Workbench-top",
+      "4 inch PU castors",
+      "Undershelf",
+      "Hanging cabinet",
+      "Drawers",
+      "Anti-static mat"
+    ]
+  },
+  "WAT-6203NM": {
+    "model_no": "WAT-6203NM",
+    "dimension": "W1800xD750xH850mm",
+    "material": "Rubber(N)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "1000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Rubber(N)",
+      "Type: Drawers",
+      "Workbench-top",
+      "4 inch PU castors",
+      "Undershelf",
+      "Hanging cabinet",
+      "Drawers",
+      "Anti-static mat"
+    ]
+  },
+  "WAT-6203SM": {
+    "model_no": "WAT-6203SM",
+    "dimension": "W1800xD750xH850mm",
+    "material": "Stainless steel(S)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "1000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Stainless steel(S)",
+      "Type: Drawers",
+      "Workbench-top",
+      "4 inch PU castors",
+      "Undershelf",
+      "Hanging cabinet",
+      "Drawers",
+      "Anti-static mat"
+    ]
+  },
+  "WAT-6203TGM": {
+    "model_no": "WAT-6203TGM",
+    "dimension": "W1800xD750xH850mm",
+    "material": "Tanko-top(TG)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "1000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Tanko-top(TG)",
+      "Type: Drawers",
+      "Workbench-top",
+      "4 inch PU castors",
+      "Undershelf",
+      "Hanging cabinet",
+      "Drawers",
+      "Anti-static mat"
+    ]
+  },
+  "WAT-6203THM": {
+    "model_no": "WAT-6203THM",
+    "dimension": "W1800xD750xH850mm",
+    "material": "Tanko-top(TH)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "1000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Tanko-top(TH)",
+      "Type: Drawers",
+      "Workbench-top",
+      "4 inch PU castors",
+      "Undershelf",
+      "Hanging cabinet",
+      "Drawers",
+      "Anti-static mat"
+    ]
+  },
+  "WAT-6203WM": {
+    "model_no": "WAT-6203WM",
+    "dimension": "W1800xD750xH850mm",
+    "material": "Wood(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "1000kg load capacity"
+    ],
+    "items_included": [
+      "Top: Wood(W)",
+      "Type: Drawers",
+      "Workbench-top",
+      "4 inch PU castors",
+      "Undershelf",
+      "Hanging cabinet",
+      "Drawers",
+      "Anti-static mat"
+    ]
+  },
+  "WS-48MS": {
+    "model_no": "WS-48MS",
+    "dimension": "W1217xD768xH887mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Type: Standard",
+      "Material: Stainless steel",
+      "304 stainless steel",
+      "3\" PU castors",
+      "Undershelf",
+      "Drawers"
+    ]
+  },
+  "WD-58MS": {
+    "model_no": "WD-58MS",
+    "dimension": "W1517xD768xH887 mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Type: Standard",
+      "Material: Stainless steel",
+      "304 stainless steel",
+      "3\" PU castors",
+      "Undershelf",
+      "Drawers"
+    ]
+  },
+  "WD-68MS": {
+    "model_no": "WD-68MS",
+    "dimension": "W1817xD768xH887 mm",
+    "material": "Stainless steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Type: Standard",
+      "Material: Stainless steel",
+      "304 stainless steel",
+      "3\" PU castors",
+      "Undershelf",
+      "Drawers"
+    ]
+  },
+  "WKT-5102F": {
+    "model_no": "WKT-5102F",
+    "dimension": "W1500xD755xH965-1165mm",
+    "material": "Laminate(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Height-adjustable work surface (965-1165mm)"
+    ],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "Perforated board panel"
+    ]
+  },
+  "WKT-5102F1": {
+    "model_no": "WKT-5102F1",
+    "dimension": "W1500xD755xH965-1165mm",
+    "material": "Laminate(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Height-adjustable work surface (965-1165mm)"
+    ],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "Perforated board panel",
+      "Accessories: Shelf"
+    ]
+  },
+  "WKT-5102F1+WPK-21": {
+    "model_no": "WKT-5102F1+WPK-21",
+    "dimension": "W1500xD755xH965-1165mm",
+    "material": "Laminate(F)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Height-adjustable work surface (965-1165mm)"
+    ],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "Perforated board panel",
+      "Accessories: Shelf+Tray"
+    ]
+  },
+  "WKT-5102W": {
+    "model_no": "WKT-5102W",
+    "dimension": "W1500xD755xH965-1165mm",
+    "material": "Wood(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Height-adjustable work surface (965-1165mm)"
+    ],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "Perforated board panel"
+    ]
+  },
+  "WKT-5102W1": {
+    "model_no": "WKT-5102W1",
+    "dimension": "W1500xD755xH965-1165mm",
+    "material": "Wood(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Height-adjustable work surface (965-1165mm)"
+    ],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "Perforated board panel",
+      "Accessories: Shelf"
+    ]
+  },
+  "WKT-5102W1+WPK-21": {
+    "model_no": "WKT-5102W1+WPK-21",
+    "dimension": "W1500xD755xH965-1165mm",
+    "material": "Wood(W)",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Height-adjustable work surface (965-1165mm)"
+    ],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "Perforated board panel",
+      "Accessories: Shelf+Tray"
+    ]
+  },
+  "EKK-1M": {
+    "model_no": "EKK-1M",
+    "dimension": "W1300xD700xH1800 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Roll holder",
+      "Tabletop cutter",
+      "4\" PU castors",
+      "Perforated board",
+      "Handles"
+    ]
+  },
+  "EGL-177M": {
+    "model_no": "EGL-177M",
+    "dimension": "W755xD510xH850 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-177M (black)",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-185M": {
+    "model_no": "EGL-185M",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-185M (red)",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-185M + EGP-03L": {
+    "model_no": "EGL-185M + EGP-03L",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-185M (red)",
+      "Accessories: Top chest",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-185M + EGQ-02A": {
+    "model_no": "EGL-185M + EGQ-02A",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-185M (red)",
+      "Accessories: Side panel",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-185MA": {
+    "model_no": "EGL-185MA",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-185M (red)",
+      "Accessories: Back panel",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-187M": {
+    "model_no": "EGL-187M",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-187M (red)",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-187M + EGP-03L": {
+    "model_no": "EGL-187M + EGP-03L",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-187M (red)",
+      "Accessories: Top chest",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-187M + EGQ-02A": {
+    "model_no": "EGL-187M + EGQ-02A",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-187M (red)",
+      "Accessories: Side panel",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGL-187MA": {
+    "model_no": "EGL-187MA",
+    "dimension": "W845xD510xH1441 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Model No. (color): EGL-187M (red)",
+      "Accessories: Back panel",
+      "With lock",
+      "Steel handle",
+      "5\"x2\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGM-1703M + EGP-03M": {
+    "model_no": "EGM-1703M + EGP-03M",
+    "dimension": "W1255xD510xH847 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Accessories: Top chest",
+      "With lock",
+      "Steel handle",
+      "4\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGM-1703M + EGQ-02A": {
+    "model_no": "EGM-1703M + EGQ-02A",
+    "dimension": "W1255xD510xH847 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Accessories: Side panel",
+      "With lock",
+      "Steel handle",
+      "4\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGM-1705M + EGP-03M": {
+    "model_no": "EGM-1705M + EGP-03M",
+    "dimension": "W1255xD510xH847 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Accessories: Top chest",
+      "With lock",
+      "Steel handle",
+      "4\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EGM-1705M + EGQ-02A": {
+    "model_no": "EGM-1705M + EGQ-02A",
+    "dimension": "W1255xD510xH847 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Accessories: Side panel",
+      "With lock",
+      "Steel handle",
+      "4\" PU castors",
+      "Drawer latch",
+      "Drawer",
+      "Top chest",
+      "Panel",
+      "Side tray",
+      "Partitions and division boxes"
+    ]
+  },
+  "EKA-3M": {
+    "model_no": "EKA-3M",
+    "dimension": "W900xD485xH850 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Top Cover: No",
+      "Side tray",
+      "Top cover",
+      "PVC mat",
+      "Shelf can be adjusted",
+      "Panel",
+      "4\" PU castors"
+    ]
+  },
+  "EKA-3M + EKA-P03": {
+    "model_no": "EKA-3M + EKA-P03",
+    "dimension": "W900xD485xH850 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Top Cover: Yes",
+      "Side tray",
+      "Top cover",
+      "PVC mat",
+      "Shelf can be adjusted",
+      "Panel",
+      "4\" PU castors"
+    ]
+  },
+  "EKB-308AM": {
+    "model_no": "EKB-308AM",
+    "dimension": "W850xD485xH855 mm",
+    "material": "Cabinet ▸ Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Accessories: Steel drawer + Parts drawer(8)",
+      "Stainless steel handle",
+      "Top cover",
+      "PVC mat",
+      "4\" PU castors",
+      "Panel",
+      "Shelf is reversible",
+      "Drawer stop design",
+      "Transparent front window",
+      "Steel Drawer Set"
+    ]
+  },
+  "EKB-308M": {
+    "model_no": "EKB-308M",
+    "dimension": "W850xD485xH855 mm",
+    "material": "Cabinet ▸ Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Accessories: Parts drawer(8)",
+      "Stainless steel handle",
+      "Top cover",
+      "PVC mat",
+      "4\" PU castors",
+      "Panel",
+      "Shelf is reversible",
+      "Drawer stop design",
+      "Transparent front window",
+      "Steel Drawer Set"
+    ]
+  },
+  "EKB-316M": {
+    "model_no": "EKB-316M",
+    "dimension": "W850xD485xH855 mm",
+    "material": "Cabinet ▸ Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Accessories: Parts drawer(16)",
+      "Stainless steel handle",
+      "Top cover",
+      "PVC mat",
+      "4\" PU castors",
+      "Panel",
+      "Shelf is reversible",
+      "Drawer stop design",
+      "Transparent front window",
+      "Steel Drawer Set"
+    ]
+  },
+  "EKB-3AM": {
+    "model_no": "EKB-3AM",
+    "dimension": "W850xD485xH855 mm",
+    "material": "Cabinet ▸ Steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Accessories: Steel drawer",
+      "Stainless steel handle",
+      "Top cover",
+      "PVC mat",
+      "4\" PU castors",
+      "Panel",
+      "Shelf is reversible",
+      "Drawer stop design",
+      "Transparent front window",
+      "Steel Drawer Set"
+    ]
+  },
+  "EKB-3M": {
+    "model_no": "EKB-3M",
+    "dimension": "W850xD485xH855 mm",
+    "material": "Cabinet ▸ Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Stainless steel handle",
+      "Top cover",
+      "PVC mat",
+      "4\" PU castors",
+      "Panel",
+      "Shelf is reversible",
+      "Drawer stop design",
+      "Transparent front window",
+      "Steel Drawer Set"
+    ]
+  },
+  "EKC-110M": {
+    "model_no": "EKC-110M",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Layer A, B: All (L)",
+      "PC plastic",
+      "50° tilt out angle",
+      "Handles",
+      "Hanging bins",
+      "Bottom tray",
+      "4\" PU castors"
+    ]
+  },
+  "EKC-210M": {
+    "model_no": "EKC-210M",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Layer A, B: (M)+(L)",
+      "PC plastic",
+      "50° tilt out angle",
+      "Handles",
+      "Hanging bins",
+      "Bottom tray",
+      "4\" PU castors"
+    ]
+  },
+  "EKC-220M": {
+    "model_no": "EKC-220M",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Layer A, B: All (M)",
+      "PC plastic",
+      "50° tilt out angle",
+      "Handles",
+      "Hanging bins",
+      "Bottom tray",
+      "4\" PU castors"
+    ]
+  },
+  "EKC-310M": {
+    "model_no": "EKC-310M",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Layer A, B: (S)+(L)",
+      "PC plastic",
+      "50° tilt out angle",
+      "Handles",
+      "Hanging bins",
+      "Bottom tray",
+      "4\" PU castors"
+    ]
+  },
+  "EKC-320M": {
+    "model_no": "EKC-320M",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Layer A, B: (S)+(M)",
+      "PC plastic",
+      "50° tilt out angle",
+      "Handles",
+      "Hanging bins",
+      "Bottom tray",
+      "4\" PU castors"
+    ]
+  },
+  "EKC-330M": {
+    "model_no": "EKC-330M",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Layer A, B: All (S)",
+      "PC plastic",
+      "50° tilt out angle",
+      "Handles",
+      "Hanging bins",
+      "Bottom tray",
+      "4\" PU castors"
+    ]
+  },
+  "EB-12031-.333N": {
+    "model_no": "EB-12031-.333N",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EB",
+      "Tool Holders: BT-50",
+      "Standard drawer",
+      "T drawer",
+      "With leveler screws",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Tool holders"
+    ]
+  },
+  "EA-10031-111MN": {
+    "model_no": "EA-10031-111MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EA",
+      "Tool Holders: BT-30",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EA-10031-222MN": {
+    "model_no": "EA-10031-222MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EA",
+      "Tool Holders: BT-40",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EA-10032-333MN": {
+    "model_no": "EA-10032-333MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EA",
+      "Tool Holders: BT-50",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EA-10032-666MN": {
+    "model_no": "EA-10032-666MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EA",
+      "Tool Holders: HSK-40",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EA-10032-888MN": {
+    "model_no": "EA-10032-888MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EA",
+      "Tool Holders: HSK-63",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EB-10031-111MN": {
+    "model_no": "EB-10031-111MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EB",
+      "Tool Holders: BT-30",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EB-10031-222MN": {
+    "model_no": "EB-10031-222MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EB",
+      "Tool Holders: BT-40",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EB-10032-333MN": {
+    "model_no": "EB-10032-333MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EB",
+      "Tool Holders: BT-50",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EB-10032-666MN": {
+    "model_no": "EB-10032-666MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EB",
+      "Tool Holders: HSK-40",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "EB-10032-888MN": {
+    "model_no": "EB-10032-888MN",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable dividers"
+    ],
+    "items_included": [
+      "Cabinet: EB",
+      "Tool Holders: HSK-63",
+      "Standard drawer",
+      "T drawer",
+      "4\"x2\" PU castors",
+      "With lock",
+      "Full length aluminum handles and labels",
+      "Drawer latch",
+      "Drawer tray",
+      "Upper tray"
+    ]
+  },
+  "ME-321": {
+    "model_no": "ME-321",
+    "dimension": "W970xD700xH2000mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "80kg per pull-out shelf"
+    ],
+    "items_included": [
+      "Pull-out shelf adjustable every 100mm",
+      "Perforated board with hooks",
+      "Type: B type",
+      "Configuration: Independent"
+    ]
+  },
+  "ME-322": {
+    "model_no": "ME-322",
+    "dimension": "W900xD700xH2000mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "80kg per pull-out shelf"
+    ],
+    "items_included": [
+      "Pull-out shelf adjustable every 100mm",
+      "Perforated board with hooks",
+      "Type: B type",
+      "Configuration: Linkable"
+    ]
+  },
+  "KM-2204": {
+    "model_no": "KM-2204",
+    "dimension": "W1050xD613xH1121 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (4)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KM-2222": {
+    "model_no": "KM-2222",
+    "dimension": "W1050xD613xH1121 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (2)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KM-2240": {
+    "model_no": "KM-2240",
+    "dimension": "W1050xD613xH1121 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KM-2306": {
+    "model_no": "KM-2306",
+    "dimension": "W1072xD613xH1571 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (6)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KM-2324": {
+    "model_no": "KM-2324",
+    "dimension": "W1072xD613xH1571 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (4)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KM-2342": {
+    "model_no": "KM-2342",
+    "dimension": "W1072xD613xH1571 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4) + Louvred (2)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KM-2360": {
+    "model_no": "KM-2360",
+    "dimension": "W1072xD613xH1571 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (6)",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "Handles",
+      "PU castors",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1303": {
+    "model_no": "KL-1303",
+    "dimension": "W971xD360xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (3)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1312": {
+    "model_no": "KL-1312",
+    "dimension": "W971xD360xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (1) + Louvred (2)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1321": {
+    "model_no": "KL-1321",
+    "dimension": "W971xD360xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (1)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1330": {
+    "model_no": "KL-1330",
+    "dimension": "W971xD360xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (3)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1303": {
+    "model_no": "KR-1303",
+    "dimension": "W971xD360xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (3)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1312": {
+    "model_no": "KR-1312",
+    "dimension": "W971xD360xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (1) + Louvred (2)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1321": {
+    "model_no": "KR-1321",
+    "dimension": "W971xD360xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (1)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1330": {
+    "model_no": "KR-1330",
+    "dimension": "W971xD360xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (3)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1404": {
+    "model_no": "KL-1404",
+    "dimension": "W971xD360xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (4)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1413": {
+    "model_no": "KL-1413",
+    "dimension": "W971xD360xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (1) + Louvred (3)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1422": {
+    "model_no": "KL-1422",
+    "dimension": "W971xD360xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (2)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1431": {
+    "model_no": "KL-1431",
+    "dimension": "W971xD360xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (3) + Louvred (1)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-1440": {
+    "model_no": "KL-1440",
+    "dimension": "W971xD360xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1404": {
+    "model_no": "KR-1404",
+    "dimension": "W971xD360xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (4)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1413": {
+    "model_no": "KR-1413",
+    "dimension": "W971xD360xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (1) + Louvred (3)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1422": {
+    "model_no": "KR-1422",
+    "dimension": "W971xD360xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (2)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1431": {
+    "model_no": "KR-1431",
+    "dimension": "W971xD360xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (3) + Louvred (1)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-1440": {
+    "model_no": "KR-1440",
+    "dimension": "W971xD360xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2306": {
+    "model_no": "KL-2306",
+    "dimension": "W971xD620xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (6)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2324": {
+    "model_no": "KL-2324",
+    "dimension": "W971xD620xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (4)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2342": {
+    "model_no": "KL-2342",
+    "dimension": "W971xD620xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4) + Louvred (2)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2360": {
+    "model_no": "KL-2360",
+    "dimension": "W971xD620xH1453mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (6)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2306": {
+    "model_no": "KR-2306",
+    "dimension": "W971xD620xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (6)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2324": {
+    "model_no": "KR-2324",
+    "dimension": "W971xD620xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (4)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2342": {
+    "model_no": "KR-2342",
+    "dimension": "W971xD620xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4) + Louvred (2)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2360": {
+    "model_no": "KR-2360",
+    "dimension": "W971xD620xH1453 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (6)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2408": {
+    "model_no": "KL-2408",
+    "dimension": "W971xD620xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (8)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2426": {
+    "model_no": "KL-2426",
+    "dimension": "W971xD620xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (6)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2444": {
+    "model_no": "KL-2444",
+    "dimension": "W971xD620xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4) + Louvred (4)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2462": {
+    "model_no": "KL-2462",
+    "dimension": "W971xD620xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (6) + Louvred (2)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KL-2480": {
+    "model_no": "KL-2480",
+    "dimension": "W971xD620xH1903mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (8)",
+      "Type: Linkable type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2408": {
+    "model_no": "KR-2408",
+    "dimension": "W971xD620xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Louvred (8)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2426": {
+    "model_no": "KR-2426",
+    "dimension": "W971xD620xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (2) + Louvred (6)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2444": {
+    "model_no": "KR-2444",
+    "dimension": "W971xD620xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (4) + Louvred (4)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2462": {
+    "model_no": "KR-2462",
+    "dimension": "W971xD620xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (6) + Louvred (2)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "KR-2480": {
+    "model_no": "KR-2480",
+    "dimension": "W971xD620xH1903 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Panel: Perforated (8)",
+      "Type: Independent type",
+      "Perforated board",
+      "Louvred board",
+      "Bottom tray",
+      "With leveler screws",
+      "Linkable",
+      "Shelf is optional"
+    ]
+  },
+  "DA-31 (BLACK)": {
+    "model_no": "DA-31 (BLACK)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Drawer Qty: 1",
+      "Perforated board",
+      "Black or white",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DA-31 (WHITE)": {
+    "model_no": "DA-31 (WHITE)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Drawer Qty: 1",
+      "Perforated board",
+      "Black or white",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DA-32 (BLACK)": {
+    "model_no": "DA-32 (BLACK)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Drawer Qty: 2",
+      "Perforated board",
+      "Black or white",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DA-32 (WHITE)": {
+    "model_no": "DA-32 (WHITE)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Drawer Qty: 2",
+      "Perforated board",
+      "Black or white",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DB-31 (BLACK)": {
+    "model_no": "DB-31 (BLACK)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 1 (Black)",
+      "Shelf depth: D310mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DB-31 (WHITE)": {
+    "model_no": "DB-31 (WHITE)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 1 (White)",
+      "Shelf depth: D310mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DB-32 (BLACK)": {
+    "model_no": "DB-32 (BLACK)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 2 (Black)",
+      "Shelf depth: D310mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DB-32 (WHITE)": {
+    "model_no": "DB-32 (WHITE)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 2 (White)",
+      "Shelf depth: D310mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DC-31 (BLACK)": {
+    "model_no": "DC-31 (BLACK)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 1 (Black)",
+      "Shelf depth: D410mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DC-31 (WHITE)": {
+    "model_no": "DC-31 (WHITE)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 1 (White)",
+      "Shelf depth: D410mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DC-32 (BLACK)": {
+    "model_no": "DC-32 (BLACK)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 2 (Black)",
+      "Shelf depth: D410mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "DC-32 (WHITE)": {
+    "model_no": "DC-32 (WHITE)",
+    "dimension": "W1013xD496xH1663mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelves"
+    ],
+    "items_included": [
+      "Drawer Qty (Color): 2 (White)",
+      "Shelf depth: D410mm",
+      "Perforated board",
+      "Black or white",
+      "G-shaped handle",
+      "Drawer",
+      "With dividers",
+      "With leveler screws"
+    ]
+  },
+  "FBA-202AW": {
+    "model_no": "FBA-202AW",
+    "dimension": "W900xD465xH1070mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 2",
+      "Lock: Key lock",
+      "Combination / Key lock",
+      "Label",
+      "Rubber wood top",
+      "Square holes",
+      "Cable grommet",
+      "Mail slot",
+      "Tray",
+      "Leveler screws"
+    ]
+  },
+  "FBA-204AW": {
+    "model_no": "FBA-204AW",
+    "dimension": "W900xD465xH1070mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 4",
+      "Lock: Key lock",
+      "Combination / Key lock",
+      "Label",
+      "Rubber wood top",
+      "Square holes",
+      "Cable grommet",
+      "Mail slot",
+      "Tray",
+      "Leveler screws"
+    ]
+  },
+  "FBB-202A": {
+    "model_no": "FBB-202A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 2",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-204A": {
+    "model_no": "FBB-204A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 4",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-208A": {
+    "model_no": "FBB-208A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 8",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-303A": {
+    "model_no": "FBB-303A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 3",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-306A": {
+    "model_no": "FBB-306A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 6",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-309A": {
+    "model_no": "FBB-309A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 9",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-312A": {
+    "model_no": "FBB-312A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 12",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "FBB-315A": {
+    "model_no": "FBB-315A",
+    "dimension": "W900xD515xH1800mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [
+      "Adjustable shelf"
+    ],
+    "items_included": [
+      "Storage unit: 15",
+      "Lock: Key Lock",
+      "Combination / Key lock",
+      "Label",
+      "Closet rod",
+      "Square holes",
+      "Cable grommet",
+      "Steel cabinet",
+      "FBA locker",
+      "Leveler screws"
+    ]
+  },
+  "TA-112": {
+    "model_no": "TA-112",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Side link slots",
+      "Supporting poles",
+      "Colored label",
+      "Hanger function"
+    ]
+  },
+  "TA-115": {
+    "model_no": "TA-115",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Side link slots",
+      "Supporting poles",
+      "Colored label",
+      "Hanger function"
+    ]
+  },
+  "TA-120": {
+    "model_no": "TA-120",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Side link slots",
+      "Supporting poles",
+      "Colored label",
+      "Hanger function"
+    ]
+  },
+  "TA-154": {
+    "model_no": "TA-154",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Side link slots",
+      "Supporting poles",
+      "Colored label",
+      "Hanger function"
+    ]
+  },
+  "TA-155": {
+    "model_no": "TA-155",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Side link slots",
+      "Supporting poles",
+      "Colored label",
+      "Hanger function"
+    ]
+  },
+  "TKI-8301": {
+    "model_no": "TKI-8301",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Hanger function",
+      "Bin hanger is optional"
+    ]
+  },
+  "TKI-8302": {
+    "model_no": "TKI-8302",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black (anti-static)",
+    "loading": [],
+    "items_included": [
+      "Hanger function",
+      "Bin hanger is optional"
+    ]
+  },
+  "TKI-8303": {
+    "model_no": "TKI-8303",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Hanger function",
+      "Bin hanger is optional"
+    ]
+  },
+  "TKI-8304": {
+    "model_no": "TKI-8304",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black (anti-static)",
+    "loading": [],
+    "items_included": [
+      "Hanger function",
+      "Bin hanger is optional"
+    ]
+  },
+  "TKI-8305": {
+    "model_no": "TKI-8305",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Hanger function",
+      "Bin hanger is optional"
+    ]
+  },
+  "KQ-306A (BLACK)": {
+    "model_no": "KQ-306A (BLACK)",
+    "dimension": "W900xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-306A (BLUE)": {
+    "model_no": "KQ-306A (BLUE)",
+    "dimension": "W900xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-306A (GRAY)": {
+    "model_no": "KQ-306A (GRAY)",
+    "dimension": "W900xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-306A (RED)": {
+    "model_no": "KQ-306A (RED)",
+    "dimension": "W900xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-306A (WHITE)": {
+    "model_no": "KQ-306A (WHITE)",
+    "dimension": "W900xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-306AS (STAINLESS STEEL)": {
+    "model_no": "KQ-306AS (STAINLESS STEEL)",
+    "dimension": "W900xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Stainless Steel",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-308A (BLACK)": {
+    "model_no": "KQ-308A (BLACK)",
+    "dimension": "W1200xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-308A (BLUE)": {
+    "model_no": "KQ-308A (BLUE)",
+    "dimension": "W1200xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-308A (GRAY)": {
+    "model_no": "KQ-308A (GRAY)",
+    "dimension": "W1200xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-308A (RED)": {
+    "model_no": "KQ-308A (RED)",
+    "dimension": "W1200xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-308A (WHITE)": {
+    "model_no": "KQ-308A (WHITE)",
+    "dimension": "W1200xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-310A (BLACK)": {
+    "model_no": "KQ-310A (BLACK)",
+    "dimension": "W1500xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-310A (BLUE)": {
+    "model_no": "KQ-310A (BLUE)",
+    "dimension": "W1500xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-310A (GRAY)": {
+    "model_no": "KQ-310A (GRAY)",
+    "dimension": "W1500xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-310A (RED)": {
+    "model_no": "KQ-310A (RED)",
+    "dimension": "W1500xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-310A (WHITE)": {
+    "model_no": "KQ-310A (WHITE)",
+    "dimension": "W1500xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-312A (BLACK)": {
+    "model_no": "KQ-312A (BLACK)",
+    "dimension": "W1800xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-312A (BLUE)": {
+    "model_no": "KQ-312A (BLUE)",
+    "dimension": "W1800xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-312A (GRAY)": {
+    "model_no": "KQ-312A (GRAY)",
+    "dimension": "W1800xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-312A (RED)": {
+    "model_no": "KQ-312A (RED)",
+    "dimension": "W1800xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-312A (WHITE)": {
+    "model_no": "KQ-312A (WHITE)",
+    "dimension": "W1800xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-314A (BLACK)": {
+    "model_no": "KQ-314A (BLACK)",
+    "dimension": "W2100xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-314A (BLUE)": {
+    "model_no": "KQ-314A (BLUE)",
+    "dimension": "W2100xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-314A (GRAY)": {
+    "model_no": "KQ-314A (GRAY)",
+    "dimension": "W2100xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-314A (RED)": {
+    "model_no": "KQ-314A (RED)",
+    "dimension": "W2100xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-314A (WHITE)": {
+    "model_no": "KQ-314A (WHITE)",
+    "dimension": "W2100xH450",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH450",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-408A (BLACK)": {
+    "model_no": "KQ-408A (BLACK)",
+    "dimension": "W1200xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-408A (BLUE)": {
+    "model_no": "KQ-408A (BLUE)",
+    "dimension": "W1200xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-408A (GRAY)": {
+    "model_no": "KQ-408A (GRAY)",
+    "dimension": "W1200xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-408A (RED)": {
+    "model_no": "KQ-408A (RED)",
+    "dimension": "W1200xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-408A (WHITE)": {
+    "model_no": "KQ-408A (WHITE)",
+    "dimension": "W1200xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1200xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-410A (BLACK)": {
+    "model_no": "KQ-410A (BLACK)",
+    "dimension": "W1500xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-410A (BLUE)": {
+    "model_no": "KQ-410A (BLUE)",
+    "dimension": "W1500xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-410A (GRAY)": {
+    "model_no": "KQ-410A (GRAY)",
+    "dimension": "W1500xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-410A (RED)": {
+    "model_no": "KQ-410A (RED)",
+    "dimension": "W1500xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-410A (WHITE)": {
+    "model_no": "KQ-410A (WHITE)",
+    "dimension": "W1500xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1500xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-412A (BLACK)": {
+    "model_no": "KQ-412A (BLACK)",
+    "dimension": "W1800xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-412A (BLUE)": {
+    "model_no": "KQ-412A (BLUE)",
+    "dimension": "W1800xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-412A (GRAY)": {
+    "model_no": "KQ-412A (GRAY)",
+    "dimension": "W1800xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-412A (RED)": {
+    "model_no": "KQ-412A (RED)",
+    "dimension": "W1800xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-412A (WHITE)": {
+    "model_no": "KQ-412A (WHITE)",
+    "dimension": "W1800xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W1800xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-414A (BLACK)": {
+    "model_no": "KQ-414A (BLACK)",
+    "dimension": "W2100xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Black",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-414A (BLUE)": {
+    "model_no": "KQ-414A (BLUE)",
+    "dimension": "W2100xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Blue",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-414A (GRAY)": {
+    "model_no": "KQ-414A (GRAY)",
+    "dimension": "W2100xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-414A (RED)": {
+    "model_no": "KQ-414A (RED)",
+    "dimension": "W2100xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-414A (WHITE)": {
+    "model_no": "KQ-414A (WHITE)",
+    "dimension": "W2100xH600",
+    "material": "steel",
+    "handle": "",
+    "colour": "White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W2100xH600",
+      "Five colors",
+      "Steel",
+      "Tools storage",
+      "Bin Hanger",
+      "Hanger hooks",
+      "Screwdriver holder",
+      "Gym storage",
+      "Home storage",
+      "Warehouse storage"
+    ]
+  },
+  "KQ-306AS": {
+    "model_no": "KQ-306AS",
+    "dimension": "W900xH450 mm",
+    "material": "Stainless Steel",
+    "handle": "",
+    "colour": null,
+    "loading": [],
+    "items_included": [
+      "Dimensions: W900xH450 mm",
+      "Material: Stainless Steel",
+      "304 stainless steel",
+      "Hanger hooks",
+      "Easy to clean",
+      "High temperature resistance",
+      "Dust Proof"
+    ]
+  },
+  "KP-6101": {
+    "model_no": "KP-6101",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Type: Single hook-S (20pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-6102": {
+    "model_no": "KP-6102",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Type: Single hook-M (10pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-6103": {
+    "model_no": "KP-6103",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Type: U hook (6pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-6104": {
+    "model_no": "KP-6104",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Type: Spring Clips (10pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-6208": {
+    "model_no": "KP-6208",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Type: Double hook-L (10pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-6308": {
+    "model_no": "KP-6308",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Type: Single hook-L (10pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KPQ-B": {
+    "model_no": "KPQ-B",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Type: Hooks Set (12pcs)",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7108": {
+    "model_no": "KP-7108",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: L hook",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7203": {
+    "model_no": "KP-7203",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: V hook",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7308": {
+    "model_no": "KP-7308",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: Closed end hook - L",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7502": {
+    "model_no": "KP-7502",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: Loop hook-S",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7506": {
+    "model_no": "KP-7506",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: Loop hook-M",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7510": {
+    "model_no": "KP-7510",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: Loop hook-L",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KP-7604": {
+    "model_no": "KP-7604",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: Closed end hook - S",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KPQ-C": {
+    "model_no": "KPQ-C",
+    "dimension": "",
+    "material": "",
+    "handle": "",
+    "colour": "Black",
+    "loading": [
+      "5kg load capacity"
+    ],
+    "items_included": [
+      "Type: Hooks Set",
+      "7 types",
+      "8 colors",
+      "Stainless steel",
+      "Can be applied to perforated boards."
+    ]
+  },
+  "KPQ-4302 (BLACK)(ANTI-STATIC)": {
+    "model_no": "KPQ-4302 (BLACK)(ANTI-STATIC)",
+    "dimension": "L420mm",
+    "material": "Steel, PP",
+    "handle": "",
+    "colour": "Black (anti-static)",
+    "loading": [],
+    "items_included": [
+      "Bins: TKI-8302x4",
+      "Hanging Bin Set"
+    ]
+  },
+  "KPQ-4304 (BLACK)(ANTI-STATIC)": {
+    "model_no": "KPQ-4304 (BLACK)(ANTI-STATIC)",
+    "dimension": "L420mm",
+    "material": "Steel, PP",
+    "handle": "",
+    "colour": "Black (anti-static)",
+    "loading": [],
+    "items_included": [
+      "Bins: TKI-8304x3",
+      "Hanging Bin Set"
+    ]
+  },
+  "KP-6109 (GRAY)": {
+    "model_no": "KP-6109 (GRAY)",
+    "dimension": "W120xH220mm",
+    "material": "ABS",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Material: ABS",
+      "Wrench Holder"
+    ]
+  },
+  "KP-6109 (RED)": {
+    "model_no": "KP-6109 (RED)",
+    "dimension": "W120xH220mm",
+    "material": "ABS",
+    "handle": "",
+    "colour": "Red",
+    "loading": [],
+    "items_included": [
+      "Material: ABS",
+      "Wrench Holder"
+    ]
+  },
+  "TE-211": {
+    "model_no": "TE-211",
+    "dimension": "W110xD110xH120 mm",
+    "material": "PP",
+    "handle": "",
+    "colour": "Gray",
+    "loading": [],
+    "items_included": [
+      "Quantity: 1pc",
+      "Hanger function",
+      "Desktop",
+      "Hanger",
+      "Anti-slip hole",
+      "Handle"
+    ]
+  },
+  "KP-4701": {
+    "model_no": "KP-4701",
+    "dimension": "W250 x D100 x H60 mm",
+    "material": "Steel",
+    "handle": "",
+    "colour": "Black, White",
+    "loading": [],
+    "items_included": [
+      "Dimensions: W250 x D100 x H60 mm",
+      "Color: Black, White",
+      "Material: Steel",
+      "Application: Perforated Board"
+    ]
   }
 }
