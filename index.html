@@ -500,7 +500,7 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
 
   <section class="panel">
     <button id="generateDocBtn" type="button" class="btn-generate">Generate Document</button>
-    <button id="downloadWordBtn" type="button" class="btn-generate" style="margin-left:10px; background:#2b7a3b;">Download Word (.doc)</button>
+    <button id="downloadWordBtn" type="button" class="btn-generate" style="margin-left:10px; background:#2b7a3b;">Download Word (.docx)</button>
   </section>
 
 <script>
@@ -5203,11 +5203,20 @@ function nextQuotationSerial() {
 function buildItemRowHtml(n, item) {
   // Use enhanced spec if available (richer: C/w accessories, load capacity, colour).
   const effectiveName = ENHANCED_PRODUCTS[item.sku] || item.name;
-  const lines = String(effectiveName).split("\n");
-  const sku = escapeHtml(lines[0]);
-  const pname = lines[1] ? "&nbsp;(" + escapeHtml(lines[1]) + ")" : "";
-  const restFeats = orderFeatureLines(lines.slice(2));
-  let descHtml = "Model&nbsp;: <b>" + sku + pname + "</b>";
+  const rawLines = String(effectiveName).split("\n").filter((l) => l.length > 0);
+  // Some data sources put the SKU as line 0, others don't. Always render
+  // item.sku after "Model :" and treat the rest as description/features.
+  // If line 0 already IS the SKU (case-insensitive match), drop it.
+  const lines = (rawLines[0] && rawLines[0].trim().toUpperCase() === item.sku.toUpperCase())
+    ? rawLines.slice(1)
+    : rawLines;
+  const sku = escapeHtml(item.sku);
+  const productName = lines[0] ? escapeHtml(lines[0]) : "";
+  const restFeats = orderFeatureLines(lines.slice(1));
+  let descHtml = "Model&nbsp;: <b>" + sku + "</b>";
+  if (productName) {
+    descHtml += "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + productName;
+  }
   descHtml += restFeats
     .map((f) => "<br>&nbsp;&nbsp;&nbsp;&nbsp;- " + escapeHtml(formatFeatureLine(f)))
     .join("");
@@ -5632,6 +5641,256 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
   return outHtml;
 }
 
+// ---- Minimal ZIP writer (STORE method, no compression) ----
+// docx/xlsx/pptx all accept uncompressed entries, so a tiny STORE-only
+// writer is enough to package a real Office Open XML document from the
+// browser without pulling in a full deflate library.
+const _crc32Table = (function () {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function _crc32(bytes) {
+  let c = 0xffffffff;
+  for (let i = 0; i < bytes.length; i++) c = _crc32Table[(c ^ bytes[i]) & 0xff] ^ (c >>> 8);
+  return (c ^ 0xffffffff) >>> 0;
+}
+function _strBytes(s) { return new TextEncoder().encode(s); }
+function _makeZip(files) {
+  const enc = new TextEncoder();
+  const parts = [];
+  const central = [];
+  let offset = 0;
+  for (const f of files) {
+    const bytes = f.bytes;
+    const nameBytes = enc.encode(f.name);
+    const crc = _crc32(bytes);
+    const size = bytes.length;
+    const lfh = new Uint8Array(30 + nameBytes.length);
+    const dv = new DataView(lfh.buffer);
+    dv.setUint32(0, 0x04034b50, true);
+    dv.setUint16(4, 20, true);
+    dv.setUint16(6, 0, true);
+    dv.setUint16(8, 0, true);         // method = STORE
+    dv.setUint16(10, 0, true);
+    dv.setUint16(12, 0x21, true);
+    dv.setUint32(14, crc, true);
+    dv.setUint32(18, size, true);     // compressed size
+    dv.setUint32(22, size, true);     // uncompressed size
+    dv.setUint16(26, nameBytes.length, true);
+    dv.setUint16(28, 0, true);
+    lfh.set(nameBytes, 30);
+    parts.push(lfh, bytes);
+    const cdh = new Uint8Array(46 + nameBytes.length);
+    const cdv = new DataView(cdh.buffer);
+    cdv.setUint32(0, 0x02014b50, true);
+    cdv.setUint16(4, 20, true);
+    cdv.setUint16(6, 20, true);
+    cdv.setUint16(8, 0, true);
+    cdv.setUint16(10, 0, true);
+    cdv.setUint16(12, 0, true);
+    cdv.setUint16(14, 0x21, true);
+    cdv.setUint32(16, crc, true);
+    cdv.setUint32(20, size, true);
+    cdv.setUint32(24, size, true);
+    cdv.setUint16(28, nameBytes.length, true);
+    cdv.setUint16(30, 0, true);
+    cdv.setUint16(32, 0, true);
+    cdv.setUint16(34, 0, true);
+    cdv.setUint16(36, 0, true);
+    cdv.setUint32(38, 0, true);
+    cdv.setUint32(42, offset, true);
+    cdh.set(nameBytes, 46);
+    central.push(cdh);
+    offset += lfh.length + bytes.length;
+  }
+  let cdSize = 0;
+  for (const p of central) cdSize += p.length;
+  const cdOffset = offset;
+  const eocd = new Uint8Array(22);
+  const edv = new DataView(eocd.buffer);
+  edv.setUint32(0, 0x06054b50, true);
+  edv.setUint16(4, 0, true);
+  edv.setUint16(6, 0, true);
+  edv.setUint16(8, files.length, true);
+  edv.setUint16(10, files.length, true);
+  edv.setUint32(12, cdSize, true);
+  edv.setUint32(16, cdOffset, true);
+  edv.setUint16(20, 0, true);
+  let total = eocd.length;
+  for (const p of parts) total += p.length;
+  for (const p of central) total += p.length;
+  const out = new Uint8Array(total);
+  let pos = 0;
+  for (const p of parts) { out.set(p, pos); pos += p.length; }
+  for (const p of central) { out.set(p, pos); pos += p.length; }
+  out.set(eocd, pos);
+  return out;
+}
+
+// Build a real .docx (Office Open XML) whose body is a single altChunk
+// pointing at an HTML fragment containing the full quotation. Data-URI
+// images inside that HTML are rendered by Word's OOXML altChunk importer
+// (the same pipeline html-docx-js uses successfully) -- unlike a raw .doc
+// HTML file, the altChunk pipeline handles data URIs reliably across Word,
+// WPS Office, LibreOffice, and mobile viewers.
+function buildDocxFromHtml(htmlString) {
+  const CT =
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+    '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">' +
+      '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>' +
+      '<Default Extension="xml" ContentType="application/xml"/>' +
+      '<Default Extension="htm" ContentType="text/html"/>' +
+      '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>' +
+    '</Types>';
+  const RELS =
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+      '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>' +
+    '</Relationships>';
+  const DOCRELS =
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+      '<Relationship Id="htmlChunk1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/aFChunk" Target="afchunk.htm"/>' +
+    '</Relationships>';
+  const DOC =
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+    '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">' +
+      '<w:body>' +
+        '<w:altChunk r:id="htmlChunk1"/>' +
+        '<w:sectPr>' +
+          '<w:pgSz w:w="11906" w:h="16838"/>' +
+          '<w:pgMar w:top="720" w:right="792" w:bottom="720" w:left="792" w:header="0" w:footer="0" w:gutter="0"/>' +
+        '</w:sectPr>' +
+      '</w:body>' +
+    '</w:document>';
+  return _makeZip([
+    { name: '[Content_Types].xml', bytes: _strBytes(CT) },
+    { name: '_rels/.rels', bytes: _strBytes(RELS) },
+    { name: 'word/_rels/document.xml.rels', bytes: _strBytes(DOCRELS) },
+    { name: 'word/document.xml', bytes: _strBytes(DOC) },
+    { name: 'word/afchunk.htm', bytes: _strBytes(htmlString) },
+  ]);
+}
+
+// Rasterize an SVG data URI to a PNG data URI via canvas. Word's HTML
+// importer (and WPS Office) do NOT reliably render SVG in HTML/MHTML
+// content, so any SVG logo has to be flattened to a bitmap before it
+// gets embedded in the .docx. `scale` bumps the pixel size so the raster
+// stays crisp when Word later scales it back down.
+function svgDataUriToPngDataUri(svgDataUri, scale) {
+  return new Promise((resolve) => {
+    scale = scale || 3;
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      const w = Math.max(img.naturalWidth || img.width || 300, 1);
+      const h = Math.max(img.naturalHeight || img.height || 150, 1);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(w * scale);
+      canvas.height = Math.round(h * scale);
+      const ctx = canvas.getContext("2d");
+      // White background so transparent SVGs don't render as black in Word.
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      try {
+        resolve(canvas.toDataURL("image/png"));
+      } catch (e) {
+        resolve(null);
+      }
+    };
+    img.onerror = () => resolve(null);
+    img.src = svgDataUri;
+  });
+}
+
+// Walk the HTML for any data:image/svg+xml URIs and rasterize each to a
+// PNG data URI (Word / WPS can't render SVG inside imported HTML content).
+async function rasterizeSvgDataUris(htmlContent) {
+  const svgRe = /data:image\/svg\+xml;base64,[A-Za-z0-9+/=]+/g;
+  const uniq = Array.from(new Set(htmlContent.match(svgRe) || []));
+  if (uniq.length === 0) return htmlContent;
+  const map = Object.create(null);
+  await Promise.all(uniq.map(async (uri) => {
+    const png = await svgDataUriToPngDataUri(uri, 3);
+    if (png) map[uri] = png;
+  }));
+  // Replace all occurrences, longest first so a URI is not shadowed by a
+  // shorter prefix match.
+  return htmlContent.replace(svgRe, (m) => map[m] || m);
+}
+
+// Repackage the generated HTML as MHTML (multipart/related). Word and WPS
+// Office both render `data:` image URIs inconsistently across versions --
+// they show fine on the machine that generated the .doc but come up blank
+// on other laptops / phones. MHTML embeds each image as its own MIME part,
+// which is the universally supported way to ship images inside a .doc.
+function buildMhtDocument(htmlContent) {
+  const imageParts = [];
+  const seen = Object.create(null);
+  let counter = 0;
+  const boundary =
+    "----=_NextPart_TANKO_" +
+    Date.now().toString(36) +
+    Math.random().toString(36).slice(2, 10);
+  const baseLoc = "http://tanko.local/quote/";
+
+  // Extract every data:image/...;base64,... URI, replace it in the HTML with a
+  // stable http:// URL, and register the raw bytes as a MIME part whose
+  // Content-Location matches that URL. Word/WPS then resolves the <img src>
+  // against the attached parts and displays the picture on any device.
+  const dataUriRe = /data:image\/([a-zA-Z0-9.+\-]+);base64,([A-Za-z0-9+/=]+)/g;
+  const rewritten = htmlContent.replace(dataUriRe, function (match, subtype, b64) {
+    if (seen[match]) return seen[match];
+    counter += 1;
+    const rawSub = subtype.toLowerCase();
+    const mime = "image/" + (rawSub === "jpg" ? "jpeg" : rawSub);
+    // Sanitize the filename extension: strip everything after "+"
+    // ("svg+xml" -> "svg"), and normalize jpeg -> jpg. The filename must
+    // be URL-safe so Content-Location matches the <img src> byte-for-byte.
+    let ext = rawSub.split("+")[0];
+    if (ext === "jpeg") ext = "jpg";
+    ext = ext.replace(/[^a-z0-9]/g, "") || "bin";
+    const name = "image" + counter + "." + ext;
+    const loc = baseLoc + name;
+    seen[match] = loc;
+    imageParts.push({ location: loc, contentType: mime, base64: b64 });
+    return loc;
+  });
+
+  const chunkBase64 = (b64) =>
+    b64.replace(/\s+/g, "").match(/.{1,76}/g).join("\r\n");
+  // btoa needs a binary string; encode UTF-8 first so non-ASCII survives.
+  const utf8ToBase64 = (str) =>
+    btoa(unescape(encodeURIComponent(str)));
+
+  const marker = "--" + boundary;
+  let mht = "";
+  mht += "MIME-Version: 1.0\r\n";
+  mht += 'Content-Type: multipart/related; boundary="' + boundary + '"; type="text/html"\r\n';
+  mht += "\r\n";
+  mht += marker + "\r\n";
+  mht += 'Content-Type: text/html; charset="utf-8"\r\n';
+  mht += "Content-Transfer-Encoding: base64\r\n";
+  mht += "Content-Location: " + baseLoc + "quote.htm\r\n\r\n";
+  mht += chunkBase64(utf8ToBase64(rewritten)) + "\r\n";
+
+  for (const p of imageParts) {
+    mht += marker + "\r\n";
+    mht += "Content-Type: " + p.contentType + "\r\n";
+    mht += "Content-Transfer-Encoding: base64\r\n";
+    mht += "Content-Location: " + p.location + "\r\n\r\n";
+    mht += chunkBase64(p.base64) + "\r\n";
+  }
+  mht += marker + "--\r\n";
+  return mht;
+}
+
 async function handleDownloadWord() {
   const customer = {
     name: el.customerName.value.trim(),
@@ -5657,16 +5916,23 @@ async function handleDownloadWord() {
     const serial = nextQuotationSerial();
     const delivery = getDeliveryFee();
     const docHtml = await buildQuotationHtml(customer, quoteItems, serial, delivery);
+    // Flatten any SVG data URIs to PNG first -- Word/WPS won't render SVG
+    // inside imported HTML content, only bitmap formats.
+    const flatHtml = await rasterizeSvgDataUris(docHtml);
+    // Package the HTML as a real .docx via altChunk. Data URIs inside the
+    // HTML are rendered by Word's OOXML altChunk importer on any device --
+    // this is the pipeline html-docx-js uses and is proven to work in
+    // Word, WPS Office, LibreOffice, and mobile viewers.
+    const docxBytes = buildDocxFromHtml(flatHtml);
 
-    // Save as .doc (Word-compatible HTML).
     // Use a generic binary MIME type so the browser is FORCED to download
     // the file (instead of the Chrome Office viewer grabbing the blob and
-    // opening it in a Google Docs tab). The .doc extension still maps to WPS.
-    const blob = new Blob([docHtml], { type: "application/octet-stream" });
+    // trying to preview it). The .docx extension still maps to Word/WPS.
+    const blob = new Blob([docxBytes], { type: "application/octet-stream" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Quotation_" + serial.replace(/[^a-zA-Z0-9]/g, "_") + ".doc";
+    a.download = "Quotation_" + serial.replace(/[^a-zA-Z0-9]/g, "_") + ".docx";
     a.rel = "noopener";
     document.body.appendChild(a);
     a.click();
