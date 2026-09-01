@@ -1,1 +1,7 @@
 .claude/
+
+# Scratch / debug / backup files
+_*.py
+_*.txt
+*.bak*
+_sample.doc

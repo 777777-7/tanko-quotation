@@ -500,6 +500,7 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
 
   <section class="panel">
     <button id="generateDocBtn" type="button" class="btn-generate">Generate Document</button>
+    <button id="downloadWordBtn" type="button" class="btn-generate" style="margin-left:10px; background:#2b7a3b;">Download Word (.doc)</button>
   </section>
 
 <script>
@@ -522,6 +523,7 @@ const el = {
   addItemBtn: document.getElementById("addItemBtn"),
   deleteItemBtn: document.getElementById("deleteItemBtn"),
   generateDocBtn: document.getElementById("generateDocBtn"),
+  downloadWordBtn: document.getElementById("downloadWordBtn"),
   itemsTable: document.getElementById("itemsTable"),
   itemsTableBody: document.getElementById("itemsTableBody"),
   grandTotalDisplay: document.getElementById("grandTotalDisplay"),
@@ -5246,7 +5248,7 @@ function buildPhotoCellHtml(n, product, imageSrc) {
 
   // Top: dimension drawing image
   const imgHtml = imageSrc
-    ? "<img src=\"" + imageSrc + "\" style=\"width:100%!important;max-width:220px!important;height:auto!important;display:block!important;margin:0 auto 8pt auto;\" alt=\"" + escapeHtml(product.sku) + " dimension drawing\">"
+    ? "<img src=\"" + imageSrc + "\" width=\"220\" style=\"width:100%!important;max-width:220px!important;height:auto!important;display:block!important;margin:0 auto 8pt auto;\" alt=\"" + escapeHtml(product.sku) + " dimension drawing\">"
     : "<p style=\"font-style:italic; color:#666; text-align:center; padding:20pt 0;\">(No photo available)</p>";
 
   // Bottom: detailed specs table (like Quo_Tenpower reference)
@@ -5333,7 +5335,7 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
           xmlns:w="urn:schemas-microsoft-com:office:word"
           xmlns="http://www.w3.org/TR/REC-html40">
     <head>
-      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <base href="${window.location.origin}${window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')+1)}">
       <title>Quotation</title>
       <style>
@@ -5341,6 +5343,11 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
           size: A4;
           margin: 0.5in 0.55in 0.5in 0.55in;
         }
+        @page WordSection1 {
+          size: 595.3pt 841.9pt;
+          margin: 36.0pt 39.6pt 36.0pt 39.6pt;
+        }
+        div.WordSection1 { page: WordSection1; }
         body {
           font-family: "Times New Roman", Times, serif;
           font-size: 10.5pt;
@@ -5404,7 +5411,7 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
 </style>
     </head>
     <body>
-    <div class="Section1">
+    <div class="WordSection1">
       <table style="width:100%; margin-bottom:6pt;">
         <tr>
           <td style="width:90px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="90" style="width:90px!important; max-width:90px!important; height:auto!important; display:block!important;"></td>
@@ -5497,6 +5504,52 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
     </body>
     </html>
   `;
+}
+
+async function handleDownloadWord() {
+  const customer = {
+    name: el.customerName.value.trim(),
+    contact: el.customerContact.value.trim(),
+    address: el.customerAddress.value.trim(),
+    attn: el.customerAttn.value.trim(),
+  };
+
+  if (!customer.name) {
+    alert("Please enter the customer name before generating the document.");
+    return;
+  }
+  if (quoteItems.length === 0) {
+    alert("Add at least one item to the quote first.");
+    return;
+  }
+
+  const originalLabel = el.downloadWordBtn.textContent;
+  el.downloadWordBtn.disabled = true;
+  el.downloadWordBtn.textContent = "Generating...";
+
+  try {
+    const serial = nextQuotationSerial();
+    const delivery = getDeliveryFee();
+    const docHtml = await buildQuotationHtml(customer, quoteItems, serial, delivery);
+
+    // Save as .doc (Word-compatible HTML). WPS / Word opens it for editing,
+    // then user exports to PDF with the same A4 layout.
+    const blob = new Blob([docHtml], { type: "application/msword" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Quotation_" + serial.replace(/[^a-zA-Z0-9]/g, "_") + ".doc";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error(error);
+    alert("Failed to generate the Word document: " + error.message);
+  } finally {
+    el.downloadWordBtn.disabled = false;
+    el.downloadWordBtn.textContent = originalLabel;
+  }
 }
 
 async function handleGenerateDocument() {
@@ -5609,6 +5662,7 @@ async function saveQuotationToHistory(customer, items, serial, delivery) {
 el.addItemBtn.addEventListener("click", handleAddItem);
 el.deleteItemBtn.addEventListener("click", handleDeleteSelected);
 el.generateDocBtn.addEventListener("click", handleGenerateDocument);
+el.downloadWordBtn.addEventListener("click", handleDownloadWord);
 
 // Delivery fee: reveal the description/price fields only when ticked.
 el.deliveryFeeCheck.addEventListener("change", () => {
