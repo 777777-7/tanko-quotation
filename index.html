@@ -5094,11 +5094,59 @@ function assetAbsoluteUrl(relPath) {
 // Best image source for the exported doc: an embedded data: URI when possible
 // (works over http / the local server), otherwise an absolute path that Word
 // can resolve from disk when the file is opened on this same machine.
+const _docImageCache = {};
+
+// When the app is hosted on github.com, asset URLs point to HTML blob
+// pages, not the raw image. Convert to raw.githubusercontent.com.
+function githubRawAssetUrl(relPath) {
+  try {
+    const u = new URL(window.location.href);
+    if (u.hostname === "github.com" || u.hostname.endsWith(".github.io")) {
+      const m = u.pathname.match(/^\/([^\/]+)\/([^\/]+)(?:\/blob)?\/([^\/]+)\//);
+      if (m) {
+        return "https://raw.githubusercontent.com/" + m[1] + "/" + m[2] + "/" + m[3] + "/" + relPath;
+      }
+    }
+  } catch (e) {}
+  return null;
+}
+
+async function fetchImageAsDataUri(url) {
+  try {
+    const res = await fetch(url);
+    const ct = res.headers.get("content-type") || "";
+    if (res.ok && ct.indexOf("image/") === 0) {
+      const blob = await res.blob();
+      return await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = () => resolve(null);
+        reader.readAsDataURL(blob);
+      });
+    }
+  } catch (e) {}
+  return null;
+}
+
 async function resolveImageForDoc(relPath) {
   if (!relPath) return null;
-  // Use direct URL instead of base64 data-URI — much faster to load.
-  // The document <base href> resolves relative paths correctly.
-  return assetAbsoluteUrl(relPath);
+  if (_docImageCache[relPath]) return _docImageCache[relPath];
+  // 1) Embed the image inline when it can be fetched as an image.
+  //    Works on GitHub Pages / a local server; makes the .doc self-contained.
+  let dataUri = await fetchImageAsDataUri(relPath);
+  if (!dataUri) {
+    // 2) github.com hosts assets as HTML blob pages, not raw images.
+    const rawUrl = githubRawAssetUrl(relPath);
+    if (rawUrl) dataUri = await fetchImageAsDataUri(rawUrl);
+  }
+  if (dataUri) {
+    _docImageCache[relPath] = dataUri;
+    return dataUri;
+  }
+  // 3) Last resort: absolute URL (works on this machine / same origin).
+  const abs = assetAbsoluteUrl(relPath);
+  _docImageCache[relPath] = abs;
+  return abs;
 }
 
 function formatQuotationDate(date) {
@@ -5298,7 +5346,7 @@ function buildPhotosGridHtml(items, imageSrcs) {
       : "<td style=\"width:50%;\"></td>";
     rows += "<tr style=\"page-break-inside:avoid;\">" + cell1 + cell2 + "</tr>";
   }
-  return "<table style=\"width:100%; border-collapse:collapse;\">" + rows + "</table>";
+  return "<table style=\"width:100%; border-collapse:collapse; table-layout:fixed;\">" + rows + "</table>";
 }
 
 
@@ -5412,11 +5460,11 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
     </head>
     <body>
     <div class="WordSection1">
-      <table style="width:100%; margin-bottom:6pt;">
+      <table style="width:100%; margin-bottom:6pt; table-layout:fixed;">
         <tr>
           <td style="width:90px; vertical-align:middle; text-align:left;"><img src="${PRIMAXS_LOGO_DATA_URI}" width="90" style="width:90px!important; max-width:90px!important; height:auto!important; display:block!important;"></td>
           <td style="vertical-align:middle; text-align:left; font-size:10pt; padding-left:14px; padding-right:14px;">
-            <p style="text-align:left; font-size:22pt; line-height:1.05; margin:0; white-space:nowrap;"><b>Primaxs Marketing (M) Sdn. Bhd.</b> <span style="font-size:7pt; font-weight:normal;">(Co.No. 200601036829)</span></p>
+            <p style="text-align:left; font-size:20pt; line-height:1.05; margin:0; white-space:nowrap;"><b>Primaxs Marketing (M) Sdn. Bhd.</b> <span style="font-size:7pt; font-weight:normal;">(Co.No. 200601036829)</span></p>
             <p style="text-align:left;">39, Jalan Balakong Jaya 4, Taman Industri Balakong Jaya, 43300 Seri Kembangan, Selangor D.E.</p>
             <p style="text-align:left;">Email: sales@storagesystem.my &nbsp;&nbsp;&nbsp; Website: www.storagesystem.my</p>
             <p style="text-align:left;">Tel: 03-4296 4737, 03-4295 0430 &nbsp;&nbsp;&nbsp; Fax: 03-4296 6737</p>
@@ -5438,7 +5486,7 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <p style="font-size:12pt; margin:3pt 0 2pt;"><b><u>RE: Quotation for ${escapeHtml(reSubject)}</u></b></p>
       <p style="margin-bottom:4pt;">With reference to our tele-conversation, we are pleased to submit herewith the quotation for your kind attention and perusal.</p>
 
-      <table style="width:100%; border-collapse:collapse;">
+      <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
         <thead>
           <tr>
             <td style="width:5%; font-style:italic; padding:2px 8px; border-bottom:2px solid #000;"><b>No.</b></td>
