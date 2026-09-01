@@ -5575,6 +5575,11 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       <p style="margin:14pt 0 8pt 0; font-size:14pt; font-weight:bold; border-bottom:2pt solid #000; padding-bottom:4pt; page-break-after:avoid;">Product Photos</p>
       ${photosHtml}
 
+      <!-- Closing block: keep together on one page (never split across pages) -->
+      <table style="width:100%; border-collapse:collapse; page-break-inside:avoid;">
+        <tr style="page-break-inside:avoid;">
+          <td style="padding:0; vertical-align:top;">
+
       <!-- Terms and conditions -->
       <table style="width:100%; border-collapse:collapse; margin-top:10pt;">
         <tr>
@@ -5601,6 +5606,10 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
       </table>
       <p style="font-size:10pt; font-weight:bold; margin-top:1pt;">Kenny LAI</p>
       <p style="font-size:10pt;">012-616 3088</p>
+
+          </td>
+        </tr>
+      </table>
     </div>
 
     </body>
