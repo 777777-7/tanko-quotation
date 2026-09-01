@@ -5349,6 +5349,52 @@ function buildPhotosGridHtml(items, imageSrcs) {
   return "<table style=\"width:100%; border-collapse:collapse; table-layout:fixed;\">" + rows + "</table>";
 }
 
+// A4 page geometry (same values as @page WordSection1 in the generated doc):
+// content width = 595.3 - 2*39.6 = 516.1pt ; usable height = 841.9 - 2*36.0 = 769.9pt.
+const A4_CONTENT_WIDTH_PT = 516.1;
+const A4_USABLE_HEIGHT_PT = 769.9;
+// Safety factor: Word/WPS can render slightly taller than Chrome, so only
+// declare "fits one page" when there is at least this much slack.
+const ONE_PAGE_FACTOR = 0.96;
+
+// Renders the generated document in a hidden A4-proportioned iframe and returns
+// its natural height in pt. Images are inline (data URIs) or local, so they load
+// fast and give an accurate measurement.
+function measureGeneratedDocHeight(docHtml) {
+  return new Promise((resolve) => {
+    let settled = false;
+    const finish = (h) => { if (!settled) { settled = true; resolve(h); } };
+    try {
+      const f = document.createElement("iframe");
+      f.style.width = A4_CONTENT_WIDTH_PT + "pt";
+      f.style.height = "3000pt";
+      f.style.position = "fixed";
+      f.style.left = "-20000px";
+      f.style.top = "0";
+      f.style.border = "none";
+      f.style.pointerEvents = "none";
+      document.body.appendChild(f);
+      const d = f.contentDocument;
+      d.open();
+      d.write(docHtml);
+      d.close();
+      setTimeout(() => {
+        try {
+          const hPt = d.body.scrollHeight * 0.75; // px -> pt
+          finish(hPt);
+        } catch (e) {
+          finish(Infinity);
+        } finally {
+          try { document.body.removeChild(f); } catch (e) {}
+        }
+      }, 220);
+    } catch (e) {
+      finish(Infinity);
+    }
+  });
+}
+
+
 
 async function buildQuotationHtml(customer, items, serial, delivery) {
   // Product photos, resolved to a doc-embeddable source (data URI or file path).
@@ -5378,7 +5424,14 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
 
   const photosHtml = buildPhotosGridHtml(items, imageSrcs);
 
-  return `
+  // Deterministic pagination for the Word/WPS export: Word ignores CSS
+  // page-break-inside / page-break-after, so we measure the rendered height
+  // and insert an explicit page break (page-break-before:always, which Word
+  // honors) so the result is always 1 page if it fits, otherwise 2 clean
+  // pages with photos + specs on the same page.
+  const PAGE_BREAK_MARKER = "<!--__PAGE_BREAK_HERE__-->";
+
+  let outHtml = `
     <html xmlns:o="urn:schemas-microsoft-com:office:office"
           xmlns:w="urn:schemas-microsoft-com:office:word"
           xmlns="http://www.w3.org/TR/REC-html40">
@@ -5517,7 +5570,8 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
         </tr>
       </table>
 
-      <!-- Product photos flow naturally: one page if it fits, otherwise continue on next page -->
+      <!-- Product photos: one page if the whole quote fits, otherwise page 2 -->
+      ${PAGE_BREAK_MARKER}
       <p style="margin:14pt 0 8pt 0; font-size:14pt; font-weight:bold; border-bottom:2pt solid #000; padding-bottom:4pt; page-break-after:avoid;">Product Photos</p>
       ${photosHtml}
 
@@ -5552,6 +5606,21 @@ async function buildQuotationHtml(customer, items, serial, delivery) {
     </body>
     </html>
   `;
+
+  try {
+    const h = await measureGeneratedDocHeight(outHtml);
+    if (h > A4_USABLE_HEIGHT_PT * ONE_PAGE_FACTOR) {
+      // Content does not fit one page: photos (with specs) go to page 2.
+      outHtml = outHtml.replace(PAGE_BREAK_MARKER,
+        '<p style="page-break-before:always; margin:0; font-size:1pt; line-height:0;">&nbsp;</p>');
+    } else {
+      // Everything fits on one page: remove the marker.
+      outHtml = outHtml.replace(PAGE_BREAK_MARKER, "");
+    }
+  } catch (e) {
+    outHtml = outHtml.replace(PAGE_BREAK_MARKER, "");
+  }
+  return outHtml;
 }
 
 async function handleDownloadWord() {
