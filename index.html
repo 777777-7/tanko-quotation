@@ -5532,17 +5532,21 @@ async function handleDownloadWord() {
     const delivery = getDeliveryFee();
     const docHtml = await buildQuotationHtml(customer, quoteItems, serial, delivery);
 
-    // Save as .doc (Word-compatible HTML). WPS / Word opens it for editing,
-    // then user exports to PDF with the same A4 layout.
-    const blob = new Blob([docHtml], { type: "application/msword" });
+    // Save as .doc (Word-compatible HTML).
+    // Use a generic binary MIME type so the browser is FORCED to download
+    // the file (instead of the Chrome Office viewer grabbing the blob and
+    // opening it in a Google Docs tab). The .doc extension still maps to WPS.
+    const blob = new Blob([docHtml], { type: "application/octet-stream" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
     a.download = "Quotation_" + serial.replace(/[^a-zA-Z0-9]/g, "_") + ".doc";
+    a.rel = "noopener";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Delayed revoke so the browser has time to read the blob for download.
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
   } catch (error) {
     console.error(error);
     alert("Failed to generate the Word document: " + error.message);
