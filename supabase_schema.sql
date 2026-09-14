@@ -13,11 +13,19 @@ create table if not exists public.quotations (
   item_count     int  not null,             -- sum of qty across items (units, not lines)
   delivery_desc  text,
   delivery_price numeric,
-  grand_total    numeric not null
+  grand_total    numeric not null,
+  doc_type       text not null default 'pdf'   -- 'pdf' or 'docx' (which export produced the row)
 );
+
+-- Migration for existing databases (safe no-op if the column already exists):
+alter table public.quotations
+  add column if not exists doc_type text not null default 'pdf';
 
 create index if not exists quotations_date_idx
   on public.quotations (quote_date desc);
+
+create index if not exists quotations_doc_type_idx
+  on public.quotations (doc_type);
 
 -- Row-level security: anonymous browser users can read history and add new
 -- quotations, but cannot edit or delete existing rows. This means someone

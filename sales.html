@@ -229,6 +229,19 @@
     font-size: 12px;
     color: var(--ink-muted);
   }
+  .qc-doctype {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+  .qc-doctype.pdf  { background: #fde8e8; color: #b53131; }
+  .qc-doctype.docx { background: #e0eafc; color: #1e4bb8; }
   .quote-card .qc-customer {
     font-weight: 700;
     font-size: 14px;
@@ -393,7 +406,7 @@ async function loadMonth() {
 
   const { data, error } = await SB
     .from("quotations")
-    .select("id, serial, quote_date, customer_name, customer_attn, items, item_count, delivery_desc, delivery_price, grand_total, created_at")
+    .select("id, serial, quote_date, customer_name, customer_attn, items, item_count, delivery_desc, delivery_price, grand_total, created_at, doc_type")
     .gte("quote_date", fromDate)
     .lte("quote_date", toDate)
     .order("created_at", { ascending: true });
@@ -531,7 +544,11 @@ function renderDetail(dateStr, agg) {
           '<div>' +
             '<div class="qc-label">Quotation ' + (idx + 1) + '</div>' +
             '<div class="qc-customer">' + escapeHtml(r.customer_name || "(no customer name)") + attn + '</div>' +
-            '<div class="qc-serial">Quote No. ' + escapeHtml(r.serial) + '</div>' +
+            '<div class="qc-serial">Quote No. ' + escapeHtml(r.serial) +
+              (r.doc_type === "docx"
+                ? '<span class="qc-doctype docx">DOCX</span>'
+                : '<span class="qc-doctype pdf">PDF</span>') +
+            '</div>' +
           '</div>' +
           '<div class="qc-total">RM ' + money(r.grand_total) + '</div>' +
         '</div>' +
