@@ -405,7 +405,11 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
     <span class="eyebrow">Tanko Malaysia</span>
     <h1>Quotation Builder</h1>
     <p>Search a SKU, add it to the quote, and generate a customer-ready document.</p>
-    <p style="margin-top:6px;"><a href="sales.html" style="color:var(--brand); font-weight:600; text-decoration:none;">View sales calendar &rarr;</a></p>
+    <p style="margin-top:6px;">
+      <a href="sales.html" style="color:var(--brand); font-weight:600; text-decoration:none;">View sales calendar &rarr;</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="purchases.html" style="color:var(--brand); font-weight:600; text-decoration:none;">Confirmed purchases &rarr;</a>
+    </p>
   </header>
 
   <section class="panel">
@@ -501,6 +505,20 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
   <section class="panel">
     <button id="generateDocBtn" type="button" class="btn-generate">Generate Document</button>
     <button id="downloadWordBtn" type="button" class="btn-generate" style="margin-left:10px; background:#2b7a3b;">Download Word (.docx)</button>
+    <!-- Manual-purchase mode (?mode=purchase): the two buttons above are
+         hidden by JS, and this block is revealed instead. -->
+    <div id="purchaseModeBox" style="display:none; margin-top:6px;">
+      <div style="margin-bottom:10px; padding:8px 12px; background:#e6f4ea; color:#1f5c2c; border-radius:6px; font-size:13px; font-weight:600;">
+        Manual purchase mode &mdash; this form will save directly as a confirmed purchase (no PDF / DOCX).
+      </div>
+      <label for="purchaseDeadlineInput" style="font-weight:600; font-size:13px; display:block; margin-bottom:6px;">Deadline to complete</label>
+      <input type="date" id="purchaseDeadlineInput"
+             style="padding:8px 10px; border:1.5px solid var(--border); border-radius:6px; font-family:inherit; font-size:14px; margin-bottom:12px; max-width:220px;">
+      <div>
+        <button id="savePurchaseBtn" type="button" class="btn-generate" style="background:#2b7a3b;">Save as Purchase</button>
+        <a href="purchases.html" style="margin-left:10px; color:var(--brand); font-weight:600; text-decoration:none; font-size:13px;">Cancel &rarr; back to purchases</a>
+      </div>
+    </div>
   </section>
 
 <script>
@@ -6087,6 +6105,121 @@ el.itemsTableBody.addEventListener("input", (e) => {
 });
 
 renderTable();
+
+// ============================================================================
+// Manual-purchase mode: activated by opening this page with ?mode=purchase.
+// Same customer + item form, but skips PDF/DOCX generation and instead
+// inserts a row into public.purchases with source='manual'.
+// ============================================================================
+(function initPurchaseMode() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("mode") !== "purchase") return;
+
+  const box = document.getElementById("purchaseModeBox");
+  const deadlineInput = document.getElementById("purchaseDeadlineInput");
+  const saveBtn = document.getElementById("savePurchaseBtn");
+
+  el.generateDocBtn.style.display = "none";
+  el.downloadWordBtn.style.display = "none";
+  box.style.display = "";
+
+  // Default deadline = today + 42 days (6 weeks), operator can override.
+  const dflt = new Date();
+  dflt.setDate(dflt.getDate() + 42);
+  deadlineInput.value =
+    dflt.getFullYear() + "-" +
+    String(dflt.getMonth() + 1).padStart(2, "0") + "-" +
+    String(dflt.getDate()).padStart(2, "0");
+
+  // Reuse the existing daily-reset serial pattern (PO-YYMMDD-NNN) so manual
+  // and quotation-derived purchases share one numbering series.
+  async function nextPurchaseSerial() {
+    const now = new Date();
+    const yymmdd = String(now.getFullYear()).slice(-2) +
+      String(now.getMonth() + 1).padStart(2, "0") +
+      String(now.getDate()).padStart(2, "0");
+    const prefix = "PO-" + yymmdd + "-";
+    let n = 1;
+    if (window.SB) {
+      const { data, error } = await window.SB
+        .from("purchases")
+        .select("serial")
+        .like("serial", prefix + "%")
+        .order("serial", { ascending: false })
+        .limit(1);
+      if (!error && data && data.length > 0) {
+        const m = /-(\d+)$/.exec(data[0].serial);
+        if (m) n = parseInt(m[1], 10) + 1;
+      }
+    }
+    return prefix + String(n).padStart(3, "0");
+  }
+
+  saveBtn.addEventListener("click", async () => {
+    const customer = {
+      name: el.customerName.value.trim(),
+      contact: el.customerContact.value.trim(),
+      address: el.customerAddress.value.trim(),
+      attn: el.customerAttn.value.trim(),
+    };
+    if (!customer.name) { alert("Please enter the customer name first."); return; }
+    if (quoteItems.length === 0) { alert("Add at least one item to the purchase first."); return; }
+    const deadline = deadlineInput.value;
+    if (!deadline) { alert("Please pick a deadline."); return; }
+    if (!window.SB) { alert("Supabase client not loaded. Cannot save."); return; }
+
+    const originalLabel = saveBtn.textContent;
+    saveBtn.disabled = true;
+    saveBtn.textContent = "Saving…";
+
+    try {
+      const serial = await nextPurchaseSerial();
+      const delivery = getDeliveryFee();
+      const now = new Date();
+      const confirmDate =
+        now.getFullYear() + "-" +
+        String(now.getMonth() + 1).padStart(2, "0") + "-" +
+        String(now.getDate()).padStart(2, "0");
+
+      const rowItems = quoteItems.map((it) => ({
+        sku: it.sku,
+        name: String(it.name).split("\n").slice(0, 2).join(" / "),
+        qty: it.qty,
+        unit_usd: Number(it.price) || 0,
+        unit_myr: finalUnitPrice(it.price),
+        total_myr: it.total,
+      }));
+      const itemCount = quoteItems.reduce((n, it) => n + (Number(it.qty) || 0), 0);
+      const itemsSum = quoteItems.reduce((n, it) => n + it.total, 0);
+      const grandTotal = itemsSum + (delivery ? delivery.price : 0);
+
+      const { error } = await window.SB.from("purchases").insert({
+        serial,
+        confirm_date: confirmDate,
+        deadline,
+        customer_name: customer.name,
+        customer_attn: customer.attn || null,
+        customer_contact: customer.contact || null,
+        customer_address: customer.address || null,
+        items: rowItems,
+        item_count: itemCount,
+        delivery_desc: delivery ? (delivery.desc || null) : null,
+        delivery_price: delivery ? delivery.price : null,
+        grand_total: grandTotal,
+        source: "manual",
+      });
+      if (error) throw error;
+
+      alert("Purchase " + serial + " saved. Redirecting to /purchases/…");
+      window.location.href = "purchases.html";
+    } catch (err) {
+      console.error(err);
+      alert("Could not save the purchase: " + (err.message || err));
+      saveBtn.disabled = false;
+      saveBtn.textContent = originalLabel;
+    }
+  });
+})();
 </script>
 </body>
 </html>

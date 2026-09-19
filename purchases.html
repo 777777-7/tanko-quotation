@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confirmed Purchases — Primaxs</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  :root {
+    --brand: #b3202a;
+    --brand-dark: #8c1922;
+    --brand-tint: #fbe9ea;
+    --ink: #1c1b1f;
+    --ink-muted: #6b6a70;
+    --surface: #ffffff;
+    --page: #f4f3f6;
+    --border: #e3e2e6;
+    --ok: #2b7a3b;
+    --ok-tint: #e6f4ea;
+    --warn: #b7791f;
+    --warn-tint: #fef3c7;
+    --danger: #b53131;
+    --danger-tint: #fde8e8;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.05);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--page);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 24px;
+  }
+  header .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  header h1 { margin: 0; font-size: 20px; color: var(--ink); }
+  header .nav-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  header .link {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  header .link:hover { text-decoration: underline; }
+  main {
+    max-width: 1080px;
+    margin: 24px auto;
+    padding: 0 24px 60px;
+  }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .tab {
+    padding: 10px 18px;
+    border: none;
+    background: transparent;
+    color: var(--ink-muted);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+  .tab:hover:not(.active) { color: var(--ink); }
+
+  /* Action row */
+  .action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    background: var(--brand);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover { background: var(--brand-dark); }
+  .btn.secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--border); }
+  .btn.secondary:hover { border-color: var(--brand); color: var(--brand); background: var(--surface); }
+  .btn.danger { background: var(--danger); }
+  .btn.danger:hover { background: #8a2424; }
+  .btn.small { padding: 5px 10px; font-size: 12px; }
+
+  .toggle-completed {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    cursor: pointer;
+  }
+
+  /* Pending list */
+  .pending-list { display: flex; flex-direction: column; gap: 10px; }
+  .p-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    background: var(--surface);
+  }
+  .p-card.completed { opacity: 0.6; }
+  .p-card .p-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .p-title { font-weight: 700; font-size: 15px; color: var(--ink); }
+  .p-title .serial { color: var(--ink-muted); font-weight: 500; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13px; margin-left: 6px; }
+  .p-meta { font-size: 12px; color: var(--ink-muted); }
+  .p-body { font-size: 13px; color: var(--ink); margin-bottom: 10px; }
+  .p-summary { color: var(--ink-muted); font-size: 12px; margin-top: 4px; }
+  .p-total { font-weight: 700; color: var(--brand); font-size: 15px; }
+  .p-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* Deadline pill */
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .pill.ok      { background: #eef2f5; color: var(--ink-muted); }
+  .pill.warn    { background: var(--warn-tint); color: var(--warn); }
+  .pill.danger  { background: var(--danger-tint); color: var(--danger); }
+  .pill.done    { background: var(--ok-tint); color: var(--ok); }
+
+  .empty { padding: 40px 20px; text-align: center; color: var(--ink-muted); }
+
+  /* Calendar */
+  .cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .cal-nav h2 { margin: 0; font-size: 18px; }
+  .cal-nav .month-btns { display: flex; gap: 6px; }
+  .cal-nav button {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cal-nav button:hover { border-color: var(--brand); color: var(--brand); }
+  .cal-nav .today-btn { width: auto; padding: 0 12px; font-size: 13px; font-weight: 600; }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .cal-dow {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    padding: 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .cal-day {
+    min-height: 84px;
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    font-size: 12px;
+    cursor: default;
+    position: relative;
+  }
+  .cal-day.other-month { opacity: 0.4; }
+  .cal-day.today { border-color: var(--brand); }
+  .cal-day.selected { outline: 2px solid var(--brand); }
+  .cal-day.has-data { cursor: pointer; }
+  .cal-day.has-data:hover { border-color: var(--brand); }
+  .cal-day .day-num { font-weight: 600; color: var(--ink); }
+  .cal-day .day-pill {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .cal-day.danger { background: var(--danger-tint); }
+  .cal-day.warn   { background: var(--warn-tint); }
+  .cal-day.done   { background: var(--ok-tint); }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    min-width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  }
+  .modal h3 { margin: 0 0 6px; font-size: 17px; }
+  .modal p { margin: 0 0 14px; font-size: 13px; color: var(--ink-muted); }
+  .modal label { font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px; }
+  .modal input[type=date] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .modal .row { display: flex; gap: 8px; justify-content: flex-end; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--ink);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Confirmed Purchases</h1>
+    <div class="nav-links">
+      <a href="sales.html" class="link">Sales calendar</a>
+      <a href="index.html" class="link">Quotation builder &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tabs">
+    <button class="tab active" data-tab="pending">Pending</button>
+    <button class="tab" data-tab="calendar">Calendar</button>
+  </div>
+
+  <!-- PENDING TAB -->
+  <section class="panel" id="pendingPanel">
+    <div class="action-row">
+      <a href="index.html?mode=purchase" class="btn">+ New manual purchase</a>
+      <label class="toggle-completed">
+        <input type="checkbox" id="showCompleted"> Show completed
+      </label>
+    </div>
+    <div id="pendingList" class="pending-list"></div>
+    <div id="pendingStatus" style="margin-top:12px; font-size:12px; color:var(--ink-muted);"></div>
+  </section>
+
+  <!-- CALENDAR TAB -->
+  <section class="panel" id="calendarPanel" style="display:none;">
+    <div class="cal-nav">
+      <div class="month-btns">
+        <button id="prevBtn" title="Previous month">&lsaquo;</button>
+        <button id="todayBtn" class="today-btn" title="Jump to today">Today</button>
+        <button id="nextBtn" title="Next month">&rsaquo;</button>
+      </div>
+      <h2 id="monthLabel">—</h2>
+      <div style="min-width:120px;"></div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div id="calStatus" style="margin-top:12px; font-size:12px; color:var(--ink-muted);"></div>
+  </section>
+
+  <section class="panel" id="dayDetail" style="display:none;">
+    <h2 id="dayDetailDate" style="margin:0 0 12px; font-size:17px;">—</h2>
+    <div id="dayDetailList" class="pending-list"></div>
+  </section>
+</main>
+
+<!-- Edit deadline modal -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h3>Change deadline</h3>
+    <p id="editSubject" style="font-size:12px; color:var(--ink-muted);">—</p>
+    <label for="editDeadlineInput">New deadline</label>
+    <input type="date" id="editDeadlineInput">
+    <div class="row">
+      <button class="btn secondary" id="editCancelBtn">Cancel</button>
+      <button class="btn" id="editSaveBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mark as done modal -->
+<div class="modal-overlay" id="doneModal">
+  <div class="modal">
+    <h3>Mark as done</h3>
+    <p id="doneSubject" style="font-size:12px; color:var(--ink-muted);">—</p>
+    <label for="doneDateInput">Completion date</label>
+    <input type="date" id="doneDateInput">
+    <div class="row">
+      <button class="btn secondary" id="doneCancelBtn">Cancel</button>
+      <button class="btn" id="doneSaveBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SUPABASE_URL = "https://uwqmswitxgorowsxkqba.supabase.co";
+const SUPABASE_KEY = "sb_publishable_WxNo1KNeE2_regh-_fJYdg_m9phJvN9";
+const SB = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+const el = {
+  pendingList: document.getElementById("pendingList"),
+  pendingStatus: document.getElementById("pendingStatus"),
+  pendingPanel: document.getElementById("pendingPanel"),
+  calendarPanel: document.getElementById("calendarPanel"),
+  showCompleted: document.getElementById("showCompleted"),
+  monthLabel: document.getElementById("monthLabel"),
+  calGrid: document.getElementById("calGrid"),
+  calStatus: document.getElementById("calStatus"),
+  prevBtn: document.getElementById("prevBtn"),
+  nextBtn: document.getElementById("nextBtn"),
+  todayBtn: document.getElementById("todayBtn"),
+  dayDetail: document.getElementById("dayDetail"),
+  dayDetailDate: document.getElementById("dayDetailDate"),
+  dayDetailList: document.getElementById("dayDetailList"),
+  editModal: document.getElementById("editModal"),
+  editSubject: document.getElementById("editSubject"),
+  editDeadlineInput: document.getElementById("editDeadlineInput"),
+  editCancelBtn: document.getElementById("editCancelBtn"),
+  editSaveBtn: document.getElementById("editSaveBtn"),
+  doneModal: document.getElementById("doneModal"),
+  doneSubject: document.getElementById("doneSubject"),
+  doneDateInput: document.getElementById("doneDateInput"),
+  doneCancelBtn: document.getElementById("doneCancelBtn"),
+  doneSaveBtn: document.getElementById("doneSaveBtn"),
+  toast: document.getElementById("toast"),
+};
+
+// State
+let allPurchases = [];        // full cache used by both tabs
+let editingRowId = null;
+let doneRowId = null;
+let viewYear, viewMonth, selectedCalDate = null;
+
+function money(n) {
+  return Number(n || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function ymd(d) {
+  return d.getFullYear() + "-" +
+    String(d.getMonth() + 1).padStart(2, "0") + "-" +
+    String(d.getDate()).padStart(2, "0");
+}
+function todayLocal() { return ymd(new Date()); }
+function escapeHtml(s) {
+  return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function toast(msg) {
+  el.toast.textContent = msg;
+  el.toast.classList.add("show");
+  setTimeout(() => el.toast.classList.remove("show"), 2200);
+}
+
+// Days until (or since) a deadline. Negative = overdue.
+function daysUntil(deadlineStr) {
+  const t = new Date(todayLocal() + "T00:00").getTime();
+  const d = new Date(deadlineStr + "T00:00").getTime();
+  return Math.round((d - t) / 86400000);
+}
+
+// Pick a color category for a pending row based on days-until-deadline.
+function deadlineTier(deadlineStr) {
+  const n = daysUntil(deadlineStr);
+  if (n < 0) return "danger";
+  if (n <= 7) return "warn";
+  return "ok";
+}
+
+function formatDeadlineLabel(deadlineStr) {
+  const n = daysUntil(deadlineStr);
+  const pretty = new Date(deadlineStr + "T00:00")
+    .toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  if (n < 0) return pretty + " (" + Math.abs(n) + "d overdue)";
+  if (n === 0) return pretty + " (today)";
+  if (n === 1) return pretty + " (tomorrow)";
+  return pretty + " (in " + n + "d)";
+}
+
+// ---------------- Load ----------------
+
+async function loadAll() {
+  el.pendingStatus.textContent = "Loading…";
+  const { data, error } = await SB
+    .from("purchases")
+    .select("id, serial, confirmed_at, confirm_date, deadline, completed_at, customer_name, customer_attn, items, item_count, grand_total, source, quotation_serial")
+    .order("deadline", { ascending: true });
+  if (error) {
+    el.pendingStatus.innerHTML = '<span style="color:var(--danger);">Could not load: ' + escapeHtml(error.message) + '</span>';
+    return;
+  }
+  allPurchases = data || [];
+  renderPending();
+  renderCalendar();
+}
+
+// ---------------- Pending list ----------------
+
+function renderPending() {
+  const showDone = el.showCompleted.checked;
+  const rows = allPurchases.filter((r) => showDone || !r.completed_at);
+
+  // Sort: overdue first (most-overdue at top), then upcoming by soonest,
+  // completed last (by completion date descending).
+  rows.sort((a, b) => {
+    const aDone = !!a.completed_at, bDone = !!b.completed_at;
+    if (aDone !== bDone) return aDone ? 1 : -1;
+    if (aDone && bDone) return String(b.completed_at).localeCompare(String(a.completed_at));
+    return String(a.deadline).localeCompare(String(b.deadline));
+  });
+
+  if (rows.length === 0) {
+    el.pendingList.innerHTML = '<div class="empty">' +
+      (showDone ? "No purchases yet." : "Nothing pending. 🎉") +
+      '</div>';
+    el.pendingStatus.textContent = "0 purchases";
+    return;
+  }
+
+  el.pendingList.innerHTML = rows.map(renderPendingCard).join("");
+  const pendingCount = allPurchases.filter((r) => !r.completed_at).length;
+  const doneCount = allPurchases.length - pendingCount;
+  el.pendingStatus.textContent = pendingCount + " pending · " + doneCount + " completed";
+}
+
+function renderPendingCard(r) {
+  const items = Array.isArray(r.items) ? r.items : [];
+  const topSkus = items.slice(0, 2).map((it) => escapeHtml(it.sku)).join(", ");
+  const moreN = items.length > 2 ? " and " + (items.length - 2) + " more" : "";
+  const summary = topSkus + moreN;
+  const sourceTag = r.source === "quotation"
+    ? '<span class="pill ok" style="margin-left:6px;">from ' + escapeHtml(r.quotation_serial || "quote") + '</span>'
+    : '';
+  const attn = r.customer_attn ? ' · Attn: ' + escapeHtml(r.customer_attn) : '';
+
+  let pill;
+  if (r.completed_at) {
+    pill = '<span class="pill done">Done ' + escapeHtml(r.completed_at) + '</span>';
+  } else {
+    const tier = deadlineTier(r.deadline);
+    pill = '<span class="pill ' + tier + '">' + escapeHtml(formatDeadlineLabel(r.deadline)) + '</span>';
+  }
+
+  const actions = r.completed_at
+    ? '<button class="btn small danger" data-act="delete" data-id="' + r.id + '">Delete</button>' +
+      '<button class="btn small secondary" data-act="undone" data-id="' + r.id + '">Reopen</button>'
+    : '<button class="btn small secondary" data-act="editDeadline" data-id="' + r.id + '">Edit deadline</button>' +
+      '<button class="btn small" data-act="markDone" data-id="' + r.id + '">Mark as done</button>' +
+      '<button class="btn small danger" data-act="delete" data-id="' + r.id + '">Delete</button>';
+
+  return (
+    '<div class="p-card' + (r.completed_at ? ' completed' : '') + '">' +
+      '<div class="p-head">' +
+        '<div>' +
+          '<div class="p-title">' + escapeHtml(r.customer_name || "(no name)") +
+            '<span class="serial"> — ' + escapeHtml(r.serial) + '</span>' +
+            sourceTag +
+          '</div>' +
+          '<div class="p-meta">Confirmed ' + escapeHtml(r.confirm_date) + attn + '</div>' +
+        '</div>' +
+        '<div style="text-align:right;">' +
+          pill +
+          '<div class="p-total" style="margin-top:4px;">RM ' + money(r.grand_total) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="p-body">' +
+        '<div class="p-summary">' + summary + '</div>' +
+      '</div>' +
+      '<div class="p-actions">' + actions + '</div>' +
+    '</div>'
+  );
+}
+
+// Row action delegation
+el.pendingList.addEventListener("click", handleRowAction);
+el.dayDetailList.addEventListener("click", handleRowAction);
+function handleRowAction(e) {
+  const btn = e.target.closest("button[data-act]");
+  if (!btn) return;
+  const id = btn.dataset.id;
+  const act = btn.dataset.act;
+  if (act === "editDeadline") openEditModal(id);
+  else if (act === "markDone") openDoneModal(id);
+  else if (act === "undone") reopenPurchase(id);
+  else if (act === "delete") deletePurchase(id);
+}
+
+// ---------------- Modals ----------------
+
+function openEditModal(id) {
+  const r = allPurchases.find((x) => x.id === id);
+  if (!r) return;
+  editingRowId = id;
+  el.editSubject.textContent = (r.customer_name || "(no name)") + " — " + r.serial;
+  el.editDeadlineInput.value = r.deadline;
+  el.editModal.classList.add("open");
+  setTimeout(() => el.editDeadlineInput.focus(), 50);
+}
+el.editCancelBtn.addEventListener("click", () => el.editModal.classList.remove("open"));
+el.editModal.addEventListener("click", (e) => {
+  if (e.target === el.editModal) el.editModal.classList.remove("open");
+});
+el.editSaveBtn.addEventListener("click", async () => {
+  const newDeadline = el.editDeadlineInput.value;
+  if (!newDeadline) return;
+  el.editSaveBtn.disabled = true;
+  const { error } = await SB.from("purchases").update({ deadline: newDeadline }).eq("id", editingRowId);
+  el.editSaveBtn.disabled = false;
+  if (error) { alert("Could not save: " + error.message); return; }
+  el.editModal.classList.remove("open");
+  toast("Deadline updated");
+  await loadAll();
+});
+
+function openDoneModal(id) {
+  const r = allPurchases.find((x) => x.id === id);
+  if (!r) return;
+  doneRowId = id;
+  el.doneSubject.textContent = (r.customer_name || "(no name)") + " — " + r.serial;
+  el.doneDateInput.value = todayLocal();
+  el.doneModal.classList.add("open");
+  setTimeout(() => el.doneDateInput.focus(), 50);
+}
+el.doneCancelBtn.addEventListener("click", () => el.doneModal.classList.remove("open"));
+el.doneModal.addEventListener("click", (e) => {
+  if (e.target === el.doneModal) el.doneModal.classList.remove("open");
+});
+el.doneSaveBtn.addEventListener("click", async () => {
+  const d = el.doneDateInput.value;
+  if (!d) return;
+  el.doneSaveBtn.disabled = true;
+  const { error } = await SB.from("purchases").update({ completed_at: d }).eq("id", doneRowId);
+  el.doneSaveBtn.disabled = false;
+  if (error) { alert("Could not save: " + error.message); return; }
+  el.doneModal.classList.remove("open");
+  toast("Marked as done");
+  await loadAll();
+});
+
+async function reopenPurchase(id) {
+  if (!confirm("Reopen this purchase (clear completion date)?")) return;
+  const { error } = await SB.from("purchases").update({ completed_at: null }).eq("id", id);
+  if (error) { alert("Could not reopen: " + error.message); return; }
+  toast("Reopened");
+  await loadAll();
+}
+
+async function deletePurchase(id) {
+  const r = allPurchases.find((x) => x.id === id);
+  const label = r ? (r.customer_name + " — " + r.serial) : "this purchase";
+  if (!confirm("Delete " + label + "? This cannot be undone.")) return;
+  const { error } = await SB.from("purchases").delete().eq("id", id);
+  if (error) { alert("Could not delete: " + error.message); return; }
+  toast("Deleted");
+  await loadAll();
+}
+
+el.showCompleted.addEventListener("change", renderPending);
+
+// ---------------- Calendar ----------------
+
+function initCalendar() {
+  const now = new Date();
+  viewYear = now.getFullYear();
+  viewMonth = now.getMonth();
+}
+
+function renderCalendar() {
+  el.monthLabel.textContent = MONTHS[viewMonth] + " " + viewYear;
+
+  const first = new Date(viewYear, viewMonth, 1);
+  const leadingBlanks = first.getDay();
+  const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+  const totalCells = Math.ceil((leadingBlanks + daysInMonth) / 7) * 7;
+  const todayStr = todayLocal();
+
+  // Bucket purchases by deadline date within visible month
+  const byDate = {};
+  for (const r of allPurchases) {
+    if (!r.deadline) continue;
+    const d = new Date(r.deadline + "T00:00");
+    if (d.getFullYear() !== viewYear || d.getMonth() !== viewMonth) continue;
+    (byDate[r.deadline] ||= []).push(r);
+  }
+
+  let html = "";
+  for (const dow of DOW) html += '<div class="cal-dow">' + dow + '</div>';
+
+  for (let i = 0; i < totalCells; i++) {
+    const dayOfMonth = i - leadingBlanks + 1;
+    const inMonth = dayOfMonth >= 1 && dayOfMonth <= daysInMonth;
+    const cellDate = inMonth
+      ? ymd(new Date(viewYear, viewMonth, dayOfMonth))
+      : "";
+    const rows = inMonth ? (byDate[cellDate] || []) : [];
+
+    const pending = rows.filter((r) => !r.completed_at);
+    const done = rows.length - pending.length;
+
+    // Cell color: any overdue pending -> danger; else any warn -> warn;
+    // else if any (all completed) -> done tint; else plain.
+    let cls = ["cal-day"];
+    if (!inMonth) cls.push("other-month");
+    if (inMonth && cellDate === todayStr) cls.push("today");
+    if (inMonth && cellDate === selectedCalDate) cls.push("selected");
+    if (rows.length > 0) cls.push("has-data");
+
+    if (pending.length > 0) {
+      const worst = pending.reduce((acc, r) => {
+        const t = deadlineTier(r.deadline);
+        if (t === "danger") return "danger";
+        if (t === "warn" && acc !== "danger") return "warn";
+        return acc;
+      }, "ok");
+      if (worst === "danger") cls.push("danger");
+      else if (worst === "warn") cls.push("warn");
+    } else if (rows.length > 0) {
+      cls.push("done");
+    }
+
+    const dayLabel = inMonth ? dayOfMonth : new Date(viewYear, viewMonth, dayOfMonth).getDate();
+    let pillHtml = "";
+    if (pending.length > 0) {
+      pillHtml = '<span class="day-pill" style="background:rgba(255,255,255,0.7);">' +
+        pending.length + ' due</span>';
+    } else if (done > 0) {
+      pillHtml = '<span class="day-pill" style="background:rgba(255,255,255,0.7); color:var(--ok);">' +
+        done + ' done</span>';
+    }
+
+    html += '<div class="' + cls.join(" ") + '"' +
+      (rows.length > 0 ? ' data-date="' + cellDate + '"' : "") + '>' +
+      '<div class="day-num">' + dayLabel + '</div>' + pillHtml + '</div>';
+  }
+  el.calGrid.innerHTML = html;
+
+  const monthTotal = Object.values(byDate).reduce((n, arr) => n + arr.length, 0);
+  el.calStatus.textContent = monthTotal + " purchase" + (monthTotal === 1 ? "" : "s") + " due this month";
+
+  // Refresh day-detail if selection is still visible
+  if (selectedCalDate && byDate[selectedCalDate]) {
+    renderDayDetail(selectedCalDate, byDate[selectedCalDate]);
+  } else {
+    el.dayDetail.style.display = "none";
+    selectedCalDate = null;
+  }
+}
+
+el.calGrid.addEventListener("click", (e) => {
+  const cell = e.target.closest(".cal-day.has-data");
+  if (!cell) return;
+  const date = cell.dataset.date;
+  if (!date) return;
+  if (selectedCalDate === date) {
+    selectedCalDate = null;
+    el.dayDetail.style.display = "none";
+    renderCalendar();
+    return;
+  }
+  selectedCalDate = date;
+  const rows = allPurchases.filter((r) => r.deadline === date);
+  renderDayDetail(date, rows);
+  renderCalendar();
+  setTimeout(() => el.dayDetail.scrollIntoView({ behavior: "smooth", block: "start" }), 30);
+});
+
+function renderDayDetail(dateStr, rows) {
+  el.dayDetail.style.display = "";
+  const pretty = new Date(dateStr + "T00:00").toLocaleDateString("en-GB",
+    { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  el.dayDetailDate.textContent = pretty;
+  el.dayDetailList.innerHTML = rows.map(renderPendingCard).join("");
+}
+
+el.prevBtn.addEventListener("click", () => {
+  viewMonth -= 1;
+  if (viewMonth < 0) { viewMonth = 11; viewYear -= 1; }
+  renderCalendar();
+});
+el.nextBtn.addEventListener("click", () => {
+  viewMonth += 1;
+  if (viewMonth > 11) { viewMonth = 0; viewYear += 1; }
+  renderCalendar();
+});
+el.todayBtn.addEventListener("click", () => {
+  initCalendar();
+  renderCalendar();
+});
+
+// ---------------- Tabs ----------------
+
+document.querySelectorAll(".tab").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    const which = btn.dataset.tab;
+    el.pendingPanel.style.display  = which === "pending"  ? "" : "none";
+    el.calendarPanel.style.display = which === "calendar" ? "" : "none";
+    if (which !== "calendar") {
+      el.dayDetail.style.display = "none";
+    }
+  });
+});
+
+// ---------------- Boot ----------------
+
+initCalendar();
+loadAll();
+</script>
+</body>
+</html>
