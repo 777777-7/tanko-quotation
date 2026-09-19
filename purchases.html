@@ -251,15 +251,20 @@
   .modal h3 { margin: 0 0 6px; font-size: 17px; }
   .modal p { margin: 0 0 14px; font-size: 13px; color: var(--ink-muted); }
   .modal label { font-size: 13px; font-weight: 600; display: block; margin-bottom: 6px; }
-  .modal input[type=date] {
-    width: 100%;
+  .modal input[type=date],
+  .modal input[type=number] {
     padding: 8px 10px;
     border: 1.5px solid var(--border);
     border-radius: 6px;
     font-family: inherit;
     font-size: 14px;
-    margin-bottom: 16px;
   }
+  .modal input[type=date] { width: 100%; margin-bottom: 16px; }
+  .modal .wd-row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+  .modal .wd-cell { display: flex; align-items: center; gap: 6px; }
+  .modal .wd-row input[type=number] { width: 72px; text-align: right; }
+  .modal .deadline-preview { margin-bottom: 16px; font-size: 12px; color: var(--ink-muted); }
+  .modal .deadline-preview b { color: var(--ink); font-weight: 600; }
   .modal .row { display: flex; gap: 8px; justify-content: flex-end; }
 
   /* Toast */
@@ -335,8 +340,12 @@
   <div class="modal">
     <h3>Change deadline</h3>
     <p id="editSubject" style="font-size:12px; color:var(--ink-muted);">—</p>
-    <label for="editDeadlineInput">New deadline</label>
-    <input type="date" id="editDeadlineInput">
+    <label>New deadline (from today)</label>
+    <div class="wd-row">
+      <div class="wd-cell"><input type="number" min="0" step="1" id="editWeeksInput" value="0"><span>weeks</span></div>
+      <div class="wd-cell"><input type="number" min="0" step="1" id="editDaysInput"  value="0"><span>days</span></div>
+    </div>
+    <div class="deadline-preview" id="editDeadlinePreview">&rarr; Deadline: <b>&mdash;</b></div>
     <div class="row">
       <button class="btn secondary" id="editCancelBtn">Cancel</button>
       <button class="btn" id="editSaveBtn">Save</button>
@@ -386,7 +395,9 @@ const el = {
   dayDetailList: document.getElementById("dayDetailList"),
   editModal: document.getElementById("editModal"),
   editSubject: document.getElementById("editSubject"),
-  editDeadlineInput: document.getElementById("editDeadlineInput"),
+  editWeeks:   document.getElementById("editWeeksInput"),
+  editDays:    document.getElementById("editDaysInput"),
+  editPreview: document.getElementById("editDeadlinePreview"),
   editCancelBtn: document.getElementById("editCancelBtn"),
   editSaveBtn: document.getElementById("editSaveBtn"),
   doneModal: document.getElementById("doneModal"),
@@ -556,22 +567,48 @@ function handleRowAction(e) {
 
 // ---------------- Modals ----------------
 
+// Convert weeks + days -> YYYY-MM-DD (today + weeks*7 + days) in local time.
+function deadlineFromWeeksDays(weeks, days) {
+  const total = (Number(weeks) || 0) * 7 + (Number(days) || 0);
+  if (total < 0) return null;
+  const d = new Date();
+  d.setDate(d.getDate() + total);
+  return ymd(d);
+}
+function refreshEditPreview() {
+  const iso = deadlineFromWeeksDays(el.editWeeks.value, el.editDays.value);
+  if (!iso) { el.editPreview.innerHTML = "&rarr; Deadline: <b>&mdash;</b>"; return; }
+  const pretty = new Date(iso + "T00:00")
+    .toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+  el.editPreview.innerHTML = "&rarr; Deadline: <b>" + pretty + "</b>";
+}
+el.editWeeks.addEventListener("input", refreshEditPreview);
+el.editDays.addEventListener("input",  refreshEditPreview);
+
 function openEditModal(id) {
   const r = allPurchases.find((x) => x.id === id);
   if (!r) return;
   editingRowId = id;
-  el.editSubject.textContent = (r.customer_name || "(no name)") + " — " + r.serial;
-  el.editDeadlineInput.value = r.deadline;
+  el.editSubject.textContent = (r.customer_name || "(no name)") + " — " + r.serial +
+    " · currently " + (r.deadline || "—");
+  // Pre-fill weeks + days to reproduce the CURRENT deadline (rounded to whole
+  // days), so "Save" without changes leaves the row untouched.
+  const t = new Date(todayLocal() + "T00:00").getTime();
+  const d = new Date(r.deadline + "T00:00").getTime();
+  const totalDays = Math.max(0, Math.round((d - t) / 86400000));
+  el.editWeeks.value = Math.floor(totalDays / 7);
+  el.editDays.value  = totalDays % 7;
+  refreshEditPreview();
   el.editModal.classList.add("open");
-  setTimeout(() => el.editDeadlineInput.focus(), 50);
+  setTimeout(() => el.editWeeks.focus(), 50);
 }
 el.editCancelBtn.addEventListener("click", () => el.editModal.classList.remove("open"));
 el.editModal.addEventListener("click", (e) => {
   if (e.target === el.editModal) el.editModal.classList.remove("open");
 });
 el.editSaveBtn.addEventListener("click", async () => {
-  const newDeadline = el.editDeadlineInput.value;
-  if (!newDeadline) return;
+  const newDeadline = deadlineFromWeeksDays(el.editWeeks.value, el.editDays.value);
+  if (!newDeadline) { alert("Please enter weeks + days."); return; }
   el.editSaveBtn.disabled = true;
   const { error } = await SB.from("purchases").update({ deadline: newDeadline }).eq("id", editingRowId);
   el.editSaveBtn.disabled = false;

@@ -511,9 +511,20 @@ tbody tr.selected:hover { background: var(--brand-tint-strong); }
       <div style="margin-bottom:10px; padding:8px 12px; background:#e6f4ea; color:#1f5c2c; border-radius:6px; font-size:13px; font-weight:600;">
         Manual purchase mode &mdash; this form will save directly as a confirmed purchase (no PDF / DOCX).
       </div>
-      <label for="purchaseDeadlineInput" style="font-weight:600; font-size:13px; display:block; margin-bottom:6px;">Deadline to complete</label>
-      <input type="date" id="purchaseDeadlineInput"
-             style="padding:8px 10px; border:1.5px solid var(--border); border-radius:6px; font-family:inherit; font-size:14px; margin-bottom:12px; max-width:220px;">
+      <label style="font-weight:600; font-size:13px; display:block; margin-bottom:6px;">Deadline to complete (from today)</label>
+      <div style="display:flex; gap:12px; align-items:center; margin-bottom:8px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <input type="number" min="0" step="1" id="purchaseWeeksInput" value="6"
+                 style="width:72px; text-align:right; padding:8px 10px; border:1.5px solid var(--border); border-radius:6px; font-family:inherit; font-size:14px;">
+          <span style="font-size:13px;">weeks</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <input type="number" min="0" step="1" id="purchaseDaysInput" value="0"
+                 style="width:72px; text-align:right; padding:8px 10px; border:1.5px solid var(--border); border-radius:6px; font-family:inherit; font-size:14px;">
+          <span style="font-size:13px;">days</span>
+        </div>
+      </div>
+      <div id="purchaseDeadlinePreview" style="font-size:12px; color:var(--ink-muted); margin-bottom:14px;">&rarr; Deadline: <b>&mdash;</b></div>
       <div>
         <button id="savePurchaseBtn" type="button" class="btn-generate" style="background:#2b7a3b;">Save as Purchase</button>
         <a href="purchases.html" style="margin-left:10px; color:var(--brand); font-weight:600; text-decoration:none; font-size:13px;">Cancel &rarr; back to purchases</a>
@@ -6116,20 +6127,35 @@ renderTable();
   if (params.get("mode") !== "purchase") return;
 
   const box = document.getElementById("purchaseModeBox");
-  const deadlineInput = document.getElementById("purchaseDeadlineInput");
-  const saveBtn = document.getElementById("savePurchaseBtn");
+  const weeksInput = document.getElementById("purchaseWeeksInput");
+  const daysInput  = document.getElementById("purchaseDaysInput");
+  const preview    = document.getElementById("purchaseDeadlinePreview");
+  const saveBtn    = document.getElementById("savePurchaseBtn");
 
   el.generateDocBtn.style.display = "none";
   el.downloadWordBtn.style.display = "none";
   box.style.display = "";
 
-  // Default deadline = today + 42 days (6 weeks), operator can override.
-  const dflt = new Date();
-  dflt.setDate(dflt.getDate() + 42);
-  deadlineInput.value =
-    dflt.getFullYear() + "-" +
-    String(dflt.getMonth() + 1).padStart(2, "0") + "-" +
-    String(dflt.getDate()).padStart(2, "0");
+  // Compute (today + weeks*7 + days) as YYYY-MM-DD in local time.
+  function computeDeadlineIso() {
+    const total = (Number(weeksInput.value) || 0) * 7 + (Number(daysInput.value) || 0);
+    if (total < 0) return null;
+    const d = new Date();
+    d.setDate(d.getDate() + total);
+    return d.getFullYear() + "-" +
+      String(d.getMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getDate()).padStart(2, "0");
+  }
+  function refreshPreview() {
+    const iso = computeDeadlineIso();
+    if (!iso) { preview.innerHTML = "&rarr; Deadline: <b>&mdash;</b>"; return; }
+    const pretty = new Date(iso + "T00:00")
+      .toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    preview.innerHTML = "&rarr; Deadline: <b>" + pretty + "</b>";
+  }
+  weeksInput.addEventListener("input", refreshPreview);
+  daysInput.addEventListener("input",  refreshPreview);
+  refreshPreview();
 
   // Reuse the existing daily-reset serial pattern (PO-YYMMDD-NNN) so manual
   // and quotation-derived purchases share one numbering series.
@@ -6164,8 +6190,8 @@ renderTable();
     };
     if (!customer.name) { alert("Please enter the customer name first."); return; }
     if (quoteItems.length === 0) { alert("Add at least one item to the purchase first."); return; }
-    const deadline = deadlineInput.value;
-    if (!deadline) { alert("Please pick a deadline."); return; }
+    const deadline = computeDeadlineIso();
+    if (!deadline) { alert("Please enter weeks + days for the deadline."); return; }
     if (!window.SB) { alert("Supabase client not loaded. Cannot save."); return; }
 
     const originalLabel = saveBtn.textContent;
